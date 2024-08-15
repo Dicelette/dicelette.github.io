@@ -18,11 +18,11 @@
   "dependencies": {
     "@dice-roller/rpg-dice-roller": "^5.5.0",
     "@dicelette/core": "^1.2.1",
-    "@docusaurus/core": "^3.4.0",
-    "@docusaurus/module-type-aliases": "^3.4.0",
-    "@docusaurus/preset-classic": "^3.4.0",
-    "@docusaurus/tsconfig": "^3.4.0",
-    "@docusaurus/types": "^3.4.0",
+    "@docusaurus/core": "^3.5.2",
+    "@docusaurus/module-type-aliases": "^3.5.2",
+    "@docusaurus/preset-classic": "^3.5.2",
+    "@docusaurus/tsconfig": "^3.5.2",
+    "@docusaurus/types": "^3.5.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@iconify/react": "^5.0.1",
@@ -67,7 +67,7 @@
     "node": ">=18.0"
   },
   "devDependencies": {
-    "@docusaurus/theme-classic": "^3.4.0",
+    "@docusaurus/theme-classic": "^3.5.2",
     "@types/node": "^20.14.7",
     "@types/react-beautiful-dnd": "^13.1.8",
     "react-beautiful-dnd": "^13.1.1"
