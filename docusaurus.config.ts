@@ -61,6 +61,7 @@ const config: Config = {
 			appId: "FJJXF4SEGY",
 			apiKey: "e3ec9ed76aeec871f7a6726169ec20f5",
 			indexName: "diceletteio",
+			contextualSearch: true,
 
 		},
 		navbar: {
