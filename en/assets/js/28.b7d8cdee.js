@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdicelette_docs=self.webpackChunkdicelette_docs||[]).push([[28],{25647:(e,c,s)=>{s.r(c)}}]);
