@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import type * as Preset from "@docusaurus/preset-classic";
-import type {Config} from "@docusaurus/types";
-import {themes as prismThemes} from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
 	title: "Dicelette",
@@ -10,8 +10,8 @@ const config: Config = {
 	url: "https://dicelette.github.io/",
 	baseUrl: "/",
 
-	organizationName: "Dicelette", 
-	projectName: "dicelette.github.io", 
+	organizationName: "Dicelette",
+	projectName: "dicelette.github.io",
 	trailingSlash: false,
 	onBrokenLinks: "warn",
 	onBrokenMarkdownLinks: "warn",
@@ -28,7 +28,7 @@ const config: Config = {
 					sidebarPath: "./sidebars.ts",
 					editUrl: "https://github.com/Dicelette/docs/tree/main/",
 					admonitions: {
-						keywords: ["usage"],
+						keywords: ["usage", "example"],
 						extendDefaults: true,
 					},
 				},
@@ -52,7 +52,7 @@ const config: Config = {
 					return postcssOptions;
 				},
 			};
-		},		
+		},
 	],
 
 	themeConfig: {
@@ -62,7 +62,6 @@ const config: Config = {
 			apiKey: "e3ec9ed76aeec871f7a6726169ec20f5",
 			indexName: "diceletteio",
 			contextualSearch: true,
-
 		},
 		navbar: {
 			title: "Dicelette",
@@ -87,13 +86,13 @@ const config: Config = {
 					type: "docSidebar",
 					position: "left",
 					sidebarId: "commands",
-					label: "Usage"
+					label: "Usage",
 				},
 				{
 					type: "docSidebar",
 					position: "left",
 					sidebarId: "TOS",
-					label: "CGU"
+					label: "CGU",
 				},
 				{
 					href: "https://github.com/dicelette/docs",
@@ -112,7 +111,7 @@ const config: Config = {
 				{
 					type: "search",
 					position: "right",
-				}
+				},
 			],
 		},
 		footer: {
@@ -132,8 +131,7 @@ const config: Config = {
 						{
 							label: "Discord",
 							href: "https://discord.gg/5w2guxa2kS",
-							
-						}
+						},
 					],
 				},
 			],
@@ -142,7 +140,7 @@ const config: Config = {
 		prism: {
 			theme: prismThemes.oneLight,
 			darkTheme: prismThemes.oneDark,
-			additionalLanguages: ["json", "markdown"]
+			additionalLanguages: ["json", "markdown"],
 		},
 	} satisfies Preset.ThemeConfig,
 };
