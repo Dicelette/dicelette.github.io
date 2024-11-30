@@ -4,9 +4,4 @@ import Section from "./Section";
 import Tablefield from "./TableField";
 import Textfield from "./Textfield";
 
-export {
-	AddButton,
-	CheckBox,
-	Section,
-	Tablefield,
-	Textfield};
+export { AddButton, CheckBox, Section, Tablefield, Textfield };

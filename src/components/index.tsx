@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import Translate, { translate } from "@docusaurus/Translate";
 import Heading from "@theme/Heading";
 
 type FeatureItem = {
-	title: string
-	Image: string
-	description: JSX.Element
-}
+	title: string;
+	Image: string;
+	description: JSX.Element;
+};
 
 const FeatureList: FeatureItem[] = [
 	{
@@ -46,17 +45,9 @@ const FeatureList: FeatureItem[] = [
 function Feature({ title, Image, description }: Readonly<FeatureItem>) {
 	return (
 		<div className="flex flex-col items-center justify-center gap-4">
-			<img
-				src={Image}
-				alt={title}
-				width={"100"}
-				height={100}
-			/>
+			<img src={Image} alt={title} width={"100"} height={100} />
 			<div className="space-y-2">
-				<Heading
-					as="h3"
-					className="text-center font-bold"
-				>
+				<Heading as="h3" className="text-center font-bold">
 					{title}
 				</Heading>
 				<p className="max-w-96 text-center">{description}</p>
@@ -69,10 +60,7 @@ export default function HomepageFeatures(): JSX.Element {
 	return (
 		<div className="flex justify-evenly flex-wrap py-8">
 			{FeatureList.map((props) => (
-				<Feature
-					key={props.title}
-					{...props}
-				/>
+				<Feature key={props.title} {...props} />
 			))}
 		</div>
 	);

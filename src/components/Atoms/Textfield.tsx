@@ -1,14 +1,18 @@
-import { InputBaseComponentProps, TextField, TextFieldProps } from "@mui/material";
-import { Field, FieldProps } from "formik";
-import { FC, HTMLInputTypeAttribute } from "react";
+import {
+	type InputBaseComponentProps,
+	TextField,
+	type TextFieldProps,
+} from "@mui/material";
+import { Field, type FieldProps } from "formik";
+import type { FC, HTMLInputTypeAttribute } from "react";
 
 type TextfieldProps = TextFieldProps & {
-	autoFocus?: boolean
-	className?: string
-	name: string
-	type?: HTMLInputTypeAttribute
-	inputProps?: InputBaseComponentProps
-}
+	autoFocus?: boolean;
+	className?: string;
+	name: string;
+	type?: HTMLInputTypeAttribute;
+	inputProps?: InputBaseComponentProps;
+};
 
 const Textfield: FC<TextfieldProps> = (props) => {
 	return (
@@ -29,7 +33,6 @@ const Textfield: FC<TextfieldProps> = (props) => {
 						type={props.type}
 						typeof={props.type}
 						inputProps={props.inputProps}
-						
 					/>
 				);
 			}}

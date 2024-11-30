@@ -1,22 +1,43 @@
-import {translate} from "@docusaurus/Translate";
+import type { Critical } from "@dicelette/core";
+import { translate } from "@docusaurus/Translate";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-
-import { Critical } from "@dicelette/core";
 import { Section, Textfield } from "../Atoms";
-
 
 function toolTipOnCondition(values: Critical) {
 	if (values.failure === values.success) {
 		return (
-			<ReactTooltip id="critical" anchorSelect="#critical" content={translate({message: "Les deux valeurs ne peuvent être identiques"})} style={{background: "var(--rt-color-error)"}}/>
+			<ReactTooltip
+				id="critical"
+				anchorSelect="#critical"
+				content={translate({
+					message: "Les deux valeurs ne peuvent être identiques",
+				})}
+				style={{ background: "var(--rt-color-error)" }}
+			/>
 		);
-	} else if (values.failure < 0) {
+	}
+	if (values.failure < 0) {
 		return (
-			<ReactTooltip id="critical" anchorSelect=".failure" content={translate({message: "La valeur ne peut pas être inférieure à 0"})} style={{background: "var(--rt-color-error)"}}/>
+			<ReactTooltip
+				id="critical"
+				anchorSelect=".failure"
+				content={translate({
+					message: "La valeur ne peut pas être inférieure à 0",
+				})}
+				style={{ background: "var(--rt-color-error)" }}
+			/>
 		);
-	} else if (values.success < 0) {
+	}
+	if (values.success < 0) {
 		return (
-			<ReactTooltip id="critical" anchorSelect=".success" content={translate({message: "La valeur ne peut pas être inférieure à 0"})} style={{background: "var(--rt-color-error)"}}/>
+			<ReactTooltip
+				id="critical"
+				anchorSelect=".success"
+				content={translate({
+					message: "La valeur ne peut pas être inférieure à 0",
+				})}
+				style={{ background: "var(--rt-color-error)" }}
+			/>
 		);
 	}
 }
@@ -24,18 +45,36 @@ function toolTipOnCondition(values: Critical) {
 function errorClass(values: Critical, type: "failure" | "success") {
 	if (values.failure === values.success) {
 		return "error";
-	} else if (type === "failure" && values.failure < 0 ) {
+	}
+	if (type === "failure" && values.failure < 0) {
 		return "error";
-	} else if (type === "success" && values.success < 0) {
+	}
+	if (type === "success" && values.success < 0) {
 		return "error";
-	} return "";
+	}
+	return "";
 }
 
-const CriticalValue = ({critical}) => 
+const CriticalValue = ({ critical }) => (
 	<Section label="Critique">
-		<Textfield label={translate({message: "Succès"})} name="critical.success" type="number" id="critical" className={`success ${errorClass(critical, "success")}`} inputProps={{min: 0}} />
-		<Textfield label={translate({message: "Échec"})} name="critical.failure" type="number" id="critical" className={`failure ${errorClass(critical, "failure")}`} inputProps={{min: 0}}/>
+		<Textfield
+			label={translate({ message: "Succès" })}
+			name="critical.success"
+			type="number"
+			id="critical"
+			className={`success ${errorClass(critical, "success")}`}
+			inputProps={{ min: 0 }}
+		/>
+		<Textfield
+			label={translate({ message: "Échec" })}
+			name="critical.failure"
+			type="number"
+			id="critical"
+			className={`failure ${errorClass(critical, "failure")}`}
+			inputProps={{ min: 0 }}
+		/>
 		{toolTipOnCondition(critical)}
-	</Section>;
+	</Section>
+);
 
 export default CriticalValue;

@@ -1,13 +1,13 @@
-import { TextField, TextFieldProps } from "@mui/material";
-import { Field, FieldProps } from "formik";
-import { FC, HTMLInputTypeAttribute } from "react";
+import { TextField, type TextFieldProps } from "@mui/material";
+import { Field, type FieldProps } from "formik";
+import type { FC, HTMLInputTypeAttribute } from "react";
 
 type TablefieldProps = TextFieldProps & {
-	autoFocus?: boolean
-	className?: string
-	name: string
-	type?: HTMLInputTypeAttribute
-}
+	autoFocus?: boolean;
+	className?: string;
+	name: string;
+	type?: HTMLInputTypeAttribute;
+};
 
 const Tablefield: FC<TablefieldProps> = (props) => {
 	return (
