@@ -29,4 +29,4 @@ type Template = {
 	total: number;
 };
 
-export { Critical, Damage, Statistic, StatisticValues, Template };
+export type { Critical, Damage, Statistic, StatisticValues, Template };

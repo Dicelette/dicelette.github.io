@@ -1,24 +1,30 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Tooltip } from "@mui/material";
 import { Form, Formik } from "formik";
-import { FC } from "react";
+import type { FC } from "react";
 
 import {
-	Statistic,
-	StatisticalTemplate,
+	type Statistic,
+	type StatisticalTemplate,
 	verifyTemplateValue,
 } from "@dicelette/core";
+import { translate } from "@docusaurus/Translate";
+import useIsBrowser from "@docusaurus/useIsBrowser";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import CriticalValue from "./Blocks/CriticalValue";
 import Dices from "./Blocks/Dices";
 import General from "./Blocks/General";
 import Statistics from "./Blocks/Statistics";
 import { errorCode } from "./errorsTranslation";
-import { translate } from "@docusaurus/Translate";
-import useIsBrowser from "@docusaurus/useIsBrowser";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+
+function parseNumber(nb?: unknown): number | undefined {
+	if (nb.toString().length === 0) return undefined;
+	return Number.parseInt(nb.toString(), 10);
+}
 
 const TemplateForm: FC = () => {
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	const downloadJSON = (data: any) => {
 		//convert statistic to Statistic interface
 		let stat: Statistic | undefined = {};
@@ -26,8 +32,8 @@ const TemplateForm: FC = () => {
 		for (const statistic of data.statistics) {
 			stat[statistic.name] = {
 				combinaison: statistic.combinaison,
-				max: statistic.max,
-				min: statistic.min,
+				max: parseNumber(statistic.max),
+				min: parseNumber(statistic.min),
 			};
 		}
 		for (const damage of data.damages) {

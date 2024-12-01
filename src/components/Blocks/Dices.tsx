@@ -1,11 +1,7 @@
-import {
-	DragDropContext,
-	Draggable,
-	Droppable,
-} from "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration";
 import { translate } from "@docusaurus/Translate";
 import { ErrorMessage, FieldArray } from "formik";
 import { useEffect, useState } from "react";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { Section, Tablefield } from "../Atoms";
 import CopyButton from "../Atoms/copyButton";
