@@ -92,8 +92,8 @@ const Dices = ({ values, setFieldValue }) => {
 											className="divide-y block w-full"
 										>
 											{values.damages.map((_: unknown, index: number) => (
-												// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 												<Draggable
+													// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 													key={index}
 													draggableId={String(index)}
 													index={index}
