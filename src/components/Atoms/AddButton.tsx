@@ -5,7 +5,7 @@ import type { FC } from "react";
 
 type AddButtonProps = {
 	len?: number;
-	type?: "dice" | "stats";
+	type?: "dice" | "stats" | "critical";
 	onClick: () => void;
 };
 

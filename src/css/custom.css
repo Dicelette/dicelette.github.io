@@ -4,7 +4,8 @@
  * work well for content-centric websites.
  */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Karla:ital,wght@0,200..800;1,200..800&family=Recursive:wght@300..1000&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+@import url(https://db.onlinewebfonts.com/c/f2b5ce87535b6e1cdb4690f094ac6667?family=Fantasque+Sans+Mono+Regular);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,6 +14,11 @@
 	--ifm-font-family-base: "Recursive";
 	--ifm-heading-font-family: "Recursive";
 	--ifm-font-family-monospace: "JetBrains Mono";
+}
+@supports (font-variation-settings: normal) {
+	.autocomplete {
+		font-family: "Fira Code VF", monospace;
+	}
 }
 
 /* You can override the default Infima variables here. */
@@ -27,8 +33,10 @@
 	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 	--copy-button: rgb(170, 227, 246);
 	--copy-button-bg: rgba(var(--copy-button), 0.44);
+	--copy-button-bg-darker: rgba(170, 227, 246, 0.44);
 	--delete-button: rgb(213, 48, 53);
 	--delete-button-bg: rgba(var(--delete-button), 0.44);
+	--delete-button-bg-darker: rgba(205, 109, 109, 0.25);
 	--error: rgb(232, 54, 54);
 	--error-bg: rgba(var(--error), 0.3);
 	--error-n2: rgb(231, 67, 67);
@@ -36,6 +44,10 @@
 	--copy-tooltip: rgb(63, 160, 192);
 	--danger-summary: rgba(255, 166, 0, 0.173);
 	--danger-summary-color: rgb(194, 139, 36);
+	--toggle-bg: rgba(101, 156, 220, 0.26);
+	--toggle-bg-darker: rgba(101, 156, 220, 0.5);
+	--toggle: rgb(80, 115, 205);
+	--toggle-darker: rgb(59, 82, 158);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -43,13 +55,15 @@
 	--ifm-color-primary: #b869e7;
 	--ifm-color-primary-dark: #aa4ce2;
 	--ifm-color-primary-darker: #a33ee0;
+	--delete-button-bg-darker: rgba(188, 28, 28, 0.44);
 	--ifm-color-primary-darkest: #8b20cb;
 	--ifm-color-primary-light: #c686ec;
 	--ifm-color-primary-lighter: #cd94ee;
 	--ifm-color-primary-lightest: #e1c0f5;
 	--copy-button: rgb(170, 227, 246);
 	--copy-button-bg: rgba(var(--copy-button), 0.3);
-	--delete-button: rgb(213, 48, 53);
+	--copy-button-bg-darker: rgba(122, 197, 223, 0.22);
+	--delete-button: rgb(228, 69, 76);
 	--delete-button-bg: rgba(var(--delete-button), 0.3);
 	--error: rgb(233, 43, 43);
 	--error-bg: rgba(var(--error), 0.111);
@@ -58,6 +72,10 @@
 	--copy-tooltip: rgb(63, 160, 192);
 	--danger-summary: rgba(255, 166, 0, 0.458);
 	--danger-summary-color: rgb(246, 228, 196);
+	--toggle-bg: rgba(185, 205, 228, 0.44);
+	--toggle-bg-darker: rgba(71, 88, 110, 0.38);
+	--toggle: rgb(80, 115, 205);
+	--toggle-darker: rgb(98, 116, 182);
 }
 
 .dice-skill table td,
@@ -107,7 +125,7 @@ button.submit:hover {
 	background-color: var(--lt-color-background-light) !important;
 }
 
-.MuiButtonBase-root {
+.MuiButtonBase-root:not(.toggle) {
 	background-color: var(--ifm-color-primary-darkest) !important;
 }
 
@@ -131,11 +149,11 @@ button.submit:hover {
 	background-color: rgba(0, 0, 0, 0.098) !important;
 }
 
-.MuiButtonBase-root {
+.MuiButtonBase-root:not(.toggle) {
 	color: var(--ifm-color-primary-darkest) !important;
 }
 
-.MuiButtonBase-root:hover {
+.MuiButtonBase-root:not(.toggle):hover {
 	background-color: transparent !important;
 	color: var(--ifm-color-primary-darker) !important;
 }
@@ -144,7 +162,11 @@ button.submit:hover {
 	border: none !important;
 }
 
-.MuiButtonBase-root:not(.simple-button) {
+.toggle {
+	text-transform: none !important;
+}
+
+.MuiButtonBase-root:not(.simple-button, .toggle) {
 	color: var(--ifm-color-primary) !important;
 	border-color: var(--ifm-color-primary) !important;
 	background-color: var(--lt-color-background) !important;
@@ -161,6 +183,11 @@ button.submit:hover {
 	background-color: var(--copy-button-bg) !important;
 }
 
+button.MuiButtonBase-root.copy-button:hover {
+	color: var(--ifm-color-info-darker) !important;
+	background-color: var(--copy-button-bg-darker) !important;
+}
+
 .MuiButton-outlined.delete-button {
 	color: var(--ifm-color-danger-darkest) !important;
 	border-color: var(--ifm-color-danger-darkest) !important;
@@ -172,7 +199,30 @@ button.submit:hover {
 	background-color: var(--delete-button-bg) !important;
 }
 
-.MuiButtonBase-root.manage-button {
+.toggle-button {
+	color: var(--toggle);
+}
+
+.toggle.Mui-selected {
+	background-color: var(--toggle-bg) !important;
+	color: var(--toggle-darker) !important;
+}
+
+.toggle:hover {
+	background-color: var(--toggle-bg-darker) !important;
+	color: var(--toggle-darker);
+}
+
+.toggle-button.checked {
+	color: var(--toggle-darker) !important;
+}
+
+button.MuiButtonBase-root.delete-button:hover {
+	color: var(--ifm-color-danger-darkest) !important;
+	background-color: var(--delete-button-bg-darker) !important;
+}
+
+.MuiButtonBase-root.manage-button:not(.toggle) {
 	color: var(--ifm-color-content) !important;
 }
 
@@ -191,7 +241,27 @@ button.submit:hover {
 	border-color: var(--ifm-color-info-darkest) !important;
 }
 
-.error .MuiOutlinedInput-notchedOutline {
+.MuiButtonBase-root.toggle-button {
+	color: var(--toggle);
+	border-color: var(--toggle-bg);
+}
+
+.MuiButtonBase-root.toggle-button:hover {
+	background-color: var(--toggle-bg);
+	color: var(--toggle-darker);
+}
+
+.MuiButtonBase-root.toggle-button.Mui-selected {
+	background-color: var(--toggle-bg);
+	color: var(--toggle-darker);
+}
+
+.MuiButtonBase-root.toggle-button.Mui-selected:hover {
+	background-color: var(--toggle-bg-darker);
+	color: var(--toggle-darker);
+}
+
+.MuiButtonBase-root .error .MuiOutlinedInput-notchedOutline {
 	border-color: var(--ifm-color-danger-darkest) !important;
 	border-width: 2px !important;
 }
@@ -276,6 +346,12 @@ input[type="number"] {
 .remove .MuiTooltip-arrow::before,
 .remove .MuiTooltip-tooltip {
 	background-color: var(--delete-button);
+	opacity: 1;
+}
+
+.toggle-tooltip .MuiTooltip-arrow::before,
+.toggle-tooltip .MuiTooltip-tooltip {
+	background-color: var(--toggle);
 	opacity: 1;
 }
 
@@ -409,4 +485,11 @@ div:where(.swal2-container) button:where(.swal2-close.error):focus {
 
 .swal2-confirm.hide {
 	display: none !important;
+}
+
+.autocomplete .MuiAutocomplete-input,
+.MuiAutocomplete-paper.autocomplete {
+	font-family: "Fira Code VF", monospace;
+	font-variant-ligatures: contextual; /* Active les ligatures contextuelles */
+	font-feature-settings: "calt" 1; /* Active les ligatures spécifiques */
 }

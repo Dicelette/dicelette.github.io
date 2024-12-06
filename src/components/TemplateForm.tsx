@@ -16,6 +16,7 @@ import CriticalValue from "./Blocks/CriticalValue";
 import Dices from "./Blocks/Dices";
 import General from "./Blocks/General";
 import Statistics from "./Blocks/Statistics";
+import CustomCritical from "./Blocks/customCritical";
 import { errorCode } from "./errorsTranslation";
 
 function parseNumber(nb?: unknown): number | undefined {
@@ -109,10 +110,7 @@ const TemplateForm: FC = () => {
 		if (!isBrowser) return false;
 		const errorClasses = document.getElementsByClassName("error");
 		const duplicateErrorClass = document.getElementsByClassName("error-bg");
-		if (errorClasses.length > 0 || duplicateErrorClass.length > 0) {
-			return true;
-		}
-		return false;
+		return errorClasses.length > 0 || duplicateErrorClass.length > 0;
 	};
 
 	const buttonDisabled = (isSubmitting: boolean) => {
@@ -158,6 +156,7 @@ const TemplateForm: FC = () => {
 				diceType: "",
 				critical: { success: 20, failure: 1 },
 				damages: [],
+				customCritical: [],
 			}}
 			onSubmit={handleSubmit}
 		>
@@ -167,6 +166,7 @@ const TemplateForm: FC = () => {
 					<CriticalValue critical={values.critical} />
 					<Statistics values={values} setFieldValue={setFieldValue} />
 					<Dices values={values} setFieldValue={setFieldValue} />
+					<CustomCritical values={values} setFieldValue={setFieldValue} />
 					{buttonDisabled(isSubmitting)}
 				</Form>
 			)}

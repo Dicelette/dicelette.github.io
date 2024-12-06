@@ -75,7 +75,6 @@ const Dices = ({ values, setFieldValue }) => {
 							type="dice"
 							label={translate({ message: "Dés" })}
 							onAdd={() => push({ name: "", value: "" })}
-							// biome-ignore lint/correctness/noChildrenProp: <explanation>
 							children={""}
 						/>
 						<table className="w-full">
@@ -89,7 +88,6 @@ const Dices = ({ values, setFieldValue }) => {
 										>
 											{values.damages.map((_: unknown, index: number) => (
 												<Draggable
-													// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 													key={index}
 													draggableId={String(index)}
 													index={index}
@@ -99,7 +97,6 @@ const Dices = ({ values, setFieldValue }) => {
 															ref={provided.innerRef}
 															{...provided.draggableProps}
 															{...provided.dragHandleProps}
-															// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 															key={index}
 															className={`flex flex-col xl:flex-row items-start xl:w-full ${
 																duplicateIndices.includes(index)

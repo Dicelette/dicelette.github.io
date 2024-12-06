@@ -18,7 +18,7 @@
 	"dependencies": {
 		"@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration": "^1.2.4",
 		"@dice-roller/rpg-dice-roller": "^5.5.0",
-		"@dicelette/core": "^1.5.0",
+		"@dicelette/core": "file:../core",
 		"@docusaurus/core": "^3.6.3",
 		"@docusaurus/preset-classic": "^3.6.3",
 		"@emotion/react": "^11.13.5",
@@ -48,11 +48,7 @@
 		"ts-dedent": "^2.2.0"
 	},
 	"browserslist": {
-		"production": [
-			">0.5%",
-			"not dead",
-			"not op_mini all"
-		],
+		"production": [">0.5%", "not dead", "not op_mini all"],
 		"development": [
 			"last 3 chrome version",
 			"last 3 firefox version",
@@ -73,8 +69,5 @@
 		"react-beautiful-dnd": "^13.1.1",
 		"typescript": "~5.7.2"
 	},
-	"trustedDependencies": [
-		"core-js",
-		"core-js-pure"
-	]
+	"trustedDependencies": ["core-js", "core-js-pure"]
 }

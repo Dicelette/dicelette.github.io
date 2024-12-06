@@ -4,7 +4,7 @@ import { AddButton } from ".";
 
 type SectionProps = {
 	length?: number;
-	type?: "dice" | "stats";
+	type?: "dice" | "stats" | "critical";
 	children: React.ReactNode;
 	label: string;
 	onAdd?: () => void;
