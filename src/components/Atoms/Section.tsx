@@ -18,7 +18,7 @@ const Section: FC<SectionProps> = ({
 	onAdd,
 }) => (
 	<section className="flex flex-col">
-		<span className="text-lg font-bold mb-2">
+		<span className="text-lg font-bold mb-2 heading-2">
 			{label}
 			{onAdd && <AddButton len={length} type={type} onClick={onAdd} />}
 		</span>

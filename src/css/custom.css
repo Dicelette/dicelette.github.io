@@ -5,20 +5,29 @@
  */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Karla:ital,wght@0,200..800;1,200..800&family=Recursive:wght@300..1000&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+@import url("https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css");
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap");
 @import url(https://db.onlinewebfonts.com/c/f2b5ce87535b6e1cdb4690f094ac6667?family=Fantasque+Sans+Mono+Regular);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-	--ifm-font-family-base: "Recursive";
-	--ifm-heading-font-family: "Recursive";
-	--ifm-font-family-monospace: "JetBrains Mono";
+	--ifm-font-family-base: "Atkinson Hyperlegible", sans-serif;
+	--ifm-heading-font-family: "Karla", sans-serif;
+	--ifm-font-family-monospace: "Fantasque Sans Mono", monospace;
 }
 @supports (font-variation-settings: normal) {
 	.autocomplete {
 		font-family: "Fira Code VF", monospace;
 	}
+}
+
+.heading-2 {
+	font-family: var(--ifm-heading-font-family);
+	font-size: 1.5rem;
+	margin-bottom: 10px;
 }
 
 /* You can override the default Infima variables here. */
@@ -76,6 +85,10 @@
 	--toggle-bg-darker: rgba(71, 88, 110, 0.38);
 	--toggle: rgb(80, 115, 205);
 	--toggle-darker: rgb(98, 116, 182);
+}
+
+.MuiTypography-root {
+	font-family: var(--ifm-font-family-base), cursive !important;
 }
 
 .dice-skill table td,
@@ -486,10 +499,10 @@ div:where(.swal2-container) button:where(.swal2-close.error):focus {
 .swal2-confirm.hide {
 	display: none !important;
 }
-
+.MuiInputBase-root,
 .autocomplete .MuiAutocomplete-input,
 .MuiAutocomplete-paper.autocomplete {
-	font-family: "Fira Code VF", monospace;
+	font-family: "Fantasque Sans Mono", monospace !important;
 	font-variant-ligatures: contextual; /* Active les ligatures contextuelles */
 	font-feature-settings: "calt" 1; /* Active les ligatures spécifiques */
 }

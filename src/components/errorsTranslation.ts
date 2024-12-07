@@ -1,18 +1,28 @@
-import { translate } from "@docusaurus/Translate";
 import {
 	DiceTypeError,
+	EmptyObjectError,
 	FormulaError,
 	MaxGreater,
-	EmptyObjectError,
-	TooManyDice,
 	NoStatisticsError,
+	TooManyDice,
 	TooManyStats,
 } from "@dicelette/core";
+import { translate } from "@docusaurus/Translate";
 
 /** Convert [error, errorcode] {errorMessageValue} to something readable */
 export function errorCode(error: Error) {
 	console.error(error);
 	if (error instanceof DiceTypeError) {
+		if (error.cause === "createCriticalCustom")
+			return translate({
+				message:
+					"Le dé de critique est invalide : $ ne peut pas être utilisé sans statistiques.",
+			});
+		if (error.message === "no_dice_type")
+			return translate({
+				message:
+					"Les critiques customisés ne peuvent pas être utilisés sans dé type.",
+			});
 		return translate({ message: 'Le dé "{{x}}" est invalide.' }).replace(
 			"{{x}}",
 			error.dice,

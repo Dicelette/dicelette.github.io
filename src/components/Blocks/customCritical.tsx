@@ -153,7 +153,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																			">=",
 																			"<",
 																			"<=",
-																			"=",
+																			"==",
 																			"!=",
 																		]}
 																		value={

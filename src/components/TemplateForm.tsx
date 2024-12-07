@@ -4,8 +4,9 @@ import { Form, Formik } from "formik";
 import type { FC } from "react";
 
 import {
+	type CustomCritical as CustomCriticalType,
 	type Statistic,
-	type StatisticalTemplate,
+	type StatisticalSchema,
 	verifyTemplateValue,
 } from "@dicelette/core";
 import { translate } from "@docusaurus/Translate";
@@ -28,44 +29,61 @@ const TemplateForm: FC = () => {
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	const downloadJSON = (data: any) => {
 		//convert statistic to Statistic interface
-		let stat: Statistic | undefined = {};
-		let diceSkill: { [key: string]: string } | undefined = {};
-		for (const statistic of data.statistics) {
-			stat[statistic.name] = {
-				combinaison: statistic.combinaison,
-				max: parseNumber(statistic.max),
-				min: parseNumber(statistic.min),
-			};
-		}
-		for (const damage of data.damages) {
-			diceSkill[damage.name] = damage.value;
-		}
-		if (Object.keys(stat).length === 0) stat = undefined;
-		if (Object.keys(diceSkill).length === 0) diceSkill = undefined;
-		const templateDataValues: StatisticalTemplate = {
+		const stat: Statistic = {};
+		const diceSkill: { [key: string]: string } = {};
+		const customCritical: { [key: string]: CustomCriticalType } = {};
+		if (data.statistics.length > 0)
+			for (const statistic of data.statistics) {
+				stat[statistic.name] = {
+					combinaison: statistic.combinaison,
+					max: parseNumber(statistic.max),
+					min: parseNumber(statistic.min),
+				};
+			}
+		if (data.damages.length > 0)
+			for (const damage of data.damages) {
+				diceSkill[damage.name] = damage.value;
+			}
+		if (data.customCritical.length > 0)
+			for (const critical of data.customCritical) {
+				customCritical[critical.name] = {
+					sign: critical.selection,
+					value: critical.formula,
+					onNaturalDice: critical.checked,
+				};
+			}
+
+		const templateDataValues: StatisticalSchema = {
 			charName: data.isCharNameRequired,
 			critical: data.critical,
 			diceType: data.diceType,
 			total: data.total,
-			statistics: stat,
-			damage: diceSkill,
+			statistics: data.statistics.length > 0 ? stat : undefined,
+			damage: data.damages.length > 0 ? diceSkill : undefined,
+			customCritical:
+				data.customCritical.length > 0 ? customCritical : undefined,
 		};
 
 		try {
-			const template = verifyTemplateValue(templateDataValues);
-			const Jsonblob = new Blob([JSON.stringify(template, null, 2)], {
+			const template = verifyTemplateValue(
+				templateDataValues,
+			) as StatisticalSchema;
+			template.$schema =
+				"https://raw.githubusercontent.com/Dicelette/core/refs/heads/main/dicelette.schema.json";
+			const jsonBlob = new Blob([JSON.stringify(template, null, 2)], {
 				type: "application/json",
 			});
 			const CSVHeader = ["user", "charName", "avatar", "channel"];
 			if (data.isPrivate) CSVHeader.push("isPrivate");
-			CSVHeader.push(...Object.keys(template.statistics));
+			if (template.statistics)
+				CSVHeader.push(...Object.keys(template.statistics));
 			CSVHeader.push("dice");
 			const csv = `\ufeff${CSVHeader.join(";")}\n`;
 			const CSVblob = new Blob([csv], { type: "text/csv" });
 			const urls = [
 				{
 					name: "statisticalTemplate.json",
-					url: URL.createObjectURL(Jsonblob),
+					url: URL.createObjectURL(jsonBlob),
 				},
 				{ name: "import.csv", url: URL.createObjectURL(CSVblob) },
 			];
@@ -94,7 +112,7 @@ const TemplateForm: FC = () => {
 					htmlContainer: ["error", "swal2-toast"],
 					closeButton: "error",
 				},
-			});
+			}).then();
 		}
 	};
 
