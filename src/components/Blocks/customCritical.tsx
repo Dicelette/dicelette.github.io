@@ -72,7 +72,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 						<Section
 							length={values.customCritical.length}
 							type="critical"
-							label={translate({ message: "Critiques Customisé" })}
+							label={translate({ message: "Critiques Personnalisés" })}
 							onAdd={() =>
 								push({
 									selection: ">=",
