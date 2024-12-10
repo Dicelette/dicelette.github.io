@@ -28,24 +28,24 @@ const CustomCritical = ({ values, setFieldValue }) => {
 		findDuplicates();
 	}, [values.customCritical]);
 
-	const errorTooltip = (index) => {
-		if (duplicateIndices.includes(index)) {
+	const errorTooltip = (index, idName) => {
+		if (duplicateIndices.includes(index) && idName !== "selection") {
 			return (
 				<ReactTooltip
-					id={`Critical-Selection-${index}`}
-					content={translate({ message: "Ce texte est déjà utilisé" })}
+					id={`Critical-${idName}-${index}`}
+					content={translate({ message: "Ce nom est déjà utilisé" })}
 					style={{ background: "var(--rt-color-error)" }}
-					anchorSelect={`#Critical-Selection-${index}`}
+					anchorSelect={`#Critical-${idName}-${index}`}
 				/>
 			);
 		}
-		if (values.customCritical[index]?.selection.length === 0) {
+		if (values.customCritical[index]?.[idName].length === 0) {
 			return (
 				<ReactTooltip
-					id={`Critical-Selection-${index}`}
+					id={`Critical-${idName}-${index}`}
 					content={translate({ message: "Le texte ne peut pas être vide" })}
 					style={{ background: "var(--rt-color-error)" }}
-					anchorSelect={`#Critical-Selection-${index}`}
+					anchorSelect={`#Critical-${idName}-${index}`}
 				/>
 			);
 		}
@@ -62,9 +62,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 	});
 
 	const onDragEnd = (result) => {
-		if (!result.destination) {
-			return;
-		}
+		if (!result.destination) return;
 
 		const items = Array.from(values.customCritical);
 		const [reorderedItem] = items.splice(result.source.index, 1);
@@ -144,7 +142,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																				className: "autocomplete",
 																			},
 																		}}
-																		id={`Critical-Selection-${index}`}
+																		id={`Critical-selection-${index}`}
 																		className={
 																			"autocomplete 2xl:w-[200px] !mb-0 min-[0px]:max-2xl:w-full"
 																		}
@@ -189,7 +187,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																	<ErrorMessage
 																		name={`customCritical[${index}].selection`}
 																	/>
-																	{errorTooltip(index)}
+																	{errorTooltip(index, "selection")}
 																</td>
 																<td className="p-2 min-[0px]:max-xl:w-full">
 																	<Tablefield
@@ -202,11 +200,12 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																				? "error"
 																				: ""
 																		}`}
-																		id={`Critical-Nom-${index}`}
+																		id={`Critical-name-${index}`}
 																	/>
 																	<ErrorMessage
 																		name={`customCritical[${index}].name`}
 																	/>
+																	{errorTooltip(index, "name")}
 																</td>
 																<td className="p-2 min-[0px]:max-xl:w-full h-200px">
 																	<Tablefield
@@ -219,11 +218,12 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																				? "error"
 																				: ""
 																		}`}
-																		id={`Critical-Formula-${index}`}
+																		id={`Critical-formula-${index}`}
 																	/>
 																	<ErrorMessage
 																		name={`customCritical[${index}].formula`}
 																	/>
+																	{errorTooltip(index, "formula")}
 																</td>
 																<td className="p-2 min-[0px]:max-xl:w-full h-200px">
 																	<StandaloneToggleButton
