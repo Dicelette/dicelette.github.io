@@ -70,7 +70,8 @@
 	--copy-tooltip: rgb(63, 160, 192);
 	--danger-summary: rgba(255, 166, 0, 0.458);
 	--danger-summary-color: rgb(246, 228, 196);
-	--onNatDice-bg: rgba(185, 205, 228, 0.44);
+
+	--onNatDice-bg: rgba(185 205 228 / 15%);
 	--onNatDice-bg-darker: rgba(71, 88, 110, 0.38);
 	--onNatDice: rgb(80, 115, 205);
 	--onNatDice-darker: rgb(98, 116, 182);
