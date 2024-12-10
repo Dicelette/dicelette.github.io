@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { Section, Tablefield } from "../Atoms";
-import CopyButton from "../Atoms/copyButton";
-import RemoveButton from "../Atoms/removeButton";
+import CopyButton from "../Atoms/button/copyButton";
+import RemoveButton from "../Atoms/button/removeButton";
 
 const Dices = ({ values, setFieldValue }) => {
 	const [duplicateIndices, setDuplicateIndices] = useState([]);

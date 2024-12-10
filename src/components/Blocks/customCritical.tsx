@@ -1,13 +1,13 @@
 import { translate } from "@docusaurus/Translate";
 import { Autocomplete, TextField } from "@mui/material";
-import StandaloneToggleButton from "@site/src/components/Atoms/standalone_toggle";
+import StandaloneToggleButton from "@site/src/components/Atoms/toggle-custom";
 import { ErrorMessage, FieldArray } from "formik";
 import { useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { Section, Tablefield } from "../Atoms";
-import CopyButton from "../Atoms/copyButton";
-import RemoveButton from "../Atoms/removeButton";
+import CopyButton from "../Atoms/button/copyButton";
+import RemoveButton from "../Atoms/button/removeButton";
 
 const CustomCritical = ({ values, setFieldValue }) => {
 	const [duplicateIndices, setDuplicateIndices] = useState([]);
@@ -79,7 +79,8 @@ const CustomCritical = ({ values, setFieldValue }) => {
 									name: "",
 									formula: "",
 									text: "",
-									checked: false,
+									onNaturalDice: false,
+									affectSkill: false,
 								})
 							}
 							children={""}
@@ -120,16 +121,16 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																		onClick={() => {
 																			push({
 																				selection:
-																					values.customCritical[index]
-																						?.selection,
+																				values.customCritical[index]
+																					?.selection,
 																				name: values.customCritical[index]
 																					?.name,
 																				formula:
-																					values.customCritical[index]?.formula,
+																				values.customCritical[index]?.formula,
 																				text: values.customCritical[index]
 																					?.text,
 																				checked:
-																					values.customCritical[index]?.checked,
+																				values.customCritical[index]?.checked,
 																			});
 																		}}
 																	/>
@@ -146,7 +147,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																		className={
 																			"autocomplete 2xl:w-[200px] !mb-0 min-[0px]:max-2xl:w-full"
 																		}
-																		style={{ fontFamily: "Fira Code VF" }}
+																		style={{fontFamily: "Fira Code VF"}}
 																		options={[
 																			">",
 																			">",
@@ -173,7 +174,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																				label={translate({
 																					message: "Signe",
 																				})}
-																				style={{ fontFamily: "Fira Code VF" }}
+																				style={{fontFamily: "Fira Code VF"}}
 																				variant="outlined"
 																				className={`2xl:w-[200px] !mb-0 min-[0px]:max-2xl:w-full ${
 																					values.customCritical[index]
@@ -192,7 +193,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																<td className="p-2 min-[0px]:max-xl:w-full">
 																	<Tablefield
 																		name={`customCritical[${index}].name`}
-																		label={translate({ message: "Nom" })}
+																		label={translate({message: "Nom"})}
 																		variant="outlined"
 																		className={`${
 																			values.customCritical[index]?.name
@@ -209,7 +210,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																<td className="p-2 min-[0px]:max-xl:w-full h-200px">
 																	<Tablefield
 																		name={`customCritical[${index}].formula`}
-																		label={translate({ message: "Formule" })}
+																		label={translate({message: "Formule"})}
 																		variant="outlined"
 																		className={`${
 																			values.customCritical[index]?.formula
@@ -226,15 +227,31 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																<td className="p-2 min-[0px]:max-xl:w-full h-200px">
 																	<StandaloneToggleButton
 																		selected={
-																			values.customCritical[index]?.checked
+																			values.customCritical[index]?.onNaturalDice
 																		}
 																		onChange={() =>
 																			setFieldValue(
-																				`customCritical[${index}].checked`,
-																				!values.customCritical[index]?.checked,
+																				`customCritical[${index}].onNaturalDice`,
+																				!values.customCritical[index]?.onNaturalDice,
 																			)
 																		}
 																		size={1280}
+																		opt={"naturalDice"}
+																	/>
+																</td>
+																<td className="p-2 min-[0px]:max-xl:w-full h-200px">
+																	<StandaloneToggleButton
+																		selected={
+																			values.customCritical[index]?.affectSkill
+																		}
+																		onChange={() =>
+																			setFieldValue(
+																				`customCritical[${index}].affectSkill`,
+																				!values.customCritical[index]?.affectSkill,
+																			)
+																		}
+																		size={1280}
+																		opt={"affectSkill"}
 																	/>
 																</td>
 																<td className="p-px min-[0px]:max-2xl:p-2 table-cell min-[0px]:max-xl:w-full">

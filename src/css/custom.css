@@ -1,8 +1,4 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+/* --- IMPORTS ET BASES --- */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Karla:ital,wght@0,200..800;1,200..800&family=Recursive:wght@300..1000&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
 @import url("https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css");
@@ -13,25 +9,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* --- VARIABLES --- */
 :root {
 	--ifm-font-family-base: "Atkinson Hyperlegible", sans-serif;
 	--ifm-heading-font-family: "Karla", sans-serif;
 	--ifm-font-family-monospace: "Fantasque Sans Mono", monospace;
-}
-@supports (font-variation-settings: normal) {
-	.autocomplete {
-		font-family: "Fira Code VF", monospace;
-	}
-}
 
-.heading-2 {
-	font-family: var(--ifm-heading-font-family);
-	font-size: 1.5rem;
-	margin-bottom: 10px;
-}
-
-/* You can override the default Infima variables here. */
-:root {
 	--ifm-color-primary: #960ea5;
 	--ifm-color-primary-dark: #870d95;
 	--ifm-color-primary-darker: #800c8c;
@@ -39,6 +22,7 @@
 	--ifm-color-primary-light: #a50fb6;
 	--ifm-color-primary-lighter: #ad10be;
 	--ifm-color-primary-lightest: #c312d7;
+
 	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 	--copy-button: rgb(170, 227, 246);
 	--copy-button-bg: rgba(var(--copy-button), 0.44);
@@ -53,13 +37,17 @@
 	--copy-tooltip: rgb(63, 160, 192);
 	--danger-summary: rgba(255, 166, 0, 0.173);
 	--danger-summary-color: rgb(194, 139, 36);
-	--toggle-bg: rgba(101, 156, 220, 0.26);
-	--toggle-bg-darker: rgba(101, 156, 220, 0.5);
-	--toggle: rgb(80, 115, 205);
-	--toggle-darker: rgb(59, 82, 158);
+	--onNatDice-bg: rgba(101, 156, 220, 0.26);
+	--onNatDice-bg-darker: rgba(101, 156, 220, 0.5);
+	--onNatDice: rgb(80, 115, 205);
+	--onNatDice-darker: rgb(59, 82, 158);
+
+	--affectSkill-bg: rgba(146, 25, 91, 0.15);
+	--affectSkill-bg-darker: rgba(146, 25, 91, 0.5);
+	--affectSkill: rgb(207, 98, 157);
+	--affectSkill-darker: rgb(110, 14, 66);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
 	--ifm-color-primary: #b869e7;
 	--ifm-color-primary-dark: #aa4ce2;
@@ -81,38 +69,27 @@
 	--copy-tooltip: rgb(63, 160, 192);
 	--danger-summary: rgba(255, 166, 0, 0.458);
 	--danger-summary-color: rgb(246, 228, 196);
-	--toggle-bg: rgba(185, 205, 228, 0.44);
-	--toggle-bg-darker: rgba(71, 88, 110, 0.38);
-	--toggle: rgb(80, 115, 205);
-	--toggle-darker: rgb(98, 116, 182);
+	--onNatDice-bg: rgba(185, 205, 228, 0.44);
+	--onNatDice-bg-darker: rgba(71, 88, 110, 0.38);
+	--onNatDice: rgb(80, 115, 205);
+	--onNatDice-darker: rgb(98, 116, 182);
+
+	--affectSkill-bg: rgba(146, 25, 91, 0.15);
+	--affectSkill-bg-darker: rgba(146, 25, 91, 0.25);
+	--affectSkill: rgb(207, 98, 157);
+	--affectSkill-darker: rgb(178, 59, 127);
 }
 
+/* --- TYPO --- */
+.heading-2 {
+	font-family: var(--ifm-heading-font-family);
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+}
+
+/* --- MUI OVERRIDES (Typo, Inputs, Icons, Papers) --- */
 .MuiTypography-root {
 	font-family: var(--ifm-font-family-base), cursive !important;
-}
-
-.dice-skill table td,
-.dice-skill table th,
-.statistic table td,
-.statistic table th {
-	border: none;
-}
-
-button.submit {
-	background-color: var(--ifm-color-primary-darkest);
-	color: white;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	font-size: 1.2rem;
-	display: grid;
-	place-items: center;
-	width: 100%;
-	cursor: pointer;
-}
-
-button.submit:hover {
-	background-color: var(--ifm-color-primary-darker);
 }
 
 .MuiInputBase-input,
@@ -133,13 +110,19 @@ button.submit:hover {
 .MuiPaper {
 	background-color: var(--ifm-background-color) !important;
 }
-
 [data-theme="light"] .MuiPaper {
 	background-color: var(--lt-color-background-light) !important;
 }
 
+/* --- MUI BUTTON STATES --- */
 .MuiButtonBase-root:not(.toggle) {
 	background-color: var(--ifm-color-primary-darkest) !important;
+	color: var(--ifm-color-primary-darkest) !important;
+}
+
+.MuiButtonBase-root:not(.toggle):hover {
+	background-color: transparent !important;
+	color: var(--ifm-color-primary-darker) !important;
 }
 
 .MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-colorPrimary.download-button.css-1rwt2y5-MuiButtonBase-root-MuiButton-root:hover {
@@ -147,6 +130,7 @@ button.submit:hover {
 	color: var(--ifm-color-secondary-dark) !important;
 }
 
+/* Hover states pour les boutons (icones, checkboxes) en dark et light */
 [data-theme="dark"]
 	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover,
 [data-theme="dark"] .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:hover {
@@ -154,21 +138,82 @@ button.submit:hover {
 }
 
 [data-theme="light"]
-	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(
-		.copy-button
-	):hover,
+	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(.copy-button):hover,
 [data-theme="light"]
 	.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:has:not(.copy-button):hover {
 	background-color: rgba(0, 0, 0, 0.098) !important;
 }
 
-.MuiButtonBase-root:not(.toggle) {
-	color: var(--ifm-color-primary-darkest) !important;
+/* Boutons MUI simples (non .simple-button, non .toggle) */
+.MuiButtonBase-root:not(.simple-button, .toggle) {
+	color: var(--ifm-color-primary) !important;
+	border-color: var(--ifm-color-primary) !important;
+	background-color: var(--lt-color-background) !important;
 }
 
-.MuiButtonBase-root:not(.toggle):hover {
-	background-color: transparent !important;
-	color: var(--ifm-color-primary-darker) !important;
+/* MUI Buttons states pour copy-button et delete-button */
+.MuiButton-outlined.copy-button {
+	color: var(--ifm-color-info-darkest) !important;
+	border-color: var(--ifm-color-info-darkest) !important;
+}
+.MuiButton-outlined.copy-button:hover {
+	color: var(--ifm-color-info-darker) !important;
+	border-color: var(--copy-button-bg) !important;
+	background-color: var(--copy-button-bg) !important;
+}
+button.MuiButtonBase-root.copy-button:hover {
+	color: var(--ifm-color-info-darker) !important;
+	background-color: var(--copy-button-bg-darker) !important;
+}
+
+.MuiButton-outlined.delete-button {
+	color: var(--ifm-color-danger-darkest) !important;
+	border-color: var(--ifm-color-danger-darkest) !important;
+}
+.MuiButton-outlined.delete-button:hover {
+	color: var(--ifm-color-danger-darkest) !important;
+	border-color: var(--delete-button-bg) !important;
+	background-color: var(--delete-button-bg) !important;
+}
+
+/* MUI Buttons pour .onNatDice */
+.MuiButtonBase-root.onNatDice {
+	color: var(--onNatDice);
+	border-color: var(--onNatDice-bg);
+}
+.MuiButtonBase-root.onNatDice:hover {
+	background-color: var(--onNatDice-bg);
+	color: var(--onNatDice-darker);
+}
+.MuiButtonBase-root.onNatDice.Mui-selected {
+	background-color: var(--onNatDice-bg);
+	color: var(--onNatDice-darker);
+}
+.MuiButtonBase-root.onNatDice.Mui-selected:hover {
+	background-color: var(--onNatDice-bg-darker);
+	color: var(--onNatDice-darker);
+}
+
+/* Boutons manage-button */
+.MuiButtonBase-root.manage-button:not(.toggle) {
+	color: var(--ifm-color-content) !important;
+}
+
+/* --- BOUTONS CUSTOM (Hors overrides MUI) --- */
+button.submit {
+	background-color: var(--ifm-color-primary-darkest);
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 1.2rem;
+	display: grid;
+	place-items: center;
+	width: 100%;
+	cursor: pointer;
+}
+button.submit:hover {
+	background-color: var(--ifm-color-primary-darker);
 }
 
 .simple-button {
@@ -179,106 +224,16 @@ button.submit:hover {
 	text-transform: none !important;
 }
 
-.MuiButtonBase-root:not(.simple-button, .toggle) {
-	color: var(--ifm-color-primary) !important;
-	border-color: var(--ifm-color-primary) !important;
-	background-color: var(--lt-color-background) !important;
+/* copy-button simple */
+.copy-button {
+	color: var(--ifm-color-info-darkest);
+}
+.copy-button:hover {
+	color: var(--ifm-color-info-light);
+	background-color: transparent !important;
 }
 
-.MuiButton-outlined.copy-button {
-	color: var(--ifm-color-info-darkest) !important;
-	border-color: var(--ifm-color-info-darkest) !important;
-}
-
-.MuiButton-outlined.copy-button:hover {
-	color: var(--ifm-color-info-darker) !important;
-	border-color: var(--copy-button-bg) !important;
-	background-color: var(--copy-button-bg) !important;
-}
-
-button.MuiButtonBase-root.copy-button:hover {
-	color: var(--ifm-color-info-darker) !important;
-	background-color: var(--copy-button-bg-darker) !important;
-}
-
-.MuiButton-outlined.delete-button {
-	color: var(--ifm-color-danger-darkest) !important;
-	border-color: var(--ifm-color-danger-darkest) !important;
-}
-
-.MuiButton-outlined.delete-button:hover {
-	color: var(--ifm-color-danger-darkest) !important;
-	border-color: var(--delete-button-bg) !important;
-	background-color: var(--delete-button-bg) !important;
-}
-
-.toggle-button {
-	color: var(--toggle);
-}
-
-.toggle.Mui-selected {
-	background-color: var(--toggle-bg) !important;
-	color: var(--toggle-darker) !important;
-}
-
-.toggle:hover {
-	background-color: var(--toggle-bg-darker) !important;
-	color: var(--toggle-darker);
-}
-
-.toggle-button.checked {
-	color: var(--toggle-darker) !important;
-}
-
-button.MuiButtonBase-root.delete-button:hover {
-	color: var(--ifm-color-danger-darkest) !important;
-	background-color: var(--delete-button-bg-darker) !important;
-}
-
-.MuiButtonBase-root.manage-button:not(.toggle) {
-	color: var(--ifm-color-content) !important;
-}
-
-[data-theme="dark"] .MuiOutlinedInput-notchedOutline {
-	border-color: rgba(245, 245, 245, 0.273) !important;
-}
-
-[data-theme="dark"]
-	.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover
-	.MuiOutlinedInput-notchedOutline {
-	border-color: rgb(245, 245, 245) !important;
-}
-
-.MuiButtonBase-root.copy-button {
-	color: var(--ifm-color-info-darkest) !important;
-	border-color: var(--ifm-color-info-darkest) !important;
-}
-
-.MuiButtonBase-root.toggle-button {
-	color: var(--toggle);
-	border-color: var(--toggle-bg);
-}
-
-.MuiButtonBase-root.toggle-button:hover {
-	background-color: var(--toggle-bg);
-	color: var(--toggle-darker);
-}
-
-.MuiButtonBase-root.toggle-button.Mui-selected {
-	background-color: var(--toggle-bg);
-	color: var(--toggle-darker);
-}
-
-.MuiButtonBase-root.toggle-button.Mui-selected:hover {
-	background-color: var(--toggle-bg-darker);
-	color: var(--toggle-darker);
-}
-
-.MuiButtonBase-root .error .MuiOutlinedInput-notchedOutline {
-	border-color: var(--ifm-color-danger-darkest) !important;
-	border-width: 2px !important;
-}
-
+/* delete-button simple */
 .delete-button {
 	color: var(--ifm-color-danger-darkest);
 }
@@ -286,17 +241,53 @@ button.MuiButtonBase-root.delete-button:hover {
 	color: var(--ifm-color-danger-light);
 }
 
-.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover:has(.copy-button) {
-	background-color: transparent;
+/* onNatDice simple */
+.onNatDice {
+	color: var(--onNatDice);
+}
+.onNatDice.toggle.Mui-selected {
+	background-color: var(--onNatDice-bg) !important;
+	color: var(--onNatDice-darker) !important;
+}
+.onNatDice.toggle:hover {
+	background-color: var(--onNatDice-bg-darker) !important;
+	color: var(--onNatDice-darker);
+}
+.onNatDice.checked {
+	color: var(--onNatDice-darker) !important;
 }
 
-.copy-button {
-	color: var(--ifm-color-info-darkest);
+/* ----- affect skill ----- */
+
+.affectSkill {
+	color: var(--affectSkill);
+}
+.affectSkill.toggle.Mui-selected {
+	background-color: var(--affectSkill-bg) !important;
+	color: var(--affectSkill-darker) !important;
+}
+.affectSkill.toggle:hover {
+	background-color: var(--affectSkill-bg-darker) !important;
+	color: var(--affectSkill-darker);
+}
+.affectSkill.checked {
+	color: var(--affectSkill-darker) !important;
 }
 
-.copy-button:hover {
-	color: var(--ifm-color-info-light);
-	background-color: transparent !important;
+/* Autres états bouton delete */
+button.MuiButtonBase-root.delete-button:hover {
+	color: var(--ifm-color-danger-darkest) !important;
+	background-color: var(--delete-button-bg-darker) !important;
+}
+
+/* --- CHAMPS, INPUTS, FORMULAIRES --- */
+[data-theme="dark"] .MuiOutlinedInput-notchedOutline {
+	border-color: rgba(245, 245, 245, 0.273) !important;
+}
+[data-theme="dark"]
+	.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover
+	.MuiOutlinedInput-notchedOutline {
+	border-color: rgb(245, 245, 245) !important;
 }
 
 .Mui-disabled {
@@ -309,22 +300,8 @@ label[data-shrink="false"]
 	.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {
 	opacity: 0;
 }
-
 label[data-shrink="false"].MuiFormLabel-root.MuiInputLabel-root {
 	opacity: 0.5;
-}
-
-svg.text-button {
-	margin-right: 5px;
-}
-
-.error-bg {
-	background-color: var(--error-bg);
-	border-radius: 5px;
-}
-
-table tr:nth-child(2n).error-bg {
-	background-color: var(--error-bg-n2);
 }
 
 input::-webkit-outer-spin-button,
@@ -332,62 +309,96 @@ input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
-
-/* Firefox */
 input[type="number"] {
 	-moz-appearance: textfield;
 	appearance: textfield;
 }
 
+/* Autocomplete avec ligatures */
+.MuiInputBase-root,
+.autocomplete .MuiAutocomplete-input,
+.MuiAutocomplete-paper.autocomplete {
+	font-family: "Fantasque Sans Mono", monospace !important;
+	font-variant-ligatures: contextual;
+	font-feature-settings: "calt" 1;
+}
+
+/* --- ICONES TEXT-BUTTON --- */
+svg.text-button {
+	margin-right: 5px;
+}
+
+/* --- TABLES --- */
+.dice-skill table td,
+.dice-skill table th,
+.statistic table td,
+.statistic table th {
+	border: none;
+}
+
+/* --- ETATS ERREUR --- */
 .error .MuiTooltip-arrow::before,
 .error .MuiTooltip-tooltip {
 	background: var(--rt-color-error);
 }
-
 .error-copy .MuiTooltip-arrow::before,
 .error-copy .MuiTooltip-tooltip {
 	background-color: var(--copy-tooltip);
 	opacity: 0.5;
 }
-
 .copy-tooltip .MuiTooltip-arrow::before,
 .copy-tooltip .MuiTooltip-tooltip {
 	background-color: var(--copy-tooltip);
 	opacity: 1;
 }
-
 .remove .MuiTooltip-arrow::before,
 .remove .MuiTooltip-tooltip {
 	background-color: var(--delete-button);
 	opacity: 1;
 }
-
-.toggle-tooltip .MuiTooltip-arrow::before,
-.toggle-tooltip .MuiTooltip-tooltip {
-	background-color: var(--toggle);
+.onNatDice.toggle-tooltip .MuiTooltip-arrow::before,
+.onNatDice.toggle-tooltip .MuiTooltip-tooltip {
+	background-color: var(--onNatDice);
 	opacity: 1;
 }
 
+.error-bg {
+	background-color: var(--error-bg);
+	border-radius: 5px;
+}
+table tr:nth-child(2n).error-bg {
+	background-color: var(--error-bg-n2);
+}
+
+.MuiButtonBase-root .error .MuiOutlinedInput-notchedOutline {
+	border-color: var(--ifm-color-danger-darkest) !important;
+	border-width: 2px !important;
+}
+
+/* --- ETAT COPY-BUTTON ICON HOVER --- */
+.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover:has(.copy-button) {
+	background-color: transparent;
+}
+
+/* --- DANGER --- */
 #danger {
 	--docusaurus-details-decoration-color: var(--danger-summary-color);
 	background-color: var(--danger-summary);
 	color: var(--danger-summary-color);
 	border: var(--danger-summary);
 }
-
 #danger summary {
 	font-weight: bold;
 	text-transform: uppercase;
 	font-variant: small-caps;
 }
-
 #danger svg {
 	vertical-align: text-top;
 }
 
+/* --- ADMONITIONS --- */
 .admonitionHeading_FzoX {
-	font: var(--ifm-heading-font-weight) var(--ifm-h5-font-size) /
-		var(--ifm-heading-line-height) var(--ifm-heading-font-family);
+	font: var(--ifm-heading-font-weight) var(--ifm-h5-font-size) / var(--ifm-heading-line-height) var(--ifm-heading-font-family);
 	text-transform: uppercase;
 	margin-bottom: 0.3rem;
 }
@@ -409,6 +420,7 @@ input[type="number"] {
 	margin-bottom: 1em;
 }
 
+/* --- USAGE ALERTES --- */
 .usage {
 	--ifm-code-background: var(--ifm-alert-background-color-highlight);
 	--ifm-link-color: var(--ifm-alert-foreground-color);
@@ -436,14 +448,14 @@ input[type="number"] {
 .alert--usage {
 	--ifm-alert-background-color: rgba(127, 135, 130, 0.2);
 	--ifm-alert-background-color-highlight: rgba(6, 27, 48, 0.054);
-	--ifm-alert-foreground-color: rgb(120, 119, 119); /* Gris clair */
+	--ifm-alert-foreground-color: rgb(120, 119, 119);
 	--ifm-alert-border-color: rgb(93, 82, 75);
 }
 
 .alert--example {
 	--ifm-alert-background-color: rgba(138, 176, 167, 0.29);
 	--ifm-alert-background-color-highlight: rgba(6, 27, 48, 0.054);
-	--ifm-alert-foreground-color: rgb(225, 225, 234); /* Gris clair */
+	--ifm-alert-foreground-color: rgb(225, 225, 234);
 	--ifm-alert-border-color: rgb(138, 176, 167);
 }
 
@@ -470,11 +482,11 @@ input[type="number"] {
 	color: black;
 	padding: var(--ifm-alert-padding-vertical) var(--ifm-alert-padding-horizontal);
 }
-
 .example .admonitionHeading_FzoX code {
 	text-transform: none;
 }
 
+/* --- SWAL2 --- */
 .swal2-popup.error {
 	background-color: var(--ifm-color-danger-darkest) !important;
 	color: whitesmoke;
@@ -495,14 +507,13 @@ div:where(.swal2-container) button:where(.swal2-close.error):focus {
 	border-color: var(--ifm-color-danger-darker);
 	color: whitesmoke;
 }
-
 .swal2-confirm.hide {
 	display: none !important;
 }
-.MuiInputBase-root,
-.autocomplete .MuiAutocomplete-input,
-.MuiAutocomplete-paper.autocomplete {
-	font-family: "Fantasque Sans Mono", monospace !important;
-	font-variant-ligatures: contextual; /* Active les ligatures contextuelles */
-	font-feature-settings: "calt" 1; /* Active les ligatures spécifiques */
+
+/* --- AUTOCOMPLETE FONT OVERRIDE (DÉJÀ FAIT PLUS HAUT POUR .autocomplete) --- */
+@supports (font-variation-settings: normal) {
+	.autocomplete {
+		font-family: "Fira Code VF", monospace;
+	}
 }
