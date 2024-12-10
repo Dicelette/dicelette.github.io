@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.6.3">
 <title data-rh="true">Enregistrement d&#x27;un Modèle | Dicelette</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://dicelette.github.io/img/dice.png"><meta data-rh="true" name="twitter:image" content="https://dicelette.github.io/img/dice.png"><meta data-rh="true" property="og:url" content="https://dicelette.github.io/docs/admin/model"><meta data-rh="true" property="og:locale" content="fr"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="fr"><meta data-rh="true" name="docsearch:language" content="fr"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Enregistrement d&#x27;un Modèle | Dicelette"><meta data-rh="true" name="description" content="Pour commencer, vous devez générer un nouveau modèle. Utilisez /register suivi du nom du modèle. Vous pouvez aussi créer un modèle vide en utilisant /générer ou en utilisant le formulaire disponible ici même."><meta data-rh="true" property="og:description" content="Pour commencer, vous devez générer un nouveau modèle. Utilisez /register suivi du nom du modèle. Vous pouvez aussi créer un modèle vide en utilisant /générer ou en utilisant le formulaire disponible ici même."><link data-rh="true" rel="icon" href="/img/dicelette.png"><link data-rh="true" rel="canonical" href="https://dicelette.github.io/docs/admin/model"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/en/docs/admin/model" hreflang="en"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/docs/admin/model" hreflang="fr"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/docs/admin/model" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://FJJXF4SEGY-dsn.algolia.net" crossorigin="anonymous"><link rel="search" type="application/opensearchdescription+xml" title="Dicelette" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.2aeec907.css">
-<script src="/assets/js/runtime~main.721652b7.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.4eff55bb.js" defer="defer"></script>
 <script src="/assets/js/main.8003f01c.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -66,15 +66,15 @@
 Ainsi, dans le cas où :</p>
 <ul>
 <li>Vous aurez une valeur de succès critique, le message affiché sera : <code>Succès critique</code></li>
-<li>Dans le même cas, pour un échec critique, le message affiché sera <code>échec critique</code>
-Les messages peuvent être modifiés par les &quot;critiques personnalisés&quot;</li>
+<li>Dans le même cas, pour un échec critique, le message affiché sera <code>échec critique</code>.</li>
 </ul>
+<p>Les messages peuvent être modifiés par les &quot;critiques personnalisés&quot;</p>
 <h3 class="anchor anchorWithStickyNavbar_aLgy" id="les-critiques-personnalisés">Les critiques personnalisés<a href="#les-critiques-personnalisés" class="hash-link" aria-label="Lien direct vers Les critiques personnalisés" title="Lien direct vers Les critiques personnalisés">​</a></h3>
 <p>Ces derniers permettent de créer une valeur pour lequel un message personnalisés sera affiché.
 Les critiques personnalisés, contrairement aux critiques basiques, permettent de comparer à un total <strong>ou</strong> un dé naturel, et supportent les formules.
 Il est possible d&#x27;avoir, en tout, jusqu&#x27;à 22 critiques personnalisés.</p>
-<p>Cela permet, par exemple, de créer des critiques liés à la valeur d&#x27;une statistique, en utilisant <code>$</code> comme pour la comparaison avec les dés types.</p>
-<div class="theme-admonition theme-admonition-example admonition_o5H7 example alert--example"><div class="admonitionHeading_FzoX"><span class="admonitionIcon_rXq6"><span></span></span>[Call of Cthulhu]</div><div class="admonitionContent_Knsx"><p><em>Référence</em> : [Call of Cthulhu RPG Wiki](<a href="https://cthulhuwiki.chaosium.com/rules/combat.html" target="_blank" rel="noopener noreferrer">https://cthulhuwiki.chaosium.com/rules/combat.html</a>
+<p>Cela permet, par exemple, de créer des critiques liés à la valeur d&#x27;une statistique, en utilisant <code>$</code> comme pour la comparaison avec les dés types. En outre, il est possibld d&#x27;utiliser le nom d&#x27;une statistique ou encore de combiner avec d&#x27;autre dés.</p>
+<div class="theme-admonition theme-admonition-example admonition_o5H7 example alert--example"><div class="admonitionHeading_FzoX"><span class="admonitionIcon_rXq6"><span></span></span>[Call of Cthulhu]</div><div class="admonitionContent_Knsx"><p><em>Référence</em> : <a href="https://cthulhuwiki.chaosium.com/rules/combat.html" target="_blank" rel="noopener noreferrer">Call of Cthulhu RPG Wiki</a>
 Dans le cas de Call of Cthulhu, les succès sont basés sur la valeur de la statistique. Le dé type sera donc <code>1D100&lt;=$</code>.
 Les critiques personnalisés seront :</p><ul>
 <li>&quot;Hard success&quot; : <code>&lt;=round($/2)</code></li>
