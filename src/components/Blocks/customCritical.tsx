@@ -16,7 +16,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 			const duplicates = [];
 			values.customCritical.forEach((critical, index) => {
 				const isDuplicate = values.customCritical.findIndex(
-					(c, i) => i !== index && c.selection === critical.selection,
+					(c, i) => i !== index && c.name === critical.name,
 				);
 				if (isDuplicate !== -1 && !duplicates.includes(index)) {
 					duplicates.push(index);
@@ -51,6 +51,15 @@ const CustomCritical = ({ values, setFieldValue }) => {
 		}
 		return null;
 	};
+
+	const pushSelection = (values) => ({
+		selection: values.selection,
+		name: values?.name,
+		formula: values?.formula,
+		text: values?.text,
+		onNaturalDice: values?.onNaturalDice,
+		affectSkill: values?.affectSkill,
+	});
 
 	const onDragEnd = (result) => {
 		if (!result.destination) {
@@ -120,17 +129,9 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																		size={1280}
 																		onClick={() => {
 																			push({
-																				selection:
-																				values.customCritical[index]
-																					?.selection,
-																				name: values.customCritical[index]
-																					?.name,
-																				formula:
-																				values.customCritical[index]?.formula,
-																				text: values.customCritical[index]
-																					?.text,
-																				checked:
-																				values.customCritical[index]?.checked,
+																				...pushSelection(
+																					values.customCritical[index],
+																				),
 																			});
 																		}}
 																	/>
@@ -147,7 +148,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																		className={
 																			"autocomplete 2xl:w-[200px] !mb-0 min-[0px]:max-2xl:w-full"
 																		}
-																		style={{fontFamily: "Fira Code VF"}}
+																		style={{ fontFamily: "Fira Code VF" }}
 																		options={[
 																			">",
 																			">",
@@ -174,7 +175,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																				label={translate({
 																					message: "Signe",
 																				})}
-																				style={{fontFamily: "Fira Code VF"}}
+																				style={{ fontFamily: "Fira Code VF" }}
 																				variant="outlined"
 																				className={`2xl:w-[200px] !mb-0 min-[0px]:max-2xl:w-full ${
 																					values.customCritical[index]
@@ -193,7 +194,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																<td className="p-2 min-[0px]:max-xl:w-full">
 																	<Tablefield
 																		name={`customCritical[${index}].name`}
-																		label={translate({message: "Nom"})}
+																		label={translate({ message: "Nom" })}
 																		variant="outlined"
 																		className={`${
 																			values.customCritical[index]?.name
@@ -210,7 +211,7 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																<td className="p-2 min-[0px]:max-xl:w-full h-200px">
 																	<Tablefield
 																		name={`customCritical[${index}].formula`}
-																		label={translate({message: "Formule"})}
+																		label={translate({ message: "Formule" })}
 																		variant="outlined"
 																		className={`${
 																			values.customCritical[index]?.formula
@@ -227,12 +228,14 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																<td className="p-2 min-[0px]:max-xl:w-full h-200px">
 																	<StandaloneToggleButton
 																		selected={
-																			values.customCritical[index]?.onNaturalDice
+																			values.customCritical[index]
+																				?.onNaturalDice
 																		}
 																		onChange={() =>
 																			setFieldValue(
 																				`customCritical[${index}].onNaturalDice`,
-																				!values.customCritical[index]?.onNaturalDice,
+																				!values.customCritical[index]
+																					?.onNaturalDice,
 																			)
 																		}
 																		size={1280}
@@ -247,7 +250,8 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																		onChange={() =>
 																			setFieldValue(
 																				`customCritical[${index}].affectSkill`,
-																				!values.customCritical[index]?.affectSkill,
+																				!values.customCritical[index]
+																					?.affectSkill,
 																			)
 																		}
 																		size={1280}
