@@ -12,7 +12,8 @@
 :root {
 	--ifm-font-family-base: "Atkinson Hyperlegible", sans-serif;
 	--ifm-heading-font-family: "Karla", sans-serif;
-	--ifm-font-family-monospace: "Fantasque Sans Mono", monospace;
+	--ifm-font-family-monospace: "TypoPRO Fantasque Sans Mono", "Fira Code",
+		"Fantasque Sans Mono Regular", monospace;
 
 	--ifm-color-primary: #960ea5;
 	--ifm-color-primary-dark: #870d95;
