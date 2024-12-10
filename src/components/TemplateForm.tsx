@@ -172,7 +172,7 @@ const TemplateForm: FC = () => {
 				statistics: [],
 				total: 0,
 				diceType: "",
-				critical: { success: 20, failure: 1 },
+				critical: { success: "", failure: "" },
 				damages: [],
 				customCritical: [],
 			}}

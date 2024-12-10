@@ -4,7 +4,13 @@ import { Tooltip as ReactTooltip } from "react-tooltip";
 import { Section, Textfield } from "../Atoms";
 
 function toolTipOnCondition(values: Critical) {
-	if (values.failure === values.success) {
+	if (
+		values.success.toString() !== "" &&
+		values.failure.toString() !== "" &&
+		values.failure === values.success &&
+		values.failure >= 0 &&
+		values.success >= 0
+	) {
 		return (
 			<ReactTooltip
 				id="critical"
@@ -43,7 +49,13 @@ function toolTipOnCondition(values: Critical) {
 }
 
 function errorClass(values: Critical, type: "failure" | "success") {
-	if (values.failure === values.success) {
+	if (
+		values.success.toString() !== "" &&
+		values.failure.toString() !== "" &&
+		values.failure === values.success &&
+		values.failure >= 0 &&
+		values.success >= 0
+	) {
 		return "error";
 	}
 	if (type === "failure" && values.failure < 0) {

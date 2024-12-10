@@ -15,8 +15,8 @@ importers:
         specifier: ^5.5.0
         version: 5.5.0
       '@dicelette/core':
-        specifier: ^1.8.0
-        version: 1.8.0(typescript@5.7.2)
+        specifier: ^1.8.1
+        version: 1.8.1(typescript@5.7.2)
       '@docusaurus/core':
         specifier: ^3.6.3
         version: 3.6.3(@mdx-js/react@3.1.0(@types/react@18.3.12)(react@18.3.1))(acorn@8.14.0)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)
@@ -1171,8 +1171,8 @@ packages:
     resolution: {integrity: sha512-ip318MKhfRvqzpXNQaMyqJkOWbeOlaiIopfyluantEVF706fRP4Jy0WsTZrnKhRvhJTZTJa5dTTWqcoPmt1Xww==}
     engines: {node: '>=18.0'}
 
-  '@dicelette/core@1.8.0':
-    resolution: {integrity: sha512-mTY1KgEGQ3E4lqKJEgEPYQeJAwNPFF7pQjFVNR9VQl/Boa8XeIHDWG9lUoBqcqEoyratZ6vmwE49q0T4l6bToQ==}
+  '@dicelette/core@1.8.1':
+    resolution: {integrity: sha512-K2GIxqTfMXGxcnmhFfoJSQb8e24cCXA1t5q7dmWs99lxetuTQqsN+nsR+FUgr3BeTDnBMvNBsAlM3gCy9XUoUw==}
 
   '@discoveryjs/json-ext@0.5.7':
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
@@ -7359,7 +7359,7 @@ snapshots:
       mathjs: 11.12.0
       random-js: 2.1.0
 
-  '@dicelette/core@1.8.0(typescript@5.7.2)':
+  '@dicelette/core@1.8.1(typescript@5.7.2)':
     dependencies:
       '@dice-roller/rpg-dice-roller': 5.5.0
       mathjs: 14.0.0
