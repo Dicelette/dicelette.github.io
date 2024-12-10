@@ -13,16 +13,16 @@ type StandaloneToggleButtonProps = {
 };
 
 type NeededProps = {
-	title: string,
-	value: string,
-	class: string,
+	title: string;
+	value: string;
+	class: string;
 	icon: {
-		selected: string,
-		unselected: string,
-	}
-}
+		selected: string;
+		unselected: string;
+	};
+};
 
-const getProps = (opt: "naturalDice" | "affectSkill"):NeededProps => {
+const getProps = (opt: "naturalDice" | "affectSkill"): NeededProps => {
 	if (opt === "naturalDice") {
 		return {
 			title: translate({ message: "Affecter uniquement les dés naturels" }),
@@ -31,8 +31,8 @@ const getProps = (opt: "naturalDice" | "affectSkill"):NeededProps => {
 				selected: "game-icons:dice-target",
 				unselected: "game-icons:perspective-dice-six-faces-three",
 			},
-			class: "onNatDice"
-		}
+			class: "onNatDice",
+		};
 	}
 	return {
 		title: translate({ message: "Utilisable sur les dés de compétences" }),
@@ -41,11 +41,11 @@ const getProps = (opt: "naturalDice" | "affectSkill"):NeededProps => {
 			selected: "pepicons-pencil:sword-shield-circle",
 			unselected: "pepicons-pencil:sword-shield-circle-off",
 		},
-		class: "affectSkill"
-	}
-}
+		class: "affectSkill",
+	};
+};
 
-const StandaloneToggleIconButton = ({ selected, onChange, size, opt}) => {
+const StandaloneToggleIconButton = ({ selected, onChange, size, opt }) => {
 	const sizeClass = size === 1280 ? "xl" : "2xl";
 	const opts = getProps(opt);
 	return (
@@ -62,11 +62,7 @@ const StandaloneToggleIconButton = ({ selected, onChange, size, opt}) => {
 				className={`manage-button !p-px relative top-1 min-[0px]:max-${sizeClass}:w-full toggle !border-[0px] align-middle ${opts.class}`}
 			>
 				<Icon
-					icon={
-						selected
-							? opts.icon.selected
-							: opts.icon.unselected
-					}
+					icon={selected ? opts.icon.selected : opts.icon.unselected}
 					height="32"
 					className={`text-button toggle-button ml-[5px] ${selected ? "checked" : ""} ${opts.class}`}
 				/>
