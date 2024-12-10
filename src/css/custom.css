@@ -1,10 +1,11 @@
 /* --- IMPORTS ET BASES --- */
+
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Karla:ital,wght@0,200..800;1,200..800&family=Recursive:wght@300..1000&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
-@import url("https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css");
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap");
 @import url(https://db.onlinewebfonts.com/c/f2b5ce87535b6e1cdb4690f094ac6667?family=Fantasque+Sans+Mono+Regular);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -138,7 +139,9 @@
 }
 
 [data-theme="light"]
-	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(.copy-button):hover,
+	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(
+		.copy-button
+	):hover,
 [data-theme="light"]
 	.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:has:not(.copy-button):hover {
 	background-color: rgba(0, 0, 0, 0.098) !important;
@@ -318,7 +321,7 @@ input[type="number"] {
 .MuiInputBase-root,
 .autocomplete .MuiAutocomplete-input,
 .MuiAutocomplete-paper.autocomplete {
-	font-family: "Fantasque Sans Mono", monospace !important;
+	font-family: "Fantasque Sans Mono Regular", "Fira Code", monospace !important;
 	font-variant-ligatures: contextual;
 	font-feature-settings: "calt" 1;
 }
@@ -398,7 +401,8 @@ table tr:nth-child(2n).error-bg {
 
 /* --- ADMONITIONS --- */
 .admonitionHeading_FzoX {
-	font: var(--ifm-heading-font-weight) var(--ifm-h5-font-size) / var(--ifm-heading-line-height) var(--ifm-heading-font-family);
+	font: var(--ifm-heading-font-weight) var(--ifm-h5-font-size) /
+		var(--ifm-heading-line-height) var(--ifm-heading-font-family);
 	text-transform: uppercase;
 	margin-bottom: 0.3rem;
 }
