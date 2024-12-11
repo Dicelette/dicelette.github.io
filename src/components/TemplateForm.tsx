@@ -20,6 +20,7 @@ import Statistics from "./Blocks/Statistics";
 import CustomCritical from "./Blocks/customCritical";
 import { errorCode } from "./errorsTranslation";
 import type {DataForm} from "@site/src/components/interfaces";
+import {isNumber} from "mathjs";
 
 function parseNumber(nb?: unknown): number | undefined {
 	if (nb.toString().length === 0) return undefined;
@@ -53,12 +54,12 @@ const TemplateForm: FC = () => {
 					affectSkill: critical.affectSkill,
 				};
 			}
-
+		const total = isNumber(data.total) ? Number.parseInt(data.total.toString(), 10) : undefined;
 		const templateDataValues: StatisticalSchema = {
 			charName: data.isCharNameRequired,
 			critical: data.critical,
 			diceType: data.diceType,
-			total: data.total === 0 ? undefined : data.total,
+			total,
 			statistics: data.statistics.length > 0 ? stat : undefined,
 			damage: data.damages.length > 0 ? diceSkill : undefined,
 			customCritical:

@@ -25,7 +25,7 @@ export type DataForm = {
 	isCharNameRequired: boolean;
 	isPrivate: boolean;
 	statistics: StatisticValues[];
-	total?: number;
+	total?: number | string;
 	diceType?: string;
 	critical?: Critical;
 	damages: DicesValues[];
