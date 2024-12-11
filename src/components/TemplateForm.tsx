@@ -54,6 +54,7 @@ const TemplateForm: FC = () => {
 					affectSkill: critical.affectSkill,
 				};
 			}
+		
 		const total = isNumber(data.total) ? Number.parseInt(data.total.toString(), 10) : undefined;
 		const templateDataValues: StatisticalSchema = {
 			charName: data.isCharNameRequired,
