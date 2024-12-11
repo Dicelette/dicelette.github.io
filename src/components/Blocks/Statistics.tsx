@@ -205,7 +205,6 @@ const Statistics = ({ values, setFieldValue }) => {
 							onAdd={() =>
 								push({ name: "", values: { min: 0, max: 0, combinaison: "" } })
 							}
-							// biome-ignore lint/correctness/noChildrenProp: <explanation>
 							children={""}
 						/>
 						<table className="w-full">
@@ -219,7 +218,6 @@ const Statistics = ({ values, setFieldValue }) => {
 										>
 											{values.statistics.map((_, statIndex) => (
 												<Draggable
-													// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 													key={statIndex}
 													draggableId={String(statIndex)}
 													index={statIndex}
@@ -229,7 +227,6 @@ const Statistics = ({ values, setFieldValue }) => {
 															ref={provided.innerRef}
 															{...provided.draggableProps}
 															{...provided.dragHandleProps}
-															// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 															key={statIndex}
 															className={`flex flex-col 2xl:flex-row items-start 2xl:w-full ${
 																statIndex === 0 ? "border-t-0" : ""
