@@ -23,10 +23,18 @@ export function errorCode(error: Error) {
 				message:
 					"Les critiques customisés ne peuvent pas être utilisés sans dé type.",
 			});
-		return translate({ message: 'Le dé "{{x}}" est invalide.' }).replace(
-			"{{x}}",
-			error.dice,
-		);
+		if (error.message === "no_roll_result")
+			return translate({
+				message:
+					'Le dé de compétence nommé "{{x}}" ("{{formule}}") ne semble pas être un dé.',
+			})
+				.replace("{{x}}", error.dice)
+				.replace("{{formule}}", error.method.toString());
+		return translate({
+			message: 'Le dé "{{x}}" est invalide. Journalisation : {{error}}',
+		})
+			.replace("{{x}}", error.dice)
+			.replace("{{error}}", error.method.toString());
 	}
 	if (error instanceof FormulaError) {
 		return translate({ message: 'La formule "{{x}}" est invalide.' }).replace(
