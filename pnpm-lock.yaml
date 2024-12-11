@@ -15,8 +15,8 @@ importers:
         specifier: ^5.5.0
         version: 5.5.0
       '@dicelette/core':
-        specifier: ^1.8.1
-        version: 1.8.1(typescript@5.7.2)
+        specifier: ^1.8.3
+        version: 1.8.3(typescript@5.7.2)
       '@docusaurus/core':
         specifier: ^3.6.3
         version: 3.6.3(@mdx-js/react@3.1.0(@types/react@18.3.12)(react@18.3.1))(acorn@8.14.0)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)
@@ -1171,8 +1171,8 @@ packages:
     resolution: {integrity: sha512-ip318MKhfRvqzpXNQaMyqJkOWbeOlaiIopfyluantEVF706fRP4Jy0WsTZrnKhRvhJTZTJa5dTTWqcoPmt1Xww==}
     engines: {node: '>=18.0'}
 
-  '@dicelette/core@1.8.1':
-    resolution: {integrity: sha512-K2GIxqTfMXGxcnmhFfoJSQb8e24cCXA1t5q7dmWs99lxetuTQqsN+nsR+FUgr3BeTDnBMvNBsAlM3gCy9XUoUw==}
+  '@dicelette/core@1.8.3':
+    resolution: {integrity: sha512-RBP8l/Q/ltRuQzlobCJuSwVIIhxS+mGdSPFwU8UVMxtEzHvnSdc2G7Y8mAn0mvVUEhRtI/G60LArZ/7HJNgcHg==}
 
   '@discoveryjs/json-ext@0.5.7':
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
@@ -6043,8 +6043,8 @@ packages:
     resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
     engines: {node: '>=12.20'}
 
-  zod@3.24.0:
-    resolution: {integrity: sha512-Hz+wiY8yD0VLA2k/+nsg2Abez674dDGTai33SwNvMPuf9uIrBC9eFgIMQxBBbHFxVXi8W+5nX9DcAh9YNSQm/w==}
+  zod@3.24.1:
+    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -7359,7 +7359,7 @@ snapshots:
       mathjs: 11.12.0
       random-js: 2.1.0
 
-  '@dicelette/core@1.8.1(typescript@5.7.2)':
+  '@dicelette/core@1.8.3(typescript@5.7.2)':
     dependencies:
       '@dice-roller/rpg-dice-roller': 5.5.0
       mathjs: 14.0.0
@@ -7369,7 +7369,7 @@ snapshots:
       ts-dedent: 2.2.0
       uniformize: 2.2.0(typescript@5.7.2)
       vite-tsconfig-paths: 5.1.4(typescript@5.7.2)
-      zod: 3.24.0
+      zod: 3.24.1
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -13780,6 +13780,6 @@ snapshots:
 
   yocto-queue@1.1.1: {}
 
-  zod@3.24.0: {}
+  zod@3.24.1: {}
 
   zwitch@2.0.4: {}
