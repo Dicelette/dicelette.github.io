@@ -7,6 +7,7 @@ import {
 	type CustomCritical as CustomCriticalType,
 	type Statistic,
 	type StatisticalSchema,
+	type Critical,
 	verifyTemplateValue,
 } from "@dicelette/core";
 import { translate } from "@docusaurus/Translate";
@@ -20,7 +21,7 @@ import Statistics from "./Blocks/Statistics";
 import CustomCritical from "./Blocks/customCritical";
 import { errorCode } from "./errorsTranslation";
 import type {DataForm} from "@site/src/components/interfaces";
-import {isNumber} from "mathjs";
+import {isNumber} from "./utils";
 
 function parseNumber(nb?: unknown): number | undefined {
 	if (nb.toString().length === 0) return undefined;
@@ -54,11 +55,14 @@ const TemplateForm: FC = () => {
 					affectSkill: critical.affectSkill,
 				};
 			}
-		
+		const critical:Critical = {
+				success: data.critical.success && isNumber(data.critical.success) ? Number.parseInt(data.critical.success.toString(), 10) : undefined,
+				failure: data.critical.failure && isNumber(data.critical.failure) ? Number.parseInt(data.critical.failure.toString(), 10) : undefined
+		}
 		const total = isNumber(data.total) ? Number.parseInt(data.total.toString(), 10) : undefined;
 		const templateDataValues: StatisticalSchema = {
 			charName: data.isCharNameRequired,
-			critical: data.critical,
+			critical,
 			diceType: data.diceType,
 			total,
 			statistics: data.statistics.length > 0 ? stat : undefined,

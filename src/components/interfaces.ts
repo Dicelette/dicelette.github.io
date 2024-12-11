@@ -8,6 +8,11 @@ type CustomCriticalValues = {
 	affectSkill: boolean;
 }
 
+type CriticalValues = {
+	success?: number | string;
+	failure?: number | string;
+}
+
 type DicesValues = {
 	name: string,
 	value: string;
@@ -27,7 +32,7 @@ export type DataForm = {
 	statistics: StatisticValues[];
 	total?: number | string;
 	diceType?: string;
-	critical?: Critical;
+	critical?: CriticalValues;
 	damages: DicesValues[];
 	customCritical: CustomCriticalValues[];
 }
