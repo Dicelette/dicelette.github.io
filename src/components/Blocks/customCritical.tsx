@@ -149,7 +149,6 @@ const CustomCritical = ({ values, setFieldValue }) => {
 																		style={{ fontFamily: "Fira Code VF" }}
 																		options={[
 																			">",
-																			">",
 																			">=",
 																			"<",
 																			"<=",

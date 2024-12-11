@@ -19,6 +19,7 @@ import General from "./Blocks/General";
 import Statistics from "./Blocks/Statistics";
 import CustomCritical from "./Blocks/customCritical";
 import { errorCode } from "./errorsTranslation";
+import type {DataForm} from "@site/src/components/interfaces";
 
 function parseNumber(nb?: unknown): number | undefined {
 	if (nb.toString().length === 0) return undefined;
@@ -26,12 +27,11 @@ function parseNumber(nb?: unknown): number | undefined {
 }
 
 const TemplateForm: FC = () => {
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	const downloadJSON = (data: any) => {
+	const downloadJSON = (data: DataForm) => {
 		//convert statistic to Statistic interface
 		const stat: Statistic = {};
-		const diceSkill: { [key: string]: string } = {};
-		const customCritical: { [key: string]: CustomCriticalType } = {};
+		const diceSkill: Record<string, string> = {};
+		const customCritical: Record<string, CustomCriticalType> = {};
 		if (data.statistics.length > 0)
 			for (const statistic of data.statistics) {
 				stat[statistic.name] = {
@@ -49,7 +49,8 @@ const TemplateForm: FC = () => {
 				customCritical[critical.name] = {
 					sign: critical.selection,
 					value: critical.formula,
-					onNaturalDice: critical.checked,
+					onNaturalDice: critical.onNaturalDice,
+					affectSkill: critical.affectSkill,
 				};
 			}
 
@@ -57,7 +58,7 @@ const TemplateForm: FC = () => {
 			charName: data.isCharNameRequired,
 			critical: data.critical,
 			diceType: data.diceType,
-			total: data.total,
+			total: data.total === 0 ? undefined : data.total,
 			statistics: data.statistics.length > 0 ? stat : undefined,
 			damage: data.damages.length > 0 ? diceSkill : undefined,
 			customCritical:
@@ -170,7 +171,7 @@ const TemplateForm: FC = () => {
 				isCharNameRequired: false,
 				isPrivate: false,
 				statistics: [],
-				total: 0,
+				total: "",
 				diceType: "",
 				critical: { success: "", failure: "" },
 				damages: [],

@@ -3,6 +3,7 @@ import { translate } from "@docusaurus/Translate";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { Section, Textfield } from "../Atoms";
 
+
 function toolTipOnCondition(values: Critical) {
 	if (
 		values.success.toString() !== "" &&
