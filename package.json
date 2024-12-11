@@ -18,7 +18,7 @@
 	"dependencies": {
 		"@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration": "^1.2.4",
 		"@dice-roller/rpg-dice-roller": "^5.5.0",
-		"@dicelette/core": "^1.8.1",
+		"@dicelette/core": "^1.8.3",
 		"@docusaurus/core": "^3.6.3",
 		"@docusaurus/preset-classic": "^3.6.3",
 		"@emotion/react": "^11.13.5",
