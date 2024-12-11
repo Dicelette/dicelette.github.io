@@ -44,7 +44,7 @@
 	--onNatDice-darker: rgb(59, 82, 158);
 
 	--affectSkill-bg: rgba(146, 25, 91, 0.15);
-	--affectSkill-bg-darker: rgba(146, 25, 91, 0.5);
+	--affectSkill-bg-darker: rgba(220, 146, 187, 0.55);
 	--affectSkill: rgb(207, 98, 157);
 	--affectSkill-darker: rgb(110, 14, 66);
 }
@@ -346,6 +346,11 @@ svg.text-button {
 .error .MuiTooltip-tooltip {
 	background: var(--rt-color-error);
 }
+
+.error .MuiOutlinedInput-notchedOutline {
+	border-color: var(--ifm-color-danger-darkest) !important;
+}
+
 .error-copy .MuiTooltip-arrow::before,
 .error-copy .MuiTooltip-tooltip {
 	background-color: var(--copy-tooltip);
@@ -364,6 +369,11 @@ svg.text-button {
 .onNatDice.toggle-tooltip .MuiTooltip-arrow::before,
 .onNatDice.toggle-tooltip .MuiTooltip-tooltip {
 	background-color: var(--onNatDice);
+	opacity: 1;
+}
+.affectSkill.toggle-tooltip .MuiTooltip-arrow::before,
+.affectSkill.toggle-tooltip .MuiTooltip-tooltip {
+	background-color: var(--affectSkill);
 	opacity: 1;
 }
 
