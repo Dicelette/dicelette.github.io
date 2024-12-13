@@ -47,6 +47,11 @@
 	--affectSkill-bg-darker: rgba(220, 146, 187, 0.55);
 	--affectSkill: rgb(207, 98, 157);
 	--affectSkill-darker: rgb(110, 14, 66);
+
+	--excludedStat-bg: rgba(111, 122, 124, 0.15);
+	--excludedStat-bg-darker: rgba(111, 122, 124, 0.25);
+	--excludedStat: rgb(67, 101, 119);
+	--excludedStat-darker: rgb(86, 96, 101);
 }
 
 [data-theme="dark"] {
@@ -80,6 +85,11 @@
 	--affectSkill-bg-darker: rgba(146, 25, 91, 0.25);
 	--affectSkill: rgb(207, 98, 157);
 	--affectSkill-darker: rgb(178, 59, 127);
+
+	--excludedStat-bg: rgba(111, 122, 124, 0.15);
+	--excludedStat-bg-darker: rgba(111, 122, 124, 0.55);
+	--excludedStat: rgb(67, 101, 119);
+	--excludedStat-darker: rgb(86, 96, 101);
 }
 
 /* --- TYPO --- */
@@ -180,24 +190,6 @@ button.MuiButtonBase-root.copy-button:hover {
 	background-color: var(--delete-button-bg) !important;
 }
 
-/* MUI Buttons pour .onNatDice */
-.MuiButtonBase-root.onNatDice {
-	color: var(--onNatDice);
-	border-color: var(--onNatDice-bg);
-}
-.MuiButtonBase-root.onNatDice:hover {
-	background-color: var(--onNatDice-bg);
-	color: var(--onNatDice-darker);
-}
-.MuiButtonBase-root.onNatDice.Mui-selected {
-	background-color: var(--onNatDice-bg);
-	color: var(--onNatDice-darker);
-}
-.MuiButtonBase-root.onNatDice.Mui-selected:hover {
-	background-color: var(--onNatDice-bg-darker);
-	color: var(--onNatDice-darker);
-}
-
 /* Boutons manage-button */
 .MuiButtonBase-root.manage-button:not(.toggle) {
 	color: var(--ifm-color-content) !important;
@@ -260,6 +252,23 @@ button.submit:hover {
 .onNatDice.checked {
 	color: var(--onNatDice-darker) !important;
 }
+/* MUI Buttons pour .onNatDice */
+.MuiButtonBase-root.onNatDice {
+	color: var(--onNatDice);
+	border-color: var(--onNatDice-bg);
+}
+.MuiButtonBase-root.onNatDice:hover {
+	background-color: var(--onNatDice-bg);
+	color: var(--onNatDice-darker);
+}
+.MuiButtonBase-root.onNatDice.Mui-selected {
+	background-color: var(--onNatDice-bg);
+	color: var(--onNatDice-darker);
+}
+.MuiButtonBase-root.onNatDice.Mui-selected:hover {
+	background-color: var(--onNatDice-bg-darker);
+	color: var(--onNatDice-darker);
+}
 
 /* ----- affect skill ----- */
 
@@ -276,6 +285,59 @@ button.submit:hover {
 }
 .affectSkill.checked {
 	color: var(--affectSkill-darker) !important;
+}
+
+/* MUI Buttons pour .affectSkill */
+.MuiButtonBase-root.affectSkill {
+	color: var(--affectSkill);
+	border-color: var(--affectSkill-bg);
+}
+.MuiButtonBase-root.affectSkill:hover {
+	background-color: var(--affectSkill-bg);
+	color: var(--affectSkill-darker);
+}
+.MuiButtonBase-root.affectSkill.Mui-selected {
+	background-color: var(--affectSkill-bg);
+	color: var(--affectSkill-darker);
+}
+.MuiButtonBase-root.affectSkill.Mui-selected:hover {
+	background-color: var(--affectSkill-bg-darker);
+	color: var(--affectSkill-darker);
+}
+
+/* ----- Excluded stat ----- */
+
+.excludedStat {
+	color: var(--excludedStat);
+}
+.excludedStat.toggle.Mui-selected {
+	background-color: var(--excludedStat-bg) !important;
+	color: var(--excludedStat-darker) !important;
+}
+.excludedStat.toggle:hover {
+	background-color: var(--excludedStat-bg-darker) !important;
+	color: var(--excludedStat-darker);
+}
+.excludedStat.checked {
+	color: var(--excludedStat-darker) !important;
+}
+
+/* MUI Buttons pour .excludedStat */
+.MuiButtonBase-root.excludedStat {
+	color: var(--excludedStat);
+	border-color: var(--excludedStat-bg);
+}
+.MuiButtonBase-root.excludedStat:hover {
+	background-color: var(--excludedStat-bg) !important;
+	color: var(--excludedStat-darker);
+}
+.MuiButtonBase-root.excludedStat.Mui-selected {
+	background-color: var(--excludedStat-bg);
+	color: var(--excludedStat-darker);
+}
+.MuiButtonBase-root.excludedStat.Mui-selected:hover {
+	background-color: var(--excludedStat-bg-darker);
+	color: var(--excludedStat-darker);
 }
 
 /* Autres états bouton delete */
@@ -374,6 +436,12 @@ svg.text-button {
 .affectSkill.toggle-tooltip .MuiTooltip-arrow::before,
 .affectSkill.toggle-tooltip .MuiTooltip-tooltip {
 	background-color: var(--affectSkill);
+	opacity: 1;
+}
+
+.excludedStat.toggle-tooltip .MuiTooltip-arrow::before,
+.excludedStat.toggle-tooltip .MuiTooltip-tooltip {
+	background-color: var(--excludedStat);
 	opacity: 1;
 }
 
