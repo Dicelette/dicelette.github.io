@@ -9,7 +9,7 @@ type StandaloneToggleButtonProps = {
 	size: number;
 	maxLen?: number;
 	length?: number;
-	opt: "naturalDice" | "affectSkill";
+	opt: "naturalDice" | "affectSkill" | "excludedStat";
 };
 
 type NeededProps = {
@@ -22,7 +22,9 @@ type NeededProps = {
 	};
 };
 
-const getProps = (opt: "naturalDice" | "affectSkill"): NeededProps => {
+const getProps = (
+	opt: "naturalDice" | "affectSkill" | "excludedStat",
+): NeededProps => {
 	if (opt === "naturalDice") {
 		return {
 			title: translate({ message: "Affecter uniquement les dés naturels" }),
@@ -32,6 +34,19 @@ const getProps = (opt: "naturalDice" | "affectSkill"): NeededProps => {
 				unselected: "game-icons:perspective-dice-six-faces-three",
 			},
 			class: "onNatDice",
+		};
+	}
+	if (opt === "excludedStat") {
+		return {
+			title: translate({
+				message: "Exclure de la sélection des dés de statistiques",
+			}),
+			value: "excludedStat",
+			icon: {
+				selected: "fluent:table-simple-exclude-16-regular",
+				unselected: "fluent:table-simple-include-16-filled",
+			},
+			class: "excludedStat",
 		};
 	}
 	return {

@@ -4,24 +4,24 @@ import { Form, Formik } from "formik";
 import type { FC } from "react";
 
 import {
+	type Critical,
 	type CustomCritical as CustomCriticalType,
 	type Statistic,
 	type StatisticalSchema,
-	type Critical,
 	verifyTemplateValue,
 } from "@dicelette/core";
 import { translate } from "@docusaurus/Translate";
 import useIsBrowser from "@docusaurus/useIsBrowser";
+import type { DataForm } from "@site/src/components/interfaces";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import CriticalValue from "./Blocks/CriticalValue";
-import Dices from "./Blocks/Dices";
+import CriticalValue from "./Blocks/CriticicalValue";
+import Dice from "./Blocks/Dice";
 import General from "./Blocks/General";
 import Statistics from "./Blocks/Statistics";
 import CustomCritical from "./Blocks/customCritical";
 import { errorCode } from "./errorsTranslation";
-import type {DataForm} from "@site/src/components/interfaces";
-import {isNumber} from "./utils";
+import { isNumber } from "./utils";
 
 function parseNumber(nb?: unknown): number | undefined {
 	if (nb.toString().length === 0) return undefined;
@@ -40,6 +40,7 @@ const TemplateForm: FC = () => {
 					combinaison: statistic.combinaison,
 					max: parseNumber(statistic.max),
 					min: parseNumber(statistic.min),
+					exclude: statistic.excluded,
 				};
 			}
 		if (data.damages.length > 0)
@@ -55,11 +56,19 @@ const TemplateForm: FC = () => {
 					affectSkill: critical.affectSkill,
 				};
 			}
-		const critical:Critical = {
-				success: data.critical.success && isNumber(data.critical.success) ? Number.parseInt(data.critical.success.toString(), 10) : undefined,
-				failure: data.critical.failure && isNumber(data.critical.failure) ? Number.parseInt(data.critical.failure.toString(), 10) : undefined
-		}
-		const total = isNumber(data.total) ? Number.parseInt(data.total.toString(), 10) : undefined;
+		const critical: Critical = {
+			success:
+				data.critical.success && isNumber(data.critical.success)
+					? Number.parseInt(data.critical.success.toString(), 10)
+					: undefined,
+			failure:
+				data.critical.failure && isNumber(data.critical.failure)
+					? Number.parseInt(data.critical.failure.toString(), 10)
+					: undefined,
+		};
+		const total = isNumber(data.total)
+			? Number.parseInt(data.total.toString(), 10)
+			: undefined;
 		const templateDataValues: StatisticalSchema = {
 			charName: data.isCharNameRequired,
 			critical,
@@ -190,7 +199,7 @@ const TemplateForm: FC = () => {
 					<General />
 					<CriticalValue critical={values.critical} />
 					<Statistics values={values} setFieldValue={setFieldValue} />
-					<Dices values={values} setFieldValue={setFieldValue} />
+					<Dice values={values} setFieldValue={setFieldValue} />
 					<CustomCritical values={values} setFieldValue={setFieldValue} />
 					{buttonDisabled(isSubmitting)}
 				</Form>

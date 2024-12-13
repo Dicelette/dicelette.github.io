@@ -8,6 +8,7 @@ type StatisticValues = {
 	min: number;
 	max: number;
 	combinaison: string;
+	excluded: boolean;
 };
 
 type Critical = {

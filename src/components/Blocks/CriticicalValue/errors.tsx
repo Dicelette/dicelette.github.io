@@ -1,10 +1,8 @@
-import type { Critical } from "@dicelette/core";
 import { translate } from "@docusaurus/Translate";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import { Section, Textfield } from "../Atoms";
+import type { Critical } from "../../../../../core";
 
-
-function toolTipOnCondition(values: Critical) {
+export function toolTipOnCondition(values: Critical) {
 	if (
 		values.success.toString() !== "" &&
 		values.failure.toString() !== "" &&
@@ -49,7 +47,7 @@ function toolTipOnCondition(values: Critical) {
 	}
 }
 
-function errorClass(values: Critical, type: "failure" | "success") {
+export function errorClass(values: Critical, type: "failure" | "success") {
 	if (
 		values.success.toString() !== "" &&
 		values.failure.toString() !== "" &&
@@ -67,27 +65,3 @@ function errorClass(values: Critical, type: "failure" | "success") {
 	}
 	return "";
 }
-
-const CriticalValue = ({ critical }) => (
-	<Section label="Critique">
-		<Textfield
-			label={translate({ message: "Succès" })}
-			name="critical.success"
-			type="number"
-			id="critical"
-			className={`success ${errorClass(critical, "success")}`}
-			inputProps={{ min: 0 }}
-		/>
-		<Textfield
-			label={translate({ message: "Échec" })}
-			name="critical.failure"
-			type="number"
-			id="critical"
-			className={`failure ${errorClass(critical, "failure")}`}
-			inputProps={{ min: 0 }}
-		/>
-		{toolTipOnCondition(critical)}
-	</Section>
-);
-
-export default CriticalValue;
