@@ -9,7 +9,9 @@ on:
     types: [build]
 permissions:
   contents: write
-
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 jobs:
   deploy:
     name: Deploy to GitHub Pages
