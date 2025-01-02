@@ -37,7 +37,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: "recursive"
-      - uses: oven-sh/setup-bun@latest
+      - uses: oven-sh/setup-bun@v2
       - name: Install dependencies
         run: bun install
       - name: Build website
