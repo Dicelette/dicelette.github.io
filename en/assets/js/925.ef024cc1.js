@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdicelette_docs=self.webpackChunkdicelette_docs||[]).push([[925],{27925:(e,c,s)=>{s.r(c),s.d(c,{DocSearchModal:()=>a.a1});var a=s(12153)}}]);
