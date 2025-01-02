@@ -80,19 +80,19 @@ const config: Config = {
 					type: "docSidebar",
 					position: "left",
 					sidebarId: "model",
-					label: "Administration",
+					label: "Fiche de personnage",
 				},
 				{
 					type: "docSidebar",
 					position: "left",
 					sidebarId: "commands",
-					label: "Usage",
+					label: "Commandes",
 				},
 				{
 					type: "docSidebar",
 					position: "left",
 					sidebarId: "TOS",
-					label: "CGU",
+					label: "CGU & Développement",
 				},
 				{
 					href: "https://github.com/dicelette/docs",
