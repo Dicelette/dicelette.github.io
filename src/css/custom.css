@@ -52,6 +52,7 @@
 	--excludedStat-bg-darker: rgba(111, 122, 124, 0.25);
 	--excludedStat: rgb(67, 101, 119);
 	--excludedStat-darker: rgb(86, 96, 101);
+	--example-a-color: rgb(39, 71, 107);
 }
 
 [data-theme="dark"] {
@@ -90,6 +91,7 @@
 	--excludedStat-bg-darker: rgba(111, 122, 124, 0.55);
 	--excludedStat: rgb(67, 101, 119);
 	--excludedStat-darker: rgb(86, 96, 101);
+	--example-a-color: rgb(19 40 63 / 48%);
 }
 
 /* --- TYPO --- */
@@ -568,6 +570,9 @@ table tr:nth-child(2n).error-bg {
 }
 .example .admonitionHeading_FzoX code {
 	text-transform: none;
+}
+.example a {
+	color: var(--example-a-color);
 }
 
 /* --- SWAL2 --- */
