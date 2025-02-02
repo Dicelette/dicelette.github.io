@@ -15,7 +15,7 @@ import useIsBrowser from "@docusaurus/useIsBrowser";
 import type { DataForm } from "@site/src/components/interfaces";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import CriticalValue from "./Blocks/CriticicalValue";
+import CriticalValue from "./Blocks/CriticalValue";
 import Dice from "./Blocks/Dice";
 import General from "./Blocks/General";
 import Statistics from "./Blocks/Statistics";
@@ -24,7 +24,10 @@ import { errorCode } from "./errorsTranslation";
 import { isNumber } from "./utils";
 
 function parseNumber(nb?: unknown): number | undefined {
-	if (nb.toString().length === 0) return undefined;
+	const isNumber = (value: unknown): boolean =>
+		typeof value === "number" ||
+		(!Number.isNaN(Number(value)) && typeof value === "string");
+	if (!isNumber(nb)) return undefined;
 	return Number.parseInt(nb.toString(), 10);
 }
 
