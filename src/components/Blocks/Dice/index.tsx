@@ -1,10 +1,10 @@
 import { translate } from "@docusaurus/Translate";
 import RenderRow from "@site/src/components/Blocks/Dice/RenderRow";
-import { ErrorMessage, FieldArray } from "formik";
+import { FieldArray } from "formik";
 import { useEffect, useState } from "react";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import { Section, Tablefield } from "../../Atoms";
+import { Section } from "../../Atoms";
 
 export default ({ values, setFieldValue }) => {
 	const [duplicateIndices, setDuplicateIndices] = useState([]);

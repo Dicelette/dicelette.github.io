@@ -5,7 +5,7 @@ import RemoveButton from "@site/src/components/Atoms/button/removeButton";
 import { errorTooltip } from "@site/src/components/Blocks/Dice/errors";
 import type { DicesValues } from "@site/src/components/interfaces";
 import { ErrorMessage } from "formik";
-import { Draggable } from "react-beautiful-dnd";
+import { Draggable } from "@hello-pangea/dnd";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 
 export default ({

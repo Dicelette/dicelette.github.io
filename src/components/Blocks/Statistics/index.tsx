@@ -2,7 +2,7 @@ import { translate } from "@docusaurus/Translate";
 import RenderRow from "@site/src/components/Blocks/Statistics/RenderRow";
 import { FieldArray } from "formik";
 import { Key, useEffect, useState } from "react";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import { Section, Tablefield } from "../../Atoms";
 
 export default ({ values, setFieldValue }) => {
