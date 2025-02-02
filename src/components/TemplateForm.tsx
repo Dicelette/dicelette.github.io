@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Tooltip } from "@mui/material";
 import { Form, Formik } from "formik";
 import type { FC } from "react";
@@ -24,10 +23,7 @@ import { errorCode } from "./errorsTranslation";
 import { isNumber } from "./utils";
 
 function parseNumber(nb?: unknown): number | undefined {
-	const isNumber = (value: unknown): boolean =>
-		typeof value === "number" ||
-		(!Number.isNaN(Number(value)) && typeof value === "string");
-	if (!isNumber(nb)) return undefined;
+	if (!nb || !isNumber(nb)) return undefined;
 	return Number.parseInt(nb.toString(), 10);
 }
 
@@ -69,9 +65,7 @@ const TemplateForm: FC = () => {
 					? Number.parseInt(data.critical.failure.toString(), 10)
 					: undefined,
 		};
-		const total = isNumber(data.total)
-			? Number.parseInt(data.total.toString(), 10)
-			: undefined;
+		const total = parseNumber(data.total);
 		const templateDataValues: StatisticalSchema = {
 			charName: data.isCharNameRequired,
 			critical,
@@ -98,13 +92,13 @@ const TemplateForm: FC = () => {
 				CSVHeader.push(...Object.keys(template.statistics));
 			CSVHeader.push("dice");
 			const csv = `\ufeff${CSVHeader.join(";")}\n`;
-			const CSVblob = new Blob([csv], { type: "text/csv" });
+			const csvBlob = new Blob([csv], { type: "text/csv" });
 			const urls = [
 				{
 					name: "statisticalTemplate.json",
 					url: URL.createObjectURL(jsonBlob),
 				},
-				{ name: "import.csv", url: URL.createObjectURL(CSVblob) },
+				{ name: "import.csv", url: URL.createObjectURL(csvBlob) },
 			];
 			for (const url of urls) {
 				const a = document.createElement("a");
