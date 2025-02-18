@@ -2,7 +2,7 @@ import { translate } from "@docusaurus/Translate";
 import RenderRow from "@site/src/components/Blocks/customCritical/RenderRow";
 import { FieldArray } from "formik";
 import { useEffect, useState } from "react";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, DropResult } from "@hello-pangea/dnd";
 import { Section, Tablefield } from "../../Atoms";
 
 export default ({ values, setFieldValue }) => {
@@ -24,7 +24,7 @@ export default ({ values, setFieldValue }) => {
 		findDuplicates();
 	}, [values.customCritical]);
 
-	const onDragEnd = (result) => {
+	const onDragEnd = (result: DropResult) => {
 		if (!result.destination) return;
 
 		const items = Array.from(values.customCritical);

@@ -13,7 +13,7 @@ import {
 } from "@site/src/components/Blocks/Statistics/errors";
 import type { StatisticFields } from "@site/src/components/interfaces";
 import { ErrorMessage } from "formik";
-import { Draggable } from "react-beautiful-dnd";
+import { Draggable } from "@hello-pangea/dnd";
 
 export default ({
 	statIndex,

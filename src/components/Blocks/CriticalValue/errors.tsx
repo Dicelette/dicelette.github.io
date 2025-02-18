@@ -1,6 +1,6 @@
+import type { Critical } from "@dicelette/core";
 import { translate } from "@docusaurus/Translate";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import type { Critical } from "../../../../../core";
 
 export function toolTipOnCondition(values: Critical) {
 	if (

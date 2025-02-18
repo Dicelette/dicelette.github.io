@@ -6,9 +6,8 @@ import CopyButton from "@site/src/components/Atoms/button/copyButton";
 import RemoveButton from "@site/src/components/Atoms/button/removeButton";
 import StandaloneToggleButton from "@site/src/components/Atoms/toggle-custom";
 import { errorTooltip } from "@site/src/components/Blocks/customCritical/errors";
-import type { StatisticFields } from "@site/src/components/interfaces";
 import { ErrorMessage } from "formik";
-import { Draggable } from "react-beautiful-dnd";
+import { Draggable } from "@hello-pangea/dnd";
 
 export type Custom = {
 	selection: string;

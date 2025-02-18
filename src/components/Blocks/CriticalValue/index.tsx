@@ -2,7 +2,7 @@ import { translate } from "@docusaurus/Translate";
 import {
 	errorClass,
 	toolTipOnCondition,
-} from "@site/src/components/Blocks/CriticicalValue/errors";
+} from "@site/src/components/Blocks/CriticalValue/errors";
 import { Section, Textfield } from "../../Atoms";
 
 export default ({ critical }) => (
