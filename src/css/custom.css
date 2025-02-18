@@ -144,6 +144,10 @@
 	color: var(--ifm-color-secondary-dark) !important;
 }
 
+button.csv-button {
+	margin-left: 15px;
+}
+
 /* Hover states pour les boutons (icones, checkboxes) en dark et light */
 [data-theme="dark"]
 	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover,

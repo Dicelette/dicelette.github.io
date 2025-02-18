@@ -27,6 +27,28 @@ function parseNumber(nb?: unknown): number | undefined {
 	return Number.parseInt(nb.toString(), 10);
 }
 
+const downloadCSV = (data: DataForm) => {
+	const CSVHeader = ["user", "charName", "avatar", "channel"];
+	if (data.isPrivate) CSVHeader.push("isPrivate");
+	if (data.statistics.length > 0)
+		CSVHeader.push(...Object.keys(data.statistics));
+	CSVHeader.push("dice");
+	const csv = `\ufeff${CSVHeader.join(";")}\n`;
+	const csvBlob = new Blob([csv], { type: "text/csv" });
+	const url = URL.createObjectURL(csvBlob);
+	const a = document.createElement("a");
+	a.href = url;
+	a.download = "import.csv";
+	document.body.appendChild(a);
+	a.click();
+	document.body.removeChild(a);
+	URL.revokeObjectURL(url);
+};
+
+const handleDownloadCSV = (values) => {
+	downloadCSV(values);
+};
+
 const TemplateForm: FC = () => {
 	const downloadJSON = (data: DataForm) => {
 		//convert statistic to Statistic interface
@@ -86,19 +108,11 @@ const TemplateForm: FC = () => {
 			const jsonBlob = new Blob([JSON.stringify(template, null, 2)], {
 				type: "application/json",
 			});
-			const CSVHeader = ["user", "charName", "avatar", "channel"];
-			if (data.isPrivate) CSVHeader.push("isPrivate");
-			if (template.statistics)
-				CSVHeader.push(...Object.keys(template.statistics));
-			CSVHeader.push("dice");
-			const csv = `\ufeff${CSVHeader.join(";")}\n`;
-			const csvBlob = new Blob([csv], { type: "text/csv" });
 			const urls = [
 				{
-					name: "statisticalTemplate.json",
+					name: "config.json",
 					url: URL.createObjectURL(jsonBlob),
 				},
-				{ name: "import.csv", url: URL.createObjectURL(csvBlob) },
 			];
 			for (const url of urls) {
 				const a = document.createElement("a");
@@ -134,6 +148,10 @@ const TemplateForm: FC = () => {
 			downloadJSON(values);
 			setSubmitting(false);
 		}, 400);
+	};
+
+	const handleDownloadCSV = (values) => {
+		downloadCSV(values);
 	};
 
 	const detectAnyErrorClassInPage = () => {
@@ -199,6 +217,15 @@ const TemplateForm: FC = () => {
 					<Dice values={values} setFieldValue={setFieldValue} />
 					<CustomCritical values={values} setFieldValue={setFieldValue} />
 					{buttonDisabled(isSubmitting)}
+					<Button
+						type="button"
+						onClick={() => handleDownloadCSV(values)}
+						variant="outlined"
+						size="medium"
+						className="download-button csv-button"
+					>
+						{translate({ message: "Télécharger le CSV" })}
+					</Button>
 				</Form>
 			)}
 		</Formik>
