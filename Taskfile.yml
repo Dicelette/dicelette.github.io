@@ -1,0 +1,24 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  pull-all:
+      silent: true
+      cmds:
+          - |
+           git submodule foreach --recursive '
+            BRANCH=$(git symbolic-ref --short HEAD || echo "main")
+            echo "Checking out and pulling latest changes for submodule: $name on branch $BRANCH"
+            git checkout $BRANCH && git pull origin $BRANCH'
+  push-all:
+      silent: true
+      cmds:
+          - |
+           git submodule foreach --recursive '
+            BRANCH=$(git symbolic-ref --short HEAD || echo "main")
+            echo "Pushing changes for submodule: $name on branch $BRANCH"
+            git push origin $BRANCH'

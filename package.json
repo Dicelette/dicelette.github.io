@@ -13,7 +13,9 @@
 		"translate": "docusaurus write-translations --locale en",
 		"write-heading-ids": "docusaurus write-heading-ids",
 		"typecheck": "tsc",
-		"lint": "biome format --write src"
+		"lint": "biome format --write src",
+		"pull-all": "task pull-all",
+		"push-all": "task push-all"
 	},
 	"dependencies": {
 		"@dice-roller/rpg-dice-roller": "^5.5.0",
