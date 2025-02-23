@@ -9,11 +9,16 @@ tasks:
   pull-all:
       silent: true
       cmds:
+          - echo "Pull from root" && git checkout main && git pull origin main
+          - echo ""
           - |
            git submodule foreach --recursive '
             BRANCH=$(git symbolic-ref --short HEAD || echo "main")
             echo "Checking out and pulling latest changes for submodule: $name on branch $BRANCH"
-            git checkout $BRANCH && git pull origin $BRANCH'
+            git checkout $BRANCH && git pull origin $BRANCH
+            echo ""
+            '
+
   push-all:
       silent: true
       cmds:
@@ -21,4 +26,8 @@ tasks:
            git submodule foreach --recursive '
             BRANCH=$(git symbolic-ref --short HEAD || echo "main")
             echo "Pushing changes for submodule: $name on branch $BRANCH"
-            git push origin $BRANCH'
+            git push origin $BRANCH
+            echo ""
+            '
+          - echo "Pushing change for main repository"
+          - git push origin main
