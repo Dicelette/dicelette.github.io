@@ -25,8 +25,7 @@ jobs:
             git submodule foreach --recursive '
             BRANCH=$(git symbolic-ref --short HEAD || echo "main")
             echo "Checking out and pulling latest changes for submodule: $name on branch $BRANCH"
-            git checkout $BRANCH && git pull origin $BRANCH
-            '
+            git checkout $BRANCH && git pull origin $BRANCH'
       - uses: oven-sh/setup-bun@v2
       - name: Install dependencies
         run: bun install
