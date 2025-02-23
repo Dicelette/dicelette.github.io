@@ -579,6 +579,16 @@ table tr:nth-child(2n).error-bg {
 	color: var(--example-a-color);
 }
 
+/* ---- Pin --- */
+.pin .admonitionHeading_FzoX {
+	text-transform: none;
+}
+
+.pin .admonitionIcon_rXq6 svg {
+	--ifm-alert-foreground-color: rgb(85, 117, 120);
+	color: var(--ifm-alert-foreground-color);
+}
+
 /* --- SWAL2 --- */
 .swal2-popup.error {
 	background-color: var(--ifm-color-danger-darkest) !important;

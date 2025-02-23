@@ -35,13 +35,28 @@ function Example(props) {
 	);
 }
 
+function Pin(props) {
+	return (
+		<div className="theme-admonition theme-admonition-pin admonition_o5H7 pin alert--pin">
+			<div className="admonitionHeading_FzoX">
+				<span className="admonitionIcon_rXq6">
+					<Icon icon="fluent:pin-20-filled" />
+				</span>
+				{props.title?.length > 0
+					? props.title
+					: translate({ message: "Pin" })}
+			</div>
+			<div className="admonitionContent_Knsx">{props.children}</div>
+		</div>
+	);
+}
+
 const AdmonitionTypes = {
 	...DefaultAdmonitionTypes,
 
-	// Ajoutez ici tous vos types d'admonitions personnalisées...
-	// Vous pouvez également écraser les valeurs par défaut si vous le souhaitez
 	usage: Usage,
 	example: Example,
+	pin: Pin,
 };
 
 export default AdmonitionTypes;

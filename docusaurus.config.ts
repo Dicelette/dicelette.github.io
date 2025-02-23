@@ -28,7 +28,7 @@ const config: Config = {
 					sidebarPath: "./sidebars.ts",
 					editUrl: "https://github.com/Dicelette/docs/tree/main/",
 					admonitions: {
-						keywords: ["usage", "example"],
+						keywords: ["usage", "example", "pin"],
 						extendDefaults: true,
 					},
 				},
