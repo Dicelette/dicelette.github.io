@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.7.0">
 <title data-rh="true">Mathematical Expressions | Dicelette</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://dicelette.github.io/en/img/dice.png"><meta data-rh="true" name="twitter:image" content="https://dicelette.github.io/en/img/dice.png"><meta data-rh="true" property="og:url" content="https://dicelette.github.io/en/docs/introduction/expression"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="fr"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Mathematical Expressions | Dicelette"><meta data-rh="true" name="description" content="Mathematical Expressions with MathJS"><meta data-rh="true" property="og:description" content="Mathematical Expressions with MathJS"><link data-rh="true" rel="icon" href="/en/img/dicelette.png"><link data-rh="true" rel="canonical" href="https://dicelette.github.io/en/docs/introduction/expression"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/en/docs/introduction/expression" hreflang="en"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/docs/introduction/expression" hreflang="fr"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/docs/introduction/expression" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://FJJXF4SEGY-dsn.algolia.net" crossorigin="anonymous"><link rel="search" type="application/opensearchdescription+xml" title="Dicelette" href="/en/opensearch.xml"><link rel="stylesheet" href="/en/assets/css/styles.e6f0c18e.css">
-<script src="/en/assets/js/runtime~main.da4f30eb.js" defer="defer"></script>
+<script src="/en/assets/js/runtime~main.41c2b135.js" defer="defer"></script>
 <script src="/en/assets/js/main.38956540.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -15,6 +15,7 @@ Depending on the commands, you can use:</p>
 <li><code>$</code>: Represents the value of the statistic used.</li>
 <li>The name of a statistic (which will be replaced by its value).</li>
 <li>Dice combinations (like <code>1d6</code>).</li>
+<li><code>{exp}</code>: Allows you to insert an expression directly into the die, using the computed part of the command. You can also specify a default value using the <code>{exp||default}</code> syntax (like <code>{exp||2}</code>). Only numbers are accepted. If not specified, the default value will be <code>1</code>.</li>
 </ul>
 <p>Expressions are typically used in:</p>
 <ul>
