@@ -4,8 +4,10 @@
 	"private": true,
 	"scripts": {
 		"docusaurus": "docusaurus",
+		"prestart": "bun escape_changelog.ts",
 		"start": "docusaurus start",
 		"start:en": "docusaurus start --locale en",
+		"prebuild": "bun escape_changelog.ts",
 		"build": "docusaurus build",
 		"deploy": "docusaurus deploy",
 		"clear": "docusaurus clear",
