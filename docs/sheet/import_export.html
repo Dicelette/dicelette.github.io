@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">Import et export de données | Dicelette</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://dicelette.github.io/img/dice.png"><meta data-rh="true" name="twitter:image" content="https://dicelette.github.io/img/dice.png"><meta data-rh="true" property="og:url" content="https://dicelette.github.io/docs/sheet/import_export"><meta data-rh="true" property="og:locale" content="fr"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="fr"><meta data-rh="true" name="docsearch:language" content="fr"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Import et export de données | Dicelette"><meta data-rh="true" name="description" content="Les commandes suivantes permettent d&#x27;importer et d&#x27;exporter des données depuis et vers un fichier CSV."><meta data-rh="true" property="og:description" content="Les commandes suivantes permettent d&#x27;importer et d&#x27;exporter des données depuis et vers un fichier CSV."><link data-rh="true" rel="icon" href="/img/dicelette.png"><link data-rh="true" rel="canonical" href="https://dicelette.github.io/docs/sheet/import_export"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/en/docs/sheet/import_export" hreflang="en"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/docs/sheet/import_export" hreflang="fr"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/docs/sheet/import_export" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://FJJXF4SEGY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Import et export de données","item":"https://dicelette.github.io/docs/sheet/import_export"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="Dicelette" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.122d7682.css">
-<script src="/assets/js/runtime~main.3d393fcc.js" defer="defer"></script>
-<script src="/assets/js/main.734e61e4.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.5b14e8ff.js" defer="defer"></script>
+<script src="/assets/js/main.3cec2528.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -16,7 +16,7 @@
 <div class="theme-admonition theme-admonition-important admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>À propos d&#x27;Excel</div><div class="admonitionContent_BuS1"><ul>
 <li>Excel n&#x27;aime pas les cases dont le contenu comme par <code>-</code> et peut les interpréter comme des formules. Si tel est le cas, vous devez ajouter <code>&#x27;</code> devant le <code>-</code>.</li>
 <li>Excel peut avoir des problèmes en lisant et exportant les textes contenant des accents. Il est recommandées d&#x27;enregistrer le fichier en UTF-8-BOM, en utilisant par exemple Notepad++ ou VSCode.</li>
-<li>Tout comme la liste des dés, si vous utiliser l&#x27;ID du joueur, il faudra ajouter <code>&#x27;</code> devant (comme <code>&#x27;123456789012345678</code>) pour éviter que Excel ne le transforme en nombre.</li>
+<li>Tout comme la liste des dés, si vous utilisez l&#x27;ID du joueur, il faudra ajouter <code>&#x27;</code> devant (comme <code>&#x27;123456789012345678</code>) pour éviter que Excel ne le transforme en nombre.</li>
 </ul><p>Il est vivement conseiller de désactiver les conversions automatiques d&#x27;Excel:
 <img decoding="async" loading="lazy" alt="Excel" src="/assets/images/EXCEL_FR_disable-63b63be2b13f51a615d9e12b974b94d4.png" width="939" height="681" class="img_ev3q"></p><p>Et de désactiver la règle de vérification des erreurs &quot;Nombres mis en forme en tant que texte ou précédés d&#x27;une apostrophe&quot; dans les options de vérification des erreurs (Formules &gt; Règle de vérification des erreurs) :
 <img decoding="async" loading="lazy" src="/assets/images/FR_disable_nb-cf80c75f62b5dcd0281858ea17dcfebf.png" width="937" height="679" class="img_ev3q"></p></div></div>
@@ -27,7 +27,7 @@
 <div class="theme-admonition theme-admonition-important admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>important</div><div class="admonitionContent_BuS1"><ul>
 <li>Les données importées écraseront les données existantes, mais ne supprimerons pas les personnages non présents dans le fichier. De plus, si le personnage du joueur existe déjà, ses données seront écrasées dans la base de donnée mais le message du personnage ne sera pas supprimé : vous devrez le faire manuellement.</li>
 <li>Le minimum, maximum ainsi que le total de points n&#x27;est pas vérifiés (afin de permettre l&#x27;import de personnages ayant acquis de l&#x27;expérience ou qui sont différents des autres, comme des monstres).</li>
-<li>Les combinaisons ne doivent pas être rentrée telles quelles mais doivent être directement calculées. Par exemple, si la colonne PV est une combainaison de <code>Constitution</code> et <code>Endurance</code> vous devez rentrer le résultat des colonnes directement. Il n&#x27;y a pas de problème à utiliser des formules dans un CSV, car l&#x27;exportation du fichier incluera seulement le résultat !</li>
+<li>Les combinaisons ne doivent pas être rentrées telles quelles mais doivent être directement calculées. Par exemple, si la colonne PV est une combination de <code>Constitution</code> et <code>Endurance</code> vous devez rentrer le résultat des colonnes directement. Il n&#x27;y a pas de problème à utiliser des formules dans un CSV, car l&#x27;exportation du fichier inclura seulement le résultat !</li>
 </ul></div></div>
 <p>Les colonnes suivantes sont nécessaires pour l&#x27;import :</p>
 <ul>
@@ -47,9 +47,9 @@
 <p>Cette commande permet d&#x27;exporter la liste des personnages et des statistiques dans un fichier CSV.
 En fonction de l&#x27;option <code>private</code>, la liste fournie sera différente :</p>
 <ul>
-<li>Si <code>false</code>, elle incluera <strong>uniquement</strong> les personnages dont la fiche est <strong>publique</strong>.</li>
-<li>Si <code>true</code>, elle incluera <strong>uniquement</strong> les personnages dont la fiche est <strong>privée</strong>.</li>
-<li>Si elle est omise, elle inclura <strong>tous</strong> les personnages, quelque soit le statut de la fiche.</li>
+<li>Si <code>false</code>, elle inclura <strong>uniquement</strong> les personnages dont la fiche est <strong>publique</strong>.</li>
+<li>Si <code>true</code>, elle inclura <strong>uniquement</strong> les personnages dont la fiche est <strong>privée</strong>.</li>
+<li>Si elle est omise, elle inclura <strong>tous</strong> les personnages, quel que soit le statut de la fiche.</li>
 </ul>
 <p>Le fichier CSV exporté utilise le point virgule comme séparateur.</p>
 <!-- -->
