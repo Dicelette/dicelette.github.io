@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">Import et export de données | Dicelette</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://dicelette.github.io/img/dice.png"><meta data-rh="true" name="twitter:image" content="https://dicelette.github.io/img/dice.png"><meta data-rh="true" property="og:url" content="https://dicelette.github.io/docs/sheet/import_export"><meta data-rh="true" property="og:locale" content="fr"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="fr"><meta data-rh="true" name="docsearch:language" content="fr"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Import et export de données | Dicelette"><meta data-rh="true" name="description" content="Les commandes suivantes permettent d&#x27;importer et d&#x27;exporter des données depuis et vers un fichier CSV."><meta data-rh="true" property="og:description" content="Les commandes suivantes permettent d&#x27;importer et d&#x27;exporter des données depuis et vers un fichier CSV."><link data-rh="true" rel="icon" href="/img/dicelette.png"><link data-rh="true" rel="canonical" href="https://dicelette.github.io/docs/sheet/import_export"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/en/docs/sheet/import_export" hreflang="en"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/docs/sheet/import_export" hreflang="fr"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/docs/sheet/import_export" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://FJJXF4SEGY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Import et export de données","item":"https://dicelette.github.io/docs/sheet/import_export"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="Dicelette" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.122d7682.css">
-<script src="/assets/js/runtime~main.9a9fdb87.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.883f2216.js" defer="defer"></script>
 <script src="/assets/js/main.2658eaa7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -22,10 +22,13 @@
 <img decoding="async" loading="lazy" src="/assets/images/FR_disable_nb-cf80c75f62b5dcd0281858ea17dcfebf.png" width="937" height="679" class="img_ev3q"></p></div></div>
 <p><img decoding="async" loading="lazy" alt="Example" src="/assets/images/example-5b7f080aa6a231d5afd15036cedc4587.png" width="1219" height="161" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="import">Import<a href="#import" class="hash-link" aria-label="Lien direct vers Import" title="Lien direct vers Import">​</a></h2>
-<div class="theme-admonition theme-admonition-usage admonition_o5H7 usage alert--usage"><div class="admonitionHeading_FzoX"><span class="admonitionIcon_rXq6"><span></span></span>Utilisation</div><div class="admonitionContent_Knsx"><p><strong><code>/import [csv]</code></strong></p></div></div>
+<div class="theme-admonition theme-admonition-usage admonition_o5H7 usage alert--usage"><div class="admonitionHeading_FzoX"><span class="admonitionIcon_rXq6"><span></span></span>Utilisation</div><div class="admonitionContent_Knsx"><p><strong><code>/import [csv] (suppression)</code></strong></p><ul>
+<li><code>csv</code> : Le fichier CSV à importer. Il doit être au format UTF-8-BOM.</li>
+<li><code>suppression</code> : Dans le cas où un personnage existe déjà, cette option permet de supprimer l&#x27;ancien message du personnage avant de l&#x27;importer. Si cette option est omise, les données seront écrasées sans supprimer l&#x27;ancien message.</li>
+</ul></div></div>
 <p>La commande <code>/import</code> permet d&#x27;importer des données depuis un fichier CSV. Vous pouvez télécharger le modèle en utilisant la commande <code>/csv</code> et le remplir avec les personnages et statistiques que vous souhaitez importer.</p>
 <div class="theme-admonition theme-admonition-important admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>important</div><div class="admonitionContent_BuS1"><ul>
-<li>Les données importées écraseront les données existantes, mais ne supprimerons pas les personnages non présents dans le fichier. De plus, si le personnage du joueur existe déjà, ses données seront écrasées dans la base de donnée mais le message du personnage ne sera pas supprimé : vous devrez le faire manuellement.</li>
+<li>Les données importées écraseront les données existantes, mais ne supprimerons pas les personnages non présents dans le fichier.</li>
 <li>Le minimum, maximum ainsi que le total de points n&#x27;est pas vérifiés (afin de permettre l&#x27;import de personnages ayant acquis de l&#x27;expérience ou qui sont différents des autres, comme des monstres).</li>
 <li>Les combinaisons ne doivent pas être rentrées telles quelles mais doivent être directement calculées. Par exemple, si la colonne PV est une combination de <code>Constitution</code> et <code>Endurance</code> vous devez rentrer le résultat des colonnes directement. Il n&#x27;y a pas de problème à utiliser des formules dans un CSV, car l&#x27;exportation du fichier inclura seulement le résultat !</li>
 </ul></div></div>
@@ -43,14 +46,16 @@
 <li><code>dice</code> : Les dés spécifiques pour la commande <code>/dbd</code>. Si vous n&#x27;utilisez pas cette commande, vous pouvez laisser cette colonne vide, voire la supprimer.</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="exporter-des-données">Exporter des données<a href="#exporter-des-données" class="hash-link" aria-label="Lien direct vers Exporter des données" title="Lien direct vers Exporter des données">​</a></h2>
-<div class="theme-admonition theme-admonition-usage admonition_o5H7 usage alert--usage"><div class="admonitionHeading_FzoX"><span class="admonitionIcon_rXq6"><span></span></span>Utilisation</div><div class="admonitionContent_Knsx"><p><strong><code>/export [csv] (fiche_privée_uniquement)</code></strong></p></div></div>
-<p>Cette commande permet d&#x27;exporter la liste des personnages et des statistiques dans un fichier CSV.
-En fonction de l&#x27;option <code>private</code>, la liste fournie sera différente :</p>
+<div class="theme-admonition theme-admonition-usage admonition_o5H7 usage alert--usage"><div class="admonitionHeading_FzoX"><span class="admonitionIcon_rXq6"><span></span></span>Utilisation</div><div class="admonitionContent_Knsx"><p><strong><code>/export (fiche_privée_uniquement)</code></strong></p><ul>
+<li><code>fiche_privée_uniquement</code> :<!-- -->
 <ul>
 <li>Si <code>false</code>, elle inclura <strong>uniquement</strong> les personnages dont la fiche est <strong>publique</strong>.</li>
 <li>Si <code>true</code>, elle inclura <strong>uniquement</strong> les personnages dont la fiche est <strong>privée</strong>.</li>
 <li>Si elle est omise, elle inclura <strong>tous</strong> les personnages, quel que soit le statut de la fiche.</li>
 </ul>
+</li>
+</ul></div></div>
+<p>Cette commande permet d&#x27;exporter la liste des personnages et des statistiques dans un fichier CSV.</p>
 <p>Le fichier CSV exporté utilise le point virgule comme séparateur.</p>
 <!-- -->
 <section data-footnotes="true" class="footnotes"><h2 class="anchor anchorWithStickyNavbar_LWe7 sr-only" id="footnote-label">Footnotes<a href="#footnote-label" class="hash-link" aria-label="Lien direct vers Footnotes" title="Lien direct vers Footnotes">​</a></h2>

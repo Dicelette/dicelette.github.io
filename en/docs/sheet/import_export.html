@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">Import &amp; Export | Dicelette</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://dicelette.github.io/en/img/dice.png"><meta data-rh="true" name="twitter:image" content="https://dicelette.github.io/en/img/dice.png"><meta data-rh="true" property="og:url" content="https://dicelette.github.io/en/docs/sheet/import_export"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="fr"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Import &amp; Export | Dicelette"><meta data-rh="true" name="description" content="Import and Export Data"><meta data-rh="true" property="og:description" content="Import and Export Data"><link data-rh="true" rel="icon" href="/en/img/dicelette.png"><link data-rh="true" rel="canonical" href="https://dicelette.github.io/en/docs/sheet/import_export"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/en/docs/sheet/import_export" hreflang="en"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/docs/sheet/import_export" hreflang="fr"><link data-rh="true" rel="alternate" href="https://dicelette.github.io/docs/sheet/import_export" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://FJJXF4SEGY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Import & Export","item":"https://dicelette.github.io/en/docs/sheet/import_export"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="Dicelette" href="/en/opensearch.xml"><link rel="stylesheet" href="/en/assets/css/styles.fd4528b2.css">
-<script src="/en/assets/js/runtime~main.4abe11a6.js" defer="defer"></script>
+<script src="/en/assets/js/runtime~main.357450a3.js" defer="defer"></script>
 <script src="/en/assets/js/main.51a9ddc1.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,10 +23,13 @@
 <img decoding="async" loading="lazy" src="/en/assets/images/EN_disable_nb-22915697f616788b6c38fdd37dce1243.png" width="829" height="682" class="img_ev3q"></p></div></div>
 <p><img decoding="async" loading="lazy" alt="Example" src="/en/assets/images/example-5b7f080aa6a231d5afd15036cedc4587.png" width="1219" height="161" class="img_ev3q"></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="import">Import<a href="#import" class="hash-link" aria-label="Lien direct vers Import" title="Lien direct vers Import">​</a></h3>
-<div class="theme-admonition theme-admonition-usage admonition_o5H7 usage alert--usage"><div class="admonitionHeading_FzoX"><span class="admonitionIcon_rXq6"><span></span></span>Usage</div><div class="admonitionContent_Knsx"><p><strong><code>/import [csv]</code></strong></p></div></div>
+<div class="theme-admonition theme-admonition-usage admonition_o5H7 usage alert--usage"><div class="admonitionHeading_FzoX"><span class="admonitionIcon_rXq6"><span></span></span>Usage</div><div class="admonitionContent_Knsx"><p><strong><code>/import [csv] (delete)</code></strong></p><ul>
+<li><code>csv</code>: The CSV file to import. It must be in UTF-8-BOM format.</li>
+<li><code>delete</code>: If a character already exists, this option allows you to delete the old character message before importing. If this option is omitted, the data will be overwritten without deleting the old message.</li>
+</ul></div></div>
 <p>The <code>/import</code> command allows you to import data from a CSV file. You can download the template using the <code>/csv</code> command and fill it with the characters and statistics you wish to import.</p>
 <div class="theme-admonition theme-admonition-important admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>important</div><div class="admonitionContent_BuS1"><ul>
-<li>Imported data will overwrite existing data, but won&#x27;t delete characters that are not in the CSV file. Moreover, if the character already exists, it will be updated with the new data in the base, but the old messages will not be deleted : it is up to you to delete them.</li>
+<li>Imported data will overwrite existing data, but won&#x27;t delete characters that are not in the CSV file.</li>
 <li>The minimum, maximum, and total points are not verified (to allow the import of characters who have gained experience or differ from others, such as monsters).</li>
 <li>Combinations should not be entered as is but should be directly calculated. For example, if the HP column is a combination of <code>Constitution</code> and <code>Endurance</code>, you must enter the result of these columns directly. There is no issue using formulas in a CSV, as the file export will only include the result!</li>
 </ul></div></div>
@@ -37,20 +40,23 @@
 <li><code>isPrivate</code>: <code>true</code> or <code>false</code> to specify if the sheet is private or not. If your template does not use private sheets, you can leave this column empty.</li>
 <li>The following columns must be the statistics of your template.</li>
 </ul>
-<p>Theses columns are optional:</p>
+<p>These columns are optional:</p>
 <ul>
 <li><code>avatar</code> : The link to the character&#x27;s avatar. If you don&#x27;t use an avatar, you can leave this column empty. The avatar used in the display will be the player&#x27;s.</li>
 <li><code>channel</code> : Allows you to set a channel (also supporting thread and forum<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="true" aria-describedby="footnote-label">1</a></sup>) to send the sheet to, rather than using the default channels set when registering the template.</li>
 <li><code>dice</code> : Specific dice for the <code>/dbd</code> command. If you don&#x27;t use this command, you can leave this column empty (or delete it).</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="export-data">Export Data<a href="#export-data" class="hash-link" aria-label="Lien direct vers Export Data" title="Lien direct vers Export Data">​</a></h3>
-<div class="theme-admonition theme-admonition-usage admonition_o5H7 usage alert--usage"><div class="admonitionHeading_FzoX"><span class="admonitionIcon_rXq6"><span></span></span>Usage</div><div class="admonitionContent_Knsx"><p><strong><code>/export [csv] (private_sheet_only)</code></strong></p></div></div>
-<p>This command allows you to export the list of characters and statistics into a CSV file. Depending on the &#x27;private&#x27; option, the provided list will be different:</p>
+<div class="theme-admonition theme-admonition-usage admonition_o5H7 usage alert--usage"><div class="admonitionHeading_FzoX"><span class="admonitionIcon_rXq6"><span></span></span>Usage</div><div class="admonitionContent_Knsx"><p><strong><code>/export (private_sheet_only)</code></strong></p><ul>
+<li><code>private_sheet_only</code>:<!-- -->
 <ul>
 <li>If <code>false</code>, it will include <strong>only</strong> characters whose sheets are <strong>public</strong>.</li>
 <li>If <code>true</code>, it will include <strong>only</strong> characters whose sheets are <strong>private</strong>.</li>
 <li>If omitted, it will include <strong>all</strong> characters, regardless of the sheet status.</li>
 </ul>
+</li>
+</ul></div></div>
+<p>This command allows you to export the list of characters and statistics into a CSV file.</p>
 <p>The exported CSV file uses a semicolon as the separator.</p>
 <!-- -->
 <section data-footnotes="true" class="footnotes"><h2 class="anchor anchorWithStickyNavbar_LWe7 sr-only" id="footnote-label">Footnotes<a href="#footnote-label" class="hash-link" aria-label="Lien direct vers Footnotes" title="Lien direct vers Footnotes">​</a></h2>
