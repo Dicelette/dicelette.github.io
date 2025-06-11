@@ -22,7 +22,7 @@ function Usage(props) {
 function Example(props) {
 	return (
 		<div className="theme-admonition theme-admonition-example admonition_o5H7 example alert--example">
-			<div className="admonitionHeading_FzoX">
+			<div className={`admonitionHeading_FzoX ${props.title?.length > 0 ? 'withTitle' : ''}`}>
 				<span className="admonitionIcon_rXq6">
 					<Icon icon="fluent:drafts-24-regular" />
 				</span>
