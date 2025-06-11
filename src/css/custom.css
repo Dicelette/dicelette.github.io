@@ -124,6 +124,7 @@
 .MuiPaper {
 	background-color: var(--ifm-background-color) !important;
 }
+
 [data-theme="light"] .MuiPaper {
 	background-color: var(--lt-color-background-light) !important;
 }
@@ -149,18 +150,13 @@ button.csv-button {
 }
 
 /* Hover states pour les boutons (icones, checkboxes) en dark et light */
-[data-theme="dark"]
-	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover,
+[data-theme="dark"] .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover,
 [data-theme="dark"] .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:hover {
 	background-color: rgba(245, 245, 245, 0.099) !important;
 }
 
-[data-theme="light"]
-	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(
-		.copy-button
-	):hover,
-[data-theme="light"]
-	.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:has:not(.copy-button):hover {
+[data-theme="light"] .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(.copy-button):hover,
+[data-theme="light"] .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:has:not(.copy-button):hover {
 	background-color: rgba(0, 0, 0, 0.098) !important;
 }
 
@@ -176,11 +172,13 @@ button.csv-button {
 	color: var(--ifm-color-info-darkest) !important;
 	border-color: var(--ifm-color-info-darkest) !important;
 }
+
 .MuiButton-outlined.copy-button:hover {
 	color: var(--ifm-color-info-darker) !important;
 	border-color: var(--copy-button-bg) !important;
 	background-color: var(--copy-button-bg) !important;
 }
+
 button.MuiButtonBase-root.copy-button:hover {
 	color: var(--ifm-color-info-darker) !important;
 	background-color: var(--copy-button-bg-darker) !important;
@@ -190,6 +188,7 @@ button.MuiButtonBase-root.copy-button:hover {
 	color: var(--ifm-color-danger-darkest) !important;
 	border-color: var(--ifm-color-danger-darkest) !important;
 }
+
 .MuiButton-outlined.delete-button:hover {
 	color: var(--ifm-color-danger-darkest) !important;
 	border-color: var(--delete-button-bg) !important;
@@ -214,6 +213,7 @@ button.submit {
 	width: 100%;
 	cursor: pointer;
 }
+
 button.submit:hover {
 	background-color: var(--ifm-color-primary-darker);
 }
@@ -230,6 +230,7 @@ button.submit:hover {
 .copy-button {
 	color: var(--ifm-color-info-darkest);
 }
+
 .copy-button:hover {
 	color: var(--ifm-color-info-light);
 	background-color: transparent !important;
@@ -239,6 +240,7 @@ button.submit:hover {
 .delete-button {
 	color: var(--ifm-color-danger-darkest);
 }
+
 .delete-button:hover {
 	color: var(--ifm-color-danger-light);
 }
@@ -247,30 +249,37 @@ button.submit:hover {
 .onNatDice {
 	color: var(--onNatDice);
 }
+
 .onNatDice.toggle.Mui-selected {
 	background-color: var(--onNatDice-bg) !important;
 	color: var(--onNatDice-darker) !important;
 }
+
 .onNatDice.toggle:hover {
 	background-color: var(--onNatDice-bg-darker) !important;
 	color: var(--onNatDice-darker);
 }
+
 .onNatDice.checked {
 	color: var(--onNatDice-darker) !important;
 }
+
 /* MUI Buttons pour .onNatDice */
 .MuiButtonBase-root.onNatDice {
 	color: var(--onNatDice);
 	border-color: var(--onNatDice-bg);
 }
+
 .MuiButtonBase-root.onNatDice:hover {
 	background-color: var(--onNatDice-bg);
 	color: var(--onNatDice-darker);
 }
+
 .MuiButtonBase-root.onNatDice.Mui-selected {
 	background-color: var(--onNatDice-bg);
 	color: var(--onNatDice-darker);
 }
+
 .MuiButtonBase-root.onNatDice.Mui-selected:hover {
 	background-color: var(--onNatDice-bg-darker);
 	color: var(--onNatDice-darker);
@@ -281,14 +290,17 @@ button.submit:hover {
 .affectSkill {
 	color: var(--affectSkill);
 }
+
 .affectSkill.toggle.Mui-selected {
 	background-color: var(--affectSkill-bg) !important;
 	color: var(--affectSkill-darker) !important;
 }
+
 .affectSkill.toggle:hover {
 	background-color: var(--affectSkill-bg-darker) !important;
 	color: var(--affectSkill-darker);
 }
+
 .affectSkill.checked {
 	color: var(--affectSkill-darker) !important;
 }
@@ -298,14 +310,17 @@ button.submit:hover {
 	color: var(--affectSkill);
 	border-color: var(--affectSkill-bg);
 }
+
 .MuiButtonBase-root.affectSkill:hover {
 	background-color: var(--affectSkill-bg);
 	color: var(--affectSkill-darker);
 }
+
 .MuiButtonBase-root.affectSkill.Mui-selected {
 	background-color: var(--affectSkill-bg);
 	color: var(--affectSkill-darker);
 }
+
 .MuiButtonBase-root.affectSkill.Mui-selected:hover {
 	background-color: var(--affectSkill-bg-darker);
 	color: var(--affectSkill-darker);
@@ -316,14 +331,17 @@ button.submit:hover {
 .excludedStat {
 	color: var(--excludedStat);
 }
+
 .excludedStat.toggle.Mui-selected {
 	background-color: var(--excludedStat-bg) !important;
 	color: var(--excludedStat-darker) !important;
 }
+
 .excludedStat.toggle:hover {
 	background-color: var(--excludedStat-bg-darker) !important;
 	color: var(--excludedStat-darker);
 }
+
 .excludedStat.checked {
 	color: var(--excludedStat-darker) !important;
 }
@@ -333,14 +351,17 @@ button.submit:hover {
 	color: var(--excludedStat);
 	border-color: var(--excludedStat-bg);
 }
+
 .MuiButtonBase-root.excludedStat:hover {
 	background-color: var(--excludedStat-bg) !important;
 	color: var(--excludedStat-darker);
 }
+
 .MuiButtonBase-root.excludedStat.Mui-selected {
 	background-color: var(--excludedStat-bg);
 	color: var(--excludedStat-darker);
 }
+
 .MuiButtonBase-root.excludedStat.Mui-selected:hover {
 	background-color: var(--excludedStat-bg-darker);
 	color: var(--excludedStat-darker);
@@ -356,9 +377,8 @@ button.MuiButtonBase-root.delete-button:hover {
 [data-theme="dark"] .MuiOutlinedInput-notchedOutline {
 	border-color: rgba(245, 245, 245, 0.273) !important;
 }
-[data-theme="dark"]
-	.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover
-	.MuiOutlinedInput-notchedOutline {
+
+[data-theme="dark"] .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
 	border-color: rgb(245, 245, 245) !important;
 }
 
@@ -367,11 +387,10 @@ button.MuiButtonBase-root.delete-button:hover {
 	opacity: 0.2;
 }
 
-label[data-shrink="false"]
-	+ .MuiInputBase-formControl
-	.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {
+label[data-shrink="false"]+.MuiInputBase-formControl .css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {
 	opacity: 0;
 }
+
 label[data-shrink="false"].MuiFormLabel-root.MuiInputLabel-root {
 	opacity: 0.5;
 }
@@ -381,6 +400,7 @@ input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
+
 input[type="number"] {
 	-moz-appearance: textfield;
 	appearance: textfield;
@@ -393,7 +413,7 @@ input[type="number"] {
 	font-family: "TypoPRO Fantasque Sans Mono Regular", "Fira Code",
 		"Fantasque Sans Mono Regular", monospace !important;
 	font-variant-ligatures: contextual;
-	font-feature-settings: "calt" 1;
+	font-feature-settings: "calt"1;
 }
 
 /* --- ICONES TEXT-BUTTON --- */
@@ -424,21 +444,25 @@ svg.text-button {
 	background-color: var(--copy-tooltip);
 	opacity: 0.5;
 }
+
 .copy-tooltip .MuiTooltip-arrow::before,
 .copy-tooltip .MuiTooltip-tooltip {
 	background-color: var(--copy-tooltip);
 	opacity: 1;
 }
+
 .remove .MuiTooltip-arrow::before,
 .remove .MuiTooltip-tooltip {
 	background-color: var(--delete-button);
 	opacity: 1;
 }
+
 .onNatDice.toggle-tooltip .MuiTooltip-arrow::before,
 .onNatDice.toggle-tooltip .MuiTooltip-tooltip {
 	background-color: var(--onNatDice);
 	opacity: 1;
 }
+
 .affectSkill.toggle-tooltip .MuiTooltip-arrow::before,
 .affectSkill.toggle-tooltip .MuiTooltip-tooltip {
 	background-color: var(--affectSkill);
@@ -455,6 +479,7 @@ svg.text-button {
 	background-color: var(--error-bg);
 	border-radius: 5px;
 }
+
 table tr:nth-child(2n).error-bg {
 	background-color: var(--error-bg-n2);
 }
@@ -476,21 +501,27 @@ table tr:nth-child(2n).error-bg {
 	color: var(--danger-summary-color);
 	border: var(--danger-summary);
 }
+
 #danger summary {
 	font-weight: bold;
 	text-transform: uppercase;
 	font-variant: small-caps;
 }
+
 #danger svg {
 	vertical-align: text-top;
 }
 
 /* --- ADMONITIONS --- */
 .admonitionHeading_FzoX {
-	font: var(--ifm-heading-font-weight) var(--ifm-h5-font-size) /
-		var(--ifm-heading-line-height) var(--ifm-heading-font-family);
-	text-transform: uppercase;
+	font: var(--ifm-heading-font-weight) var(--ifm-h5-font-size) / var(--ifm-heading-line-height) var(--ifm-heading-font-family);
 	margin-bottom: 0.3rem;
+	text-transform: uppercase;
+}
+
+.admonitionHeading_FzoX.withTitle {
+	font-weight: normal;
+	text-transform: none;
 }
 
 .admonitionIcon_rXq6 {
@@ -549,6 +580,8 @@ table tr:nth-child(2n).error-bg {
 	--ifm-alert-border-color: rgb(138, 176, 167);
 }
 
+/* --- EXAMPLE ALERTES --- */
+
 [data-theme="dark"] .alert--example {
 	--ifm-alert-background-color: rgb(131, 159, 162);
 	--ifm-alert-background-color-highlight: rgba(0, 25, 51, 0.115);
@@ -572,11 +605,140 @@ table tr:nth-child(2n).error-bg {
 	color: black;
 	padding: var(--ifm-alert-padding-vertical) var(--ifm-alert-padding-horizontal);
 }
+
 .example .admonitionHeading_FzoX code {
 	text-transform: none;
 }
+
 .example a {
 	color: var(--example-a-color);
+}
+
+/* --- ROLL ALERT --- */
+
+.alert--roll {
+	--ifm-alert-background-color: transparent;
+	/* Fond transparent */
+	--ifm-alert-background-color-highlight: transparent;
+	/* Fond transparent */
+	--ifm-alert-foreground-color: rgb(25, 25, 112);
+	/* Midnight Blue */
+	--ifm-alert-border-color: rgb(65, 105, 225);
+	/* Royal Blue */
+}
+
+[data-theme="dark"] .alert--roll {
+	--ifm-alert-background-color: transparent;
+	/* Fond transparent */
+	--ifm-alert-background-color-highlight: transparent;
+	/* Fond transparent */
+	--ifm-alert-foreground-color: rgb(240, 248, 255);
+	/* Alice Blue */
+	--ifm-alert-border-color: rgb(100, 149, 237);
+	/* Cornflower Blue */
+}
+
+.roll {
+	--ifm-code-background: var(--ifm-alert-background-color-highlight);
+	--ifm-link-color: var(--ifm-alert-foreground-color);
+	--ifm-link-hover-color: var(--ifm-alert-foreground-color);
+	--ifm-link-decoration: underline;
+	--ifm-tabs-color: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active-border: var(--ifm-alert-border-color);
+	background-color: var(--ifm-alert-background-color);
+	border: 1px solid var(--ifm-alert-border-color);
+	border-left-width: 4px;
+	border-radius: var(--ifm-alert-border-radius, 5px);
+	box-shadow: var(--ifm-alert-shadow, none);
+	color: var(--ifm-alert-foreground-color);
+	padding: 0.2rem 0.5rem;
+}
+
+.roll.inline {
+	display: flex;
+	align-items: center;
+}
+
+.roll .admonitionHeading_FzoX code {
+	text-transform: none;
+}
+
+.roll.inline .admonitionIcon_rXq6 {
+	display: inline-flex;
+	align-items: center;
+	margin-right: 0.5rem;
+}
+
+.roll.withContent .admonitionContent_Knsx {
+	margin-left: 1rem;
+}
+
+.roll.withContent .admonitionContent_Knsx p {
+	margin: 0;
+}
+
+.roll .admonitionHeading_FzoX {
+	margin: 0;
+}
+
+.roll a {
+	color: var(--ifm-alert-foreground-color);
+}
+
+/* --- TLDR ALERT --- */
+
+.alert--tldr {
+	--ifm-alert-background-color: rgba(255, 223, 186, 0.3);
+	/* Light orange */
+	--ifm-alert-background-color-highlight: rgba(255, 223, 186, 0.2);
+	--ifm-alert-foreground-color: rgb(128, 64, 0);
+	/* Dark orange */
+	--ifm-alert-border-color: rgb(255, 165, 0);
+	/* Orange */
+}
+
+[data-theme="dark"] .alert--tldr {
+	--ifm-alert-background-color: rgba(255, 140, 0, 0.3);
+	/* Darker orange */
+	--ifm-alert-background-color-highlight: rgba(255, 140, 0, 0.2);
+	--ifm-alert-foreground-color: rgb(255, 223, 186);
+	/* Light orange */
+	--ifm-alert-border-color: rgb(255, 140, 0);
+	/* Darker orange */
+}
+
+.tldr {
+	--ifm-code-background: var(--ifm-alert-background-color-highlight);
+	--ifm-link-color: var(--ifm-alert-foreground-color);
+	--ifm-link-hover-color: var(--ifm-alert-foreground-color);
+	--ifm-link-decoration: underline;
+	--ifm-tabs-color: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active-border: var(--ifm-alert-border-color);
+	background-color: var(--ifm-alert-background-color);
+	border: 1px solid var(--ifm-alert-border-color);
+	border-left-width: 4px;
+	border-radius: var(--ifm-alert-border-radius, 5px);
+	box-shadow: var(--ifm-alert-shadow, none);
+	color: var(--ifm-alert-foreground-color);
+	padding: 0.2rem 0.5rem;
+}
+
+.tldr .admonitionHeading_FzoX code {
+	text-transform: none;
+}
+
+.tldr .admonitionIcon_rXq6 {
+	margin-right: 0.5rem;
+}
+
+.tldr .admonitionHeading_FzoX {
+	margin: 0;
+}
+
+.tldr a {
+	color: var(--ifm-alert-foreground-color);
 }
 
 /* ---- Pin --- */
@@ -596,8 +758,7 @@ table tr:nth-child(2n).error-bg {
 	padding-bottom: 0;
 }
 
-div:where(.swal2-container)
-	button:where(.swal2-styled).swal2-confirm.error:focus {
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm.error:focus {
 	box-shadow: 0 0 0 3px rgba(128, 20, 24, 0.405);
 }
 
@@ -610,6 +771,7 @@ div:where(.swal2-container) button:where(.swal2-close.error):focus {
 	border-color: var(--ifm-color-danger-darker);
 	color: whitesmoke;
 }
+
 .swal2-confirm.hide {
 	display: none !important;
 }
