@@ -43,4 +43,5 @@ export type DataForm = {
 	critical?: CriticalValues;
 	damages: DicesValues[];
 	customCritical: CustomCriticalValues[];
+	forceDistrib?: boolean;
 };

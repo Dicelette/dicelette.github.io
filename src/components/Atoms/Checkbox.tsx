@@ -6,9 +6,15 @@ type CheckboxProps = {
 	className?: string;
 	label: string;
 	name: string;
+	labelPlacement?: "start" | "end" | "top" | "bottom";
 };
 
-const CheckBox: FC<CheckboxProps> = ({ className, label, name }) => {
+const CheckBox: FC<CheckboxProps> = ({
+	className,
+	label,
+	name,
+	labelPlacement,
+}) => {
 	return (
 		<Field name={name}>
 			{({ field }: FieldProps<boolean>) => {
@@ -24,7 +30,7 @@ const CheckBox: FC<CheckboxProps> = ({ className, label, name }) => {
 								id={field.name}
 							/>
 						}
-						labelPlacement="start"
+						labelPlacement={labelPlacement || "start"}
 						label={label}
 					/>
 				);

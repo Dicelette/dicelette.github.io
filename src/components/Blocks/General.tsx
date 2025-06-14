@@ -13,7 +13,7 @@ const General: FC = () => (
 		/>
 
 		<CheckBox
-			className="self-start !ml-0 -mt-2 mb-6"
+			className="self-start !ml-0 -mt-2"
 			label={translate({ message: "Fiches privées" })}
 			aria-label={translate({
 				message: "Utilisée uniquement dans le CSV d'importation de fiche",
@@ -26,13 +26,36 @@ const General: FC = () => (
 				message: "Utilisée uniquement dans le CSV d'importation de fiche",
 			})}
 		/>
-		<Textfield
-			label={translate({ message: "Total" })}
-			name="total"
-			id="total"
-			type="number"
-			inputProps={{ min: 0 }}
-		/>
+		<div className="flex flex-col sm:flex-row sm:items-start sm:gap-4 ">
+			<div className="flex-none">
+				<Textfield
+					label={translate({ message: "Total" })}
+					name="total"
+					id="total"
+					type="number"
+					inputProps={{ min: 0 }}
+					className={"flex-1"}
+					classMargin={"sm:!mb-4"}
+				/>
+			</div>
+			<CheckBox
+				label={translate({ message: "Forcer la distribution des points" })}
+				labelPlacement={"end"}
+				name="forceDistrib"
+				className="flex items-center gap-1"
+				aria-label={translate({
+					message:
+						"Renvoie une erreur si la somme des statistiques est inférieure au total défini",
+				})}
+			/>
+			<ReactTooltip
+				anchorSelect="#forceDistrib"
+				content={translate({
+					message:
+						"Renvoie une erreur si la somme des statistiques est inférieure au total défini",
+				})}
+			/>
+		</div>
 		<Textfield label={translate({ message: "Dé principal" })} name="diceType" />
 	</Section>
 );

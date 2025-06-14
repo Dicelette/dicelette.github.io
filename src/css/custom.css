@@ -150,13 +150,18 @@ button.csv-button {
 }
 
 /* Hover states pour les boutons (icones, checkboxes) en dark et light */
-[data-theme="dark"] .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover,
+[data-theme="dark"]
+	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover,
 [data-theme="dark"] .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:hover {
 	background-color: rgba(245, 245, 245, 0.099) !important;
 }
 
-[data-theme="light"] .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(.copy-button):hover,
-[data-theme="light"] .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:has:not(.copy-button):hover {
+[data-theme="light"]
+	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(
+		.copy-button
+	):hover,
+[data-theme="light"]
+	.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:has:not(.copy-button):hover {
 	background-color: rgba(0, 0, 0, 0.098) !important;
 }
 
@@ -378,7 +383,9 @@ button.MuiButtonBase-root.delete-button:hover {
 	border-color: rgba(245, 245, 245, 0.273) !important;
 }
 
-[data-theme="dark"] .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+[data-theme="dark"]
+	.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover
+	.MuiOutlinedInput-notchedOutline {
 	border-color: rgb(245, 245, 245) !important;
 }
 
@@ -387,7 +394,9 @@ button.MuiButtonBase-root.delete-button:hover {
 	opacity: 0.2;
 }
 
-label[data-shrink="false"]+.MuiInputBase-formControl .css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {
+label[data-shrink="false"]
+	+ .MuiInputBase-formControl
+	.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {
 	opacity: 0;
 }
 
@@ -413,7 +422,7 @@ input[type="number"] {
 	font-family: "TypoPRO Fantasque Sans Mono Regular", "Fira Code",
 		"Fantasque Sans Mono Regular", monospace !important;
 	font-variant-ligatures: contextual;
-	font-feature-settings: "calt"1;
+	font-feature-settings: "calt" 1;
 }
 
 /* --- ICONES TEXT-BUTTON --- */
@@ -514,7 +523,8 @@ table tr:nth-child(2n).error-bg {
 
 /* --- ADMONITIONS --- */
 .admonitionHeading_FzoX {
-	font: var(--ifm-heading-font-weight) var(--ifm-h5-font-size) / var(--ifm-heading-line-height) var(--ifm-heading-font-family);
+	font: var(--ifm-heading-font-weight) var(--ifm-h5-font-size) /
+		var(--ifm-heading-line-height) var(--ifm-heading-font-family);
 	margin-bottom: 0.3rem;
 	text-transform: uppercase;
 }
@@ -758,7 +768,8 @@ table tr:nth-child(2n).error-bg {
 	padding-bottom: 0;
 }
 
-div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm.error:focus {
+div:where(.swal2-container)
+	button:where(.swal2-styled).swal2-confirm.error:focus {
 	box-shadow: 0 0 0 3px rgba(128, 20, 24, 0.405);
 }
 
@@ -781,4 +792,14 @@ div:where(.swal2-container) button:where(.swal2-close.error):focus {
 	.autocomplete {
 		font-family: "Fira Code VF", monospace;
 	}
+}
+
+.swal2-toast {
+	background: transparent !important;
+	border: transparent !important;
+	box-shadow: none !important;
+}
+
+div#swal2-html-container {
+	margin-left: 3rem !important;
 }

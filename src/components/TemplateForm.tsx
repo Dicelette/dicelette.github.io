@@ -90,6 +90,7 @@ const TemplateForm: FC = () => {
 		const total = parseNumber(data.total);
 		const templateDataValues: StatisticalSchema = {
 			charName: data.isCharNameRequired,
+			forceDistrib: data.forceDistrib,
 			critical,
 			diceType: data.diceType,
 			total,
@@ -206,6 +207,7 @@ const TemplateForm: FC = () => {
 				critical: { success: "", failure: "" },
 				damages: [],
 				customCritical: [],
+				forceDistrib: false,
 			}}
 			onSubmit={handleSubmit}
 		>
