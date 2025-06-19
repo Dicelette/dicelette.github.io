@@ -529,9 +529,9 @@ table tr:nth-child(2n).error-bg {
 	text-transform: uppercase;
 }
 
-.admonitionHeading_FzoX.withTitle {
+.withTitle {
 	font-weight: normal;
-	text-transform: none;
+	text-transform: none !important;
 }
 
 .admonitionIcon_rXq6 {

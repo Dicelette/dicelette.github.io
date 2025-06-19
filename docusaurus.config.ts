@@ -26,9 +26,10 @@ const config: Config = {
 			{
 				docs: {
 					sidebarPath: "./sidebars.ts",
-					editUrl: "https://github.com/Dicelette/dicelette.github.io/tree/main/",
+					editUrl:
+						"https://github.com/Dicelette/dicelette.github.io/tree/main/",
 					admonitions: {
-						keywords: ["usage", "example", "pin", "roll", "tldr"],
+						keywords: ["usage", "example", "pin", "roll", "tldr", "warning"],
 						extendDefaults: true,
 					},
 				},
@@ -77,7 +78,7 @@ const config: Config = {
 					label: "Introduction",
 				},
 				{
-					type:"docSidebar",
+					type: "docSidebar",
 					position: "left",
 					sidebarId: "config",
 					label: "Configuration",

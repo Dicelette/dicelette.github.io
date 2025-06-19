@@ -22,7 +22,9 @@ function Usage(props) {
 function Example(props) {
 	return (
 		<div className="theme-admonition theme-admonition-example admonition_o5H7 example alert--example">
-			<div className={`admonitionHeading_FzoX ${props.title?.length > 0 ? 'withTitle' : ''}`}>
+			<div
+				className={`admonitionHeading_FzoX ${props.title?.length > 0 ? "withTitle" : ""}`}
+			>
 				<span className="admonitionIcon_rXq6">
 					<Icon icon="fluent:drafts-24-regular" />
 				</span>
@@ -37,21 +39,43 @@ function Example(props) {
 
 function Roll(props) {
 	return (
-		<div className={`theme-admonition theme-admonition-roll admonition_o5H7 roll alert--roll ${!props.children ? 'inline' : 'withContent'}`}>
-			<div className={`admonitionHeading_FzoX ${props.title?.length > 0 ? 'withTitle' : ''}`}>
+		<div
+			className={`theme-admonition theme-admonition-roll admonition_o5H7 roll alert--roll ${!props.children ? "inline" : "withContent"}`}
+		>
+			<div
+				className={`admonitionHeading_FzoX ${props.title?.length > 0 ? "withTitle" : ""}`}
+			>
 				<span className="admonitionIcon_rXq6">
 					<Icon icon="mdi:die-d20" />
 				</span>
-				{props.title?.length > 0
-					? props.title
-					: translate({ message: "Roll" })}
+				{props.title?.length > 0 ? props.title : translate({ message: "Roll" })}
 			</div>
 			<div className="admonitionContent_Knsx">{props.children}</div>
 		</div>
 	);
 }
 
-
+function Warning(props) {
+	return (
+		<div
+			className={
+				"theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"
+			}
+		>
+			<div
+				className={`admonitionHeading_Gvgb ${props.title?.length > 0 ? "withTitle" : ""}`}
+			>
+				<span className="admonitionIcon_Rf37">
+					<Icon icon="fluent:warning-20-filled" />
+				</span>
+				{props.title?.length > 0
+					? props.title
+					: translate({ message: "Attention" })}
+			</div>
+			<div className="admonitionContent_Knsx">{props.children}</div>
+		</div>
+	);
+}
 
 function TLDR(props) {
 	return (
@@ -76,9 +100,7 @@ function Pin(props) {
 				<span className="admonitionIcon_rXq6">
 					<Icon icon="fluent:pin-20-filled" />
 				</span>
-				{props.title?.length > 0
-					? props.title
-					: translate({ message: "Pin" })}
+				{props.title?.length > 0 ? props.title : translate({ message: "Pin" })}
 			</div>
 			<div className="admonitionContent_Knsx">{props.children}</div>
 		</div>
@@ -93,6 +115,7 @@ const AdmonitionTypes = {
 	pin: Pin,
 	roll: Roll,
 	tldr: TLDR,
+	warning: Warning,
 };
 
 export default AdmonitionTypes;
