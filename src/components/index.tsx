@@ -9,34 +9,32 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
 	{
-		title: translate({ message: "Facile d'utilisation" }),
-		Image: require("@site/static/img/easy.png").default,
+		title: translate({ message: "Système de dés avancé" }),
+		Image: require("@site/static/img/dice.png").default,
 		description: (
 			<Translate>
-				Un simple bot discord qui ne nécessite pas de configuration pour
-				fonctionner ! Il suffit de l'ajouter à votre serveur pour commencer à
-				l'utiliser.
+				Lancez des dés avec des expressions complexes, créez des dés personnalisés
+				et organisez automatiquement les résultats dans des fils dédiés.
 			</Translate>
 		),
 	},
 	{
-		title: translate({ message: "Fiche de personnage" }),
+		title: translate({ message: "Gestion intelligente des personnages" }),
 		Image: require("@site/static/img/character.png").default,
 		description: (
 			<Translate>
-				Le bot permet aussi de configurer un modèle, des fiches de personnages
-				et de retenir des dés. Et en plus, vos données restent sur votre serveur
-				!
+				Créez des modèles adaptés à votre système de jeu et gérez vos fiches
+				de personnage avec un contrôle total sur vos données.
 			</Translate>
 		),
 	},
 	{
-		title: translate({ message: "Universel" }),
+		title: translate({ message: "Configuration flexible" }),
 		Image: require("@site/static/img/theme-park.png").default,
 		description: (
 			<Translate>
-				Le modèle est adaptable à l'infini, ce qui vous permet de configurer vos
-				fiches pour tout type de roleplay !
+				Personnalisez chaque aspect du bot : auto-rôles, gestion des scènes,
+				suppression HRP, et bien plus selon vos besoins.
 			</Translate>
 		),
 	},

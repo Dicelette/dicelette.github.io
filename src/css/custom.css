@@ -803,3 +803,30 @@ div:where(.swal2-container) button:where(.swal2-close.error):focus {
 div#swal2-html-container {
 	margin-left: 3rem !important;
 }
+
+/* --- Mark ---- */
+
+mark:has(code) {
+	background-color: transparent;
+	padding: 0;
+	border: 0;
+}
+
+mark {
+	padding: 0.2rem;
+	border-radius: 5px;
+	border: 1px solid #e4e482;
+}
+
+mark code {
+	background-color: yellow;
+	color: var(--ifm-code-color);
+	border-radius: 5px;
+	padding: 0.2rem 0.4rem;
+	font-family: var(--ifm-font-family-monospace);
+	font-size: 0.9rem;
+}
+
+mark.green code {
+	background-color: lightgreen;
+}

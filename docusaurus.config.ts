@@ -5,7 +5,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
 	title: "Dicelette",
-	tagline: "Un bot discord qui lance des dés dans des fils... Et bien plus !",
+	tagline: "Votre compagnon Discord pour des sessions de jeu de rôle fluides et immersives",
 	favicon: "img/dicelette.png",
 	url: "https://dicelette.github.io/",
 	baseUrl: "/",
@@ -26,8 +26,14 @@ const config: Config = {
 			{
 				docs: {
 					sidebarPath: "./sidebars.ts",
-					editUrl:
-						"https://github.com/Dicelette/dicelette.github.io/tree/main/",
+					editUrl: ({ locale, docPath }) => {
+						// Pour la locale par défaut (fr), on utilise le dossier docs
+						if (locale === "fr") {
+							return `https://github.com/Dicelette/fr-docs/tree/main/${docPath}`;
+						}
+						// Pour les autres locales, on utilise le dossier i18n
+						return `https://github.com/Dicelette/i18n/tree/main/${locale}/docusaurus-plugin-content-docs/current/${docPath}`;
+					},
 					admonitions: {
 						keywords: ["usage", "example", "pin", "roll", "tldr", "warning"],
 						extendDefaults: true,
