@@ -18,18 +18,23 @@ export function errorCode(error: Error) {
 				message:
 					"Le dé de critique est invalide : $ ne peut pas être utilisé sans statistiques.",
 			});
-		if (error.message === "no_dice_type")
+		if (error.cause === "no_dice_type")
 			return translate({
 				message:
 					"Les critiques customisés ne peuvent pas être utilisés sans dé type.",
 			});
-		if (error.message === "no_roll_result")
+		if (error.message === "no_roll_result" || error.cause === "no_roll_result")
 			return translate({
 				message:
-					'Le dé de compétence nommé "{{x}}" ("{{formule}}") ne semble pas être un dé.',
+					'La macro nommée "{{x}}" ("{{formule}}") ne semble pas être un dé.',
 			})
 				.replace("{{x}}", error.dice)
 				.replace("{{formule}}", error.method.toString());
+		if (error.cause === "critical_dice_type")
+			return translate({
+				message:
+					'Le dé type "{{x}}" ne peut pas contenir de critiques (ex: 1d100{cs:>=96}{cf:<=5}). Utilisez les critiques customisés à la place.',
+			}).replace("{{x}}", error.dice);
 		return translate({
 			message: 'Le dé "{{x}}" est invalide. Journalisation : {{error}}',
 		})
@@ -43,11 +48,11 @@ export function errorCode(error: Error) {
 		);
 	}
 	if (error instanceof MaxGreater) {
-		return translate({ message: "Le maximum est supérieur au minimum" });
+		return translate({ message: "Le maximum doit être supérieur au minimum" });
 	}
 	if (error instanceof EmptyObjectError) {
 		return translate({
-			message: "Les dés de capacités ont été mal renseignés.",
+			message: "Les macro ont été mal renseignées.",
 		});
 	}
 	if (error instanceof TooManyDice) {
