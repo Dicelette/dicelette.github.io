@@ -72,7 +72,7 @@ export default ({ values, setFieldValue }) => {
 						<Section
 							length={values.damages.length}
 							type="dice"
-							label={translate({ message: "Dés" })}
+							label={translate({ message: "Macros" })}
 							onAdd={() => push({ name: "", value: "" })}
 							children={""}
 						/>

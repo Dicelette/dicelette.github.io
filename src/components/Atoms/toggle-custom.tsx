@@ -50,7 +50,7 @@ const getProps = (
 		};
 	}
 	return {
-		title: translate({ message: "Utilisable sur les dés de compétences" }),
+		title: translate({ message: "Utilisable sur les macros" }),
 		value: "affectSkill",
 		icon: {
 			selected: "pepicons-pencil:sword-shield-circle",
