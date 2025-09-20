@@ -218,16 +218,21 @@ const TemplateForm: FC = () => {
 					<Statistics values={values} setFieldValue={setFieldValue} />
 					<Dice values={values} setFieldValue={setFieldValue} />
 					<CustomCritical values={values} setFieldValue={setFieldValue} />
-					{buttonDisabled(isSubmitting)}
-					<Button
-						type="button"
-						onClick={() => handleDownloadCSV(values)}
-						variant="outlined"
-						size="medium"
-						className="download-button csv-button"
+					<div
+						id={"form-buttons"}
+						className="flex justify-center gap-2 md:justify-start"
 					>
-						{translate({ message: "Télécharger le CSV" })}
-					</Button>
+						{buttonDisabled(isSubmitting)}
+						<Button
+							type="button"
+							onClick={() => handleDownloadCSV(values)}
+							variant="outlined"
+							size="medium"
+							className="download-button csv-button"
+						>
+							{translate({ message: "Télécharger le CSV" })}
+						</Button>
+					</div>
 				</Form>
 			)}
 		</Formik>

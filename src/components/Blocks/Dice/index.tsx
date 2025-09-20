@@ -86,6 +86,7 @@ export default ({ values, setFieldValue }) => {
 											className="divide-y block w-full"
 										>
 											{values.damages.map((_: unknown, index: number) => (
+												// biome-ignore lint/correctness/useJsxKeyInIterable: bruh
 												<RenderRow
 													duplicateIndices={duplicateIndices}
 													index={index}

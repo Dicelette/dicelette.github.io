@@ -22,7 +22,7 @@ const CopyIconButton = ({ onClick, size, maxLen, length }) => {
 	return (
 		<Tooltip
 			title={translate({ message: "Dupliquer ce champ" })}
-			classes={{ popper: length > maxLen ? "error-copy" : "copy-tooltip" }}
+			classes={{ popper: length >= maxLen ? "error-copy" : "copy-tooltip" }}
 			arrow
 		>
 			<IconButton
@@ -30,7 +30,7 @@ const CopyIconButton = ({ onClick, size, maxLen, length }) => {
 				size="small"
 				className={`manage-button !p-px relative top-2.5 min-[0px]:max-${sizeClass}:w-full`}
 				aria-label={translate({ message: "Dupliquer ce champ" })}
-				disabled={length > maxLen}
+				disabled={length >= maxLen}
 			>
 				<Icon
 					icon="system-uicons:duplicate"
@@ -42,7 +42,7 @@ const CopyIconButton = ({ onClick, size, maxLen, length }) => {
 	);
 };
 
-const CopyTextButton = ({ onClick, size }) => {
+const CopyTextButton = ({ onClick, size, maxLen, length }) => {
 	const sizeClass = size === 1280 ? "xl" : "2xl";
 	return (
 		<Button
@@ -52,6 +52,7 @@ const CopyTextButton = ({ onClick, size }) => {
 			size="medium"
 			aria-label={translate({ message: "Dupliquer ce champ" })}
 			title={translate({ message: "Dupliquer ce champ" })}
+			disabled={length >= maxLen}
 		>
 			<Icon
 				icon="system-uicons:duplicate"
@@ -67,7 +68,12 @@ const CopyButton: FC<CopyButtonProps> = ({ onClick, size, maxLen, length }) => {
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.down(size));
 	return matches ? (
-		<CopyTextButton onClick={onClick} size={size} />
+		<CopyTextButton
+			onClick={onClick}
+			size={size}
+			maxLen={maxLen}
+			length={length}
+		/>
 	) : (
 		<CopyIconButton
 			length={length}
