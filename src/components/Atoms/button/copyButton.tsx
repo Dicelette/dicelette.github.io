@@ -8,6 +8,7 @@ import {
 	useTheme,
 } from "@mui/material";
 import type { FC } from "react";
+import { useMemo } from "react";
 
 type CopyButtonProps = {
 	onClick: () => void;
@@ -16,7 +17,19 @@ type CopyButtonProps = {
 	length?: number;
 };
 
-const CopyIconButton = ({ onClick, size, maxLen, length }) => {
+type SubComponentProps = {
+	onClick: () => void;
+	size: number;
+	maxLen?: number;
+	length?: number;
+};
+
+const CopyIconButton = ({
+	onClick,
+	size,
+	maxLen,
+	length,
+}: SubComponentProps) => {
 	const sizeClass = size === 1280 ? "xl" : "2xl";
 
 	return (
@@ -42,7 +55,12 @@ const CopyIconButton = ({ onClick, size, maxLen, length }) => {
 	);
 };
 
-const CopyTextButton = ({ onClick, size, maxLen, length }) => {
+const CopyTextButton = ({
+	onClick,
+	size,
+	maxLen,
+	length,
+}: SubComponentProps) => {
 	const sizeClass = size === 1280 ? "xl" : "2xl";
 	return (
 		<Button
@@ -66,21 +84,22 @@ const CopyTextButton = ({ onClick, size, maxLen, length }) => {
 
 const CopyButton: FC<CopyButtonProps> = ({ onClick, size, maxLen, length }) => {
 	const theme = useTheme();
-	const matches = useMediaQuery(theme.breakpoints.down(size));
+
+	// Mémoriser le breakpoint pour éviter les re-rendus excessifs
+	const breakpoint = useMemo(() => theme.breakpoints.down(size), [theme, size]);
+	const matches = useMediaQuery(breakpoint);
+
+	// Mémoriser les props communes pour éviter les recréations inutiles
+	const commonProps = useMemo(
+		() => ({ onClick, size, maxLen, length }),
+		[onClick, size, maxLen, length],
+	);
+
+	// Retourner directement le composant approprié
 	return matches ? (
-		<CopyTextButton
-			onClick={onClick}
-			size={size}
-			maxLen={maxLen}
-			length={length}
-		/>
+		<CopyTextButton {...commonProps} />
 	) : (
-		<CopyIconButton
-			length={length}
-			maxLen={maxLen}
-			onClick={onClick}
-			size={size}
-		/>
+		<CopyIconButton {...commonProps} />
 	);
 };
 

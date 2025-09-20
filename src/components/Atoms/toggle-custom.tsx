@@ -2,6 +2,7 @@ import { translate } from "@docusaurus/Translate";
 import { Icon } from "@iconify/react";
 import { Tooltip, useMediaQuery, useTheme } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
+import { useMemo } from "react";
 
 type StandaloneToggleButtonProps = {
 	selected: boolean;
@@ -9,6 +10,13 @@ type StandaloneToggleButtonProps = {
 	size: number;
 	maxLen?: number;
 	length?: number;
+	opt: "naturalDice" | "affectSkill" | "excludedStat";
+};
+
+type SubComponentProps = {
+	selected: boolean;
+	onChange: () => void;
+	size: number;
 	opt: "naturalDice" | "affectSkill" | "excludedStat";
 };
 
@@ -60,7 +68,12 @@ const getProps = (
 	};
 };
 
-const StandaloneToggleIconButton = ({ selected, onChange, size, opt }) => {
+const StandaloneToggleIconButton = ({
+	selected,
+	onChange,
+	size,
+	opt,
+}: SubComponentProps) => {
 	const sizeClass = size === 1280 ? "xl" : "2xl";
 	const opts = getProps(opt);
 	return (
@@ -86,7 +99,12 @@ const StandaloneToggleIconButton = ({ selected, onChange, size, opt }) => {
 	);
 };
 
-const StandaloneToggleTextButton = ({ selected, onChange, size, opt }) => {
+const StandaloneToggleTextButton = ({
+	selected,
+	onChange,
+	size,
+	opt,
+}: SubComponentProps) => {
 	const sizeClass = size === 1280 ? "xl" : "2xl";
 	const opts = getProps(opt);
 	return (
@@ -116,20 +134,21 @@ export default function StandaloneToggleButton({
 	opt,
 }: StandaloneToggleButtonProps) {
 	const theme = useTheme();
-	const matches = useMediaQuery(theme.breakpoints.down(size));
+
+	// Mémoriser le breakpoint pour éviter les re-rendus excessifs
+	const breakpoint = useMemo(() => theme.breakpoints.down(size), [theme, size]);
+	const matches = useMediaQuery(breakpoint);
+
+	// Mémoriser les props communes pour éviter les recréations inutiles
+	const commonProps = useMemo(
+		() => ({ selected, onChange, size, opt }),
+		[selected, onChange, size, opt],
+	);
+
+	// Retourner directement le composant approprié
 	return matches ? (
-		<StandaloneToggleTextButton
-			selected={selected}
-			onChange={onChange}
-			size={size}
-			opt={opt}
-		/>
+		<StandaloneToggleTextButton {...commonProps} />
 	) : (
-		<StandaloneToggleIconButton
-			selected={selected}
-			onChange={onChange}
-			size={size}
-			opt={opt}
-		/>
+		<StandaloneToggleIconButton {...commonProps} />
 	);
 }

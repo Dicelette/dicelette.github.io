@@ -8,13 +8,19 @@ import {
 	useTheme,
 } from "@mui/material";
 import type { FC } from "react";
+import { useMemo } from "react";
 
 type RemoveButtonProps = {
 	onClick: () => void;
 	size: number;
 };
 
-const RemoveIconButton = ({ onClick, size }) => {
+type SubComponentProps = {
+	onClick: () => void;
+	size: number;
+};
+
+const RemoveIconButton = ({ onClick, size }: SubComponentProps) => {
 	const sizeClass = size === 1280 ? "xl" : "2xl";
 	return (
 		<Tooltip
@@ -34,7 +40,7 @@ const RemoveIconButton = ({ onClick, size }) => {
 	);
 };
 
-const RemoveTextButton = ({ onClick, size }) => {
+const RemoveTextButton = ({ onClick, size }: SubComponentProps) => {
 	const sizeClass = size === 1280 ? "xl" : "2xl";
 	return (
 		<Button
@@ -56,11 +62,19 @@ const RemoveTextButton = ({ onClick, size }) => {
 
 const RemoveButton: FC<RemoveButtonProps> = ({ onClick, size }) => {
 	const theme = useTheme();
-	const matches = useMediaQuery(theme.breakpoints.down(size));
+
+	// Mémoriser le breakpoint pour éviter les re-rendus excessifs
+	const breakpoint = useMemo(() => theme.breakpoints.down(size), [theme, size]);
+	const matches = useMediaQuery(breakpoint);
+
+	// Mémoriser les props communes pour éviter les recréations inutiles
+	const commonProps = useMemo(() => ({ onClick, size }), [onClick, size]);
+
+	// Retourner directement le composant approprié
 	return matches ? (
-		<RemoveTextButton onClick={onClick} size={size} />
+		<RemoveTextButton {...commonProps} />
 	) : (
-		<RemoveIconButton onClick={onClick} size={size} />
+		<RemoveIconButton {...commonProps} />
 	);
 };
 
