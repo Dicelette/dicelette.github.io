@@ -54,6 +54,8 @@ const DiceRow = ({
               id={`Dice-Nom-${index}`}
             />
             <ErrorMessage name={`damages[${index}].name`} />
+            {/* Tooltip duplication / nom vide placé dans la cellule pour éviter <div> direct sous <tr> */}
+            {errorTooltip(index, duplicateIndices, dice)}
           </td>
           <td className="p-2 min-[0px]:max-xl:w-full">
             <Tablefield
@@ -62,16 +64,15 @@ const DiceRow = ({
               className={`${nameError ? "error" : ""}`}
               id={`Value-${index}`}
             />
+            {nameError && (
+              <ReactTooltip
+                id={`Value-${index}`}
+                content={translate({ message: "La valeur ne peut pas être vide" })}
+                style={{ background: "var(--rt-color-error)" }}
+                anchorSelect={`#Value-${index}`}
+              />
+            )}
           </td>
-          {errorTooltip(index, duplicateIndices, dice)}
-          {nameError && (
-            <ReactTooltip
-              id={`Value-${index}`}
-              content={translate({ message: "La valeur ne peut pas être vide" })}
-              style={{ background: "var(--rt-color-error)" }}
-              anchorSelect={`#Value-${index}`}
-            />
-          )}
           <td className="p-px min-[0px]:max-2xl:p-2 table-cell min-[0px]:max-xl:w-full">
             <RemoveButton size={1280} onClick={() => remove(index)} />
           </td>
