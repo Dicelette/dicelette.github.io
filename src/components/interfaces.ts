@@ -14,6 +14,7 @@ type CriticalValues = {
 };
 
 export type DicesValues = {
+	id?: string; // id stable pour les listes (drag & memo)
 	name: string;
 	value: string;
 };
@@ -27,6 +28,7 @@ type StatisticValues = {
 };
 
 export type StatisticFields = {
+	id?: string; // id stable pour les listes (drag & memo)
 	min?: string;
 	max?: string;
 	combinaison?: string;

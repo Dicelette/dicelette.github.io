@@ -1,38 +1,38 @@
 import { translate } from "@docusaurus/Translate";
 import RenderRow from "@site/src/components/Blocks/customCritical/RenderRow";
 import { FieldArray } from "formik";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { DragDropContext, Droppable, DropResult } from "@hello-pangea/dnd";
 import { Section, Tablefield } from "../../Atoms";
 
 export default ({ values, setFieldValue }) => {
-	const [duplicateIndices, setDuplicateIndices] = useState([]);
+	const lastLengthRef = useRef(0);
 	useEffect(() => {
-		const findDuplicates = () => {
-			const duplicates = [];
-			values.customCritical.forEach((critical, index) => {
-				const isDuplicate = values.customCritical.findIndex(
-					(c, i) => i !== index && c.name === critical.name,
-				);
-				if (isDuplicate !== -1 && !duplicates.includes(index)) {
-					duplicates.push(index);
-					duplicates.push(isDuplicate);
-				}
-			});
-			setDuplicateIndices(duplicates);
-		};
-		findDuplicates();
+		if (values.customCritical.length > lastLengthRef.current) {
+			values.customCritical.forEach((c) => { if (!c.id) c.id = crypto.randomUUID(); });
+			lastLengthRef.current = values.customCritical.length;
+		}
 	}, [values.customCritical]);
 
-	const onDragEnd = (result: DropResult) => {
+	const duplicateIndices = useMemo(() => {
+		const map = new Map<string, number>();
+		const d: number[] = [];
+		values.customCritical.forEach((c, i) => {
+			if (!c.name) return;
+			const first = map.get(c.name);
+			if (first !== undefined) d.push(first, i); else map.set(c.name, i);
+		});
+		return Array.from(new Set(d));
+	}, [values.customCritical]);
+
+	const onDragEnd = useCallback((result: DropResult) => {
 		if (!result.destination) return;
-
-		const items = Array.from(values.customCritical);
-		const [reorderedItem] = items.splice(result.source.index, 1);
-		items.splice(result.destination.index, 0, reorderedItem);
-
+		if (result.source.index === result.destination.index) return;
+		const items = [...values.customCritical];
+		const [r] = items.splice(result.source.index, 1);
+		items.splice(result.destination.index, 0, r);
 		setFieldValue("customCritical", items);
-	};
+	}, [values.customCritical, setFieldValue]);
 
 	return (
 		<div className="statistic">
@@ -45,6 +45,7 @@ export default ({ values, setFieldValue }) => {
 							label={translate({ message: "Critiques Personnalisés" })}
 							onAdd={() =>
 								push({
+										id: crypto.randomUUID(),
 									selection: ">=",
 									name: "",
 									formula: "",
@@ -64,19 +65,17 @@ export default ({ values, setFieldValue }) => {
 											ref={provided.innerRef}
 											className="divide-y block w-full"
 										>
-											{values.customCritical.map(
-												(_: unknown, index: number) => (
-													<RenderRow
-														key={index}
-														index={index}
-														duplicateIndices={duplicateIndices}
-														push={push}
-														remove={remove}
-														customCritical={values.customCritical}
-														setFieldValue={setFieldValue}
-													/>
-												),
-											)}
+											{values.customCritical.map((_: unknown, index: number) => (
+												<RenderRow
+													key={values.customCritical[index].id || index}
+													index={index}
+													duplicateIndices={duplicateIndices}
+													push={push}
+													remove={remove}
+													customCritical={values.customCritical}
+													setFieldValue={setFieldValue}
+												/>
+											))}
 											{provided.placeholder}
 										</tbody>
 									)}

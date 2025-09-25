@@ -35,7 +35,7 @@ const General: FC = () => (
 					type="number"
 					inputProps={{ min: 0 }}
 					className={"flex-1"}
-					classMargin={"sm:!mb-4"}
+					classmargin={"sm:!mb-4"}
 				/>
 			</div>
 			<CheckBox

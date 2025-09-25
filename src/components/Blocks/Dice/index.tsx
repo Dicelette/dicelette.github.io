@@ -1,30 +1,30 @@
 import { translate } from "@docusaurus/Translate";
 import RenderRow from "@site/src/components/Blocks/Dice/RenderRow";
 import { FieldArray } from "formik";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { Section } from "../../Atoms";
 
 export default ({ values, setFieldValue }) => {
-	const [duplicateIndices, setDuplicateIndices] = useState([]);
+  const lastLengthRef = useRef(0);
+  useEffect(() => {
+    if (values.damages.length > lastLengthRef.current) {
+      values.damages.forEach((d) => { if (!d.id) d.id = crypto.randomUUID(); });
+      lastLengthRef.current = values.damages.length;
+    }
+  }, [values.damages]);
 
-	useEffect(() => {
-		const findDuplicates = () => {
-			const duplicates = [];
-			values.damages.forEach((stat, index) => {
-				const isDuplicate = values.damages.findIndex(
-					(s, i) => i !== index && s.name === stat.name,
-				);
-				if (isDuplicate !== -1 && !duplicates.includes(index)) {
-					duplicates.push(index);
-					duplicates.push(isDuplicate);
-				}
-			});
-			setDuplicateIndices(duplicates);
-		};
-		findDuplicates();
-	}, [values.damages]);
+  const duplicateIndices = useMemo(() => {
+    const map = new Map<string, number>();
+    const dups: number[] = [];
+    values.damages.forEach((d, i) => {
+      if (!d.name) return;
+      const first = map.get(d.name);
+      if (first !== undefined) dups.push(first, i); else map.set(d.name, i);
+    });
+    return Array.from(new Set(dups));
+  }, [values.damages]);
 
 	const errorTooltip = (index: number) => {
 		if (duplicateIndices.includes(index)) {
@@ -50,19 +50,14 @@ export default ({ values, setFieldValue }) => {
 		return null;
 	};
 
-	const onDragEnd = (result) => {
-		if (!result.destination) {
-			return;
-		}
-
-		const items = Array.from(values.damages);
-		const [reorderedItem] = items.splice(result.source.index, 1);
-		items.splice(result.destination.index, 0, reorderedItem);
-
-		// Update your state with the new order
-		// You might need to implement this function
-		setFieldValue("damages", items);
-	};
+  const onDragEnd = useCallback((result) => {
+    if (!result.destination) return;
+    if (result.source.index === result.destination.index) return;
+    const items = [...values.damages];
+    const [r] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, r);
+    setFieldValue("damages", items);
+  }, [values.damages, setFieldValue]);
 
 	return (
 		<div className="statistic">
@@ -73,7 +68,7 @@ export default ({ values, setFieldValue }) => {
 							length={values.damages.length}
 							type="dice"
 							label={translate({ message: "Macros" })}
-							onAdd={() => push({ name: "", value: "" })}
+								onAdd={() => push({ id: crypto.randomUUID(), name: "", value: "" })}
 							children={""}
 						/>
 						<table className="w-full">
@@ -86,8 +81,8 @@ export default ({ values, setFieldValue }) => {
 											className="divide-y block w-full"
 										>
 											{values.damages.map((_: unknown, index: number) => (
-												// biome-ignore lint/correctness/useJsxKeyInIterable: bruh
 												<RenderRow
+													key={values.damages[index].id || index}
 													duplicateIndices={duplicateIndices}
 													index={index}
 													dices={values.damages}
