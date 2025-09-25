@@ -1,37 +1,49 @@
 import { translate } from "@docusaurus/Translate";
 import RenderRow from "@site/src/components/Blocks/Statistics/RenderRow";
 import { FieldArray } from "formik";
-import { Key, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import { Section, Tablefield } from "../../Atoms";
 
 export default ({ values, setFieldValue }) => {
-	const [duplicateIndices, setDuplicateIndices] = useState([]);
-
+	// Ajouter un id stable si absent (fait une seule fois tant que la longueur augmente)
+	const lastLengthRef = useRef(0);
 	useEffect(() => {
-		const findDuplicates = () => {
-			const duplicates = [];
-			values.statistics.forEach((stat, index) => {
-				const isDuplicate = values.statistics.findIndex(
-					(s, i) => i !== index && s.name === stat.name,
-				);
-				if (isDuplicate !== -1 && !duplicates.includes(index)) {
-					duplicates.push(index);
-					duplicates.push(isDuplicate);
-				}
+		if (values.statistics.length > lastLengthRef.current) {
+			values.statistics.forEach((s) => {
+				if (!s.id) s.id = crypto.randomUUID();
 			});
-			setDuplicateIndices(duplicates);
-		};
-		findDuplicates();
+			lastLengthRef.current = values.statistics.length;
+		}
 	}, [values.statistics]);
 
-	const onDragEnd = (result) => {
-		if (!result.destination) return;
-		const items = Array.from(values.statistics);
-		const [reorderedItem] = items.splice(result.source.index, 1);
-		items.splice(result.destination.index, 0, reorderedItem);
-		setFieldValue("statistics", items);
-	};
+	// Détection O(n) des doublons via Map
+	const duplicateIndices = useMemo(() => {
+		const nameToFirstIndex = new Map<string, number>();
+		const dups: number[] = [];
+		values.statistics.forEach((stat, idx) => {
+			if (!stat.name) return; // on ignore vide ici, on gère ailleurs
+			const existing = nameToFirstIndex.get(stat.name);
+			if (existing !== undefined) {
+				dups.push(existing, idx);
+			} else {
+				nameToFirstIndex.set(stat.name, idx);
+			}
+		});
+		return Array.from(new Set(dups));
+	}, [values.statistics]);
+
+	const onDragEnd = useCallback(
+		(result) => {
+			if (!result.destination) return;
+			if (result.source.index === result.destination.index) return;
+			const items = [...values.statistics];
+			const [reorderedItem] = items.splice(result.source.index, 1);
+			items.splice(result.destination.index, 0, reorderedItem);
+			setFieldValue("statistics", items);
+		},
+		[values.statistics, setFieldValue],
+	);
 
 	return (
 		<div className="statistic">
@@ -44,8 +56,12 @@ export default ({ values, setFieldValue }) => {
 							label={translate({ message: "Statistiques" })}
 							onAdd={() =>
 								push({
+									id: crypto.randomUUID(),
 									name: "",
-									values: { min: 0, max: 0, combinaison: "", excluded: false },
+									min: "",
+									max: "",
+									combinaison: "",
+									excluded: false,
 								})
 							}
 							children={""}
@@ -61,7 +77,7 @@ export default ({ values, setFieldValue }) => {
 										>
 											{values.statistics.map((_: any, statIndex: number) => (
 												<RenderRow
-													key={statIndex}
+													key={values.statistics[statIndex].id || statIndex}
 													statIndex={statIndex}
 													duplicateIndices={duplicateIndices}
 													push={push}

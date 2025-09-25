@@ -62,6 +62,9 @@ const config: Config = {
 		},
 	],
 
+	// Injection de modules clients pour optimiser les events passifs
+	clientModules: [require.resolve('./src/passiveListeners.ts')],
+
 	themeConfig: {
 		image: "img/dice.png",
 		algolia: {
