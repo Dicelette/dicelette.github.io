@@ -5,7 +5,8 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
 	title: "Dicelette",
-	tagline: "Votre compagnon Discord pour des sessions de jeu de rôle fluides et immersives",
+	tagline:
+		"Votre compagnon Discord pour des sessions de jeu de rôle fluides et immersives",
 	favicon: "img/dicelette.png",
 	url: "https://dicelette.github.io/",
 	baseUrl: "/",
@@ -14,7 +15,11 @@ const config: Config = {
 	projectName: "dicelette.github.io",
 	trailingSlash: false,
 	onBrokenLinks: "warn",
-	onBrokenMarkdownLinks: "warn",
+	markdown: {
+		hooks: {
+			onBrokenMarkdownLinks: "warn",
+		},
+	},
 	i18n: {
 		defaultLocale: "fr",
 		locales: ["en", "fr"],
@@ -63,7 +68,7 @@ const config: Config = {
 	],
 
 	// Injection de modules clients pour optimiser les events passifs
-	clientModules: [require.resolve('./src/passiveListeners.ts')],
+	clientModules: [require.resolve("./src/passiveListeners.ts")],
 
 	themeConfig: {
 		image: "img/dice.png",
