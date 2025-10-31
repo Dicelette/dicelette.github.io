@@ -31,7 +31,7 @@ const RemoveIconButton = ({ onClick, size }: SubComponentProps) => {
 			<IconButton
 				onClick={onClick}
 				size="small"
-				className={`manage-button !p-px relative top-2.5 min-[0px]:max-${sizeClass}:w-full`}
+				className={`manage-button !p-px relative top-3.5 min-[0px]:max-${sizeClass}:w-full`}
 				aria-label={translate({ message: "Supprimer ce champ" })}
 			>
 				<Icon icon="lucide:delete" height="24" className="delete-button" />
