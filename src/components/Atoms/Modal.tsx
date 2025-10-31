@@ -17,7 +17,7 @@ const style = {
 
 export default function BasicModal() {
 	const [open, setOpen] = useState(true);
-	const handleOpen = () => setOpen(true);
+	const _handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 	return (
 		<div>

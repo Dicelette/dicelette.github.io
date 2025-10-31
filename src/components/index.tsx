@@ -13,8 +13,9 @@ const FeatureList: FeatureItem[] = [
 		Image: require("@site/static/img/dice.png").default,
 		description: (
 			<Translate>
-				Lancez des dés avec des expressions complexes, créez des dés personnalisés
-				et organisez automatiquement les résultats dans des fils dédiés.
+				Lancez des dés avec des expressions complexes, créez des dés
+				personnalisés et organisez automatiquement les résultats dans des fils
+				dédiés.
 			</Translate>
 		),
 	},
@@ -23,8 +24,8 @@ const FeatureList: FeatureItem[] = [
 		Image: require("@site/static/img/character.png").default,
 		description: (
 			<Translate>
-				Créez des modèles adaptés à votre système de jeu et gérez vos fiches
-				de personnage avec un contrôle total sur vos données.
+				Créez des modèles adaptés à votre système de jeu et gérez vos fiches de
+				personnage avec un contrôle total sur vos données.
 			</Translate>
 		),
 	},

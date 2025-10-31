@@ -1,5 +1,3 @@
-import type { Critical } from "@dicelette/core";
-
 type CustomCriticalValues = {
 	selection: ">" | ">=" | "<" | "<=" | "==" | "!=";
 	name: string;

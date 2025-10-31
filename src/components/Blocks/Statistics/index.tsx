@@ -1,9 +1,9 @@
 import { translate } from "@docusaurus/Translate";
+import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import RenderRow from "@site/src/components/Blocks/Statistics/RenderRow";
 import { FieldArray } from "formik";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import { Section, Tablefield } from "../../Atoms";
+import { useCallback, useEffect, useMemo, useRef } from "react";
+import { Section } from "../../Atoms";
 
 export default ({ values, setFieldValue }) => {
 	// Ajouter un id stable si absent (fait une seule fois tant que la longueur augmente)

@@ -1,6 +1,5 @@
-import type { FC } from "react";
-
 import { translate } from "@docusaurus/Translate";
+import type { FC } from "react";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { CheckBox, Section, Textfield } from "../Atoms";
 

@@ -1,7 +1,3 @@
-import { Button, Tooltip } from "@mui/material";
-import { Form, Formik } from "formik";
-import type { FC } from "react";
-
 import {
 	type Critical,
 	type CustomCritical as CustomCriticalType,
@@ -11,14 +7,17 @@ import {
 } from "@dicelette/core";
 import { translate } from "@docusaurus/Translate";
 import useIsBrowser from "@docusaurus/useIsBrowser";
+import { Button, Tooltip } from "@mui/material";
 import type { DataForm } from "@site/src/components/interfaces";
+import { Form, Formik } from "formik";
+import type { FC } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import CriticalValue from "./Blocks/CriticalValue";
+import CustomCritical from "./Blocks/customCritical";
 import Dice from "./Blocks/Dice";
 import General from "./Blocks/General";
 import Statistics from "./Blocks/Statistics";
-import CustomCritical from "./Blocks/customCritical";
 import { errorCode } from "./errorsTranslation";
 import { isNumber } from "./utils";
 
@@ -45,7 +44,7 @@ const downloadCSV = (data: DataForm) => {
 	URL.revokeObjectURL(url);
 };
 
-const handleDownloadCSV = (values) => {
+const _handleDownloadCSV = (values) => {
 	downloadCSV(values);
 };
 

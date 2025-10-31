@@ -1,7 +1,6 @@
 import { translate } from "@docusaurus/Translate";
 import { Icon } from "@iconify/react";
 import DefaultAdmonitionTypes from "@theme-original/Admonition/Types";
-import React from "react";
 
 function Usage(props) {
 	return (
