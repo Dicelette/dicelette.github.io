@@ -18,7 +18,7 @@ function HomepageHeader() {
 				</Heading>
 				<p className="hero__subtitle">
 					<Translate id="tagline" description="The tagline for the website">
-						Un bot discord qui lance des dés dans des fils... Et bien plus !
+						Un bot de dé hautement personnalisable pour toutes vos sessions de jeu de rôle !
 					</Translate>
 				</p>
 				<div className={styles.buttons}>

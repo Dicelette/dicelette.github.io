@@ -4,7 +4,7 @@ import { Tooltip as ReactTooltip } from "react-tooltip";
 import { CheckBox, Section, Textfield } from "../Atoms";
 
 const General: FC = () => (
-	<Section label="Général">
+	<Section label={translate({message:"Général"})}>
 		<CheckBox
 			className="self-start !ml-0 -mt-2"
 			label={translate({ message: "Rendre obligatoire le nom du personnage" })}

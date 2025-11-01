@@ -6,7 +6,7 @@ import {
 import { Section, Textfield } from "../../Atoms";
 
 export default ({ critical }) => (
-	<Section label="Critique">
+	<Section label={translate({message:"Critique"})}>
 		<Textfield
 			label={translate({ message: "Succès" })}
 			name="critical.success"
