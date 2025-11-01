@@ -40,6 +40,9 @@
 					}
 				}
 			},
+			"complexity": {
+				"noImportantStyles": "off"
+			},
 			"suspicious": {
 				"noArrayIndexKey": "off",
 				"noExplicitAny": "off",

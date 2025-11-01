@@ -96,17 +96,17 @@
 }
 
 /* --- LABEL PLACEHOLDER --- */
-.MuiTextField-root > label {
-	color: var(--ifm-color-content);
+.MuiTextField-root>label {
+	color: var(--ifm-color-content) !important;
 }
 
 .MuiOutlinedInput-input {
-	color: var(--ifm-color-content);
+	color: var(--ifm-color-content) !important;
 }
 
 /* -- Border on hover —- */
 .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
-	border-color: #1976d2;
+	border-color: #1976d2 !important;
 }
 
 /* --- TYPO --- */
@@ -129,11 +129,11 @@
 .MuiFormLabel-root-MuiInputLabel-root,
 .MuiFormLabel-root-MuiInputLabel-root,
 .MuiInputBase-input-MuiOutlinedInput-input {
-	color: var(--ifm-color-content);
+	color: var(--ifm-color-content) !important;
 }
 
 .MuiSvgIcon-root {
-	fill: var(--ifm-color-content);
+	fill: var(--ifm-color-content) !important;
 }
 
 .MuiPaper {
@@ -165,18 +165,13 @@ button.csv-button {
 }
 
 /* Hover states pour les boutons (icones, checkboxes) en dark et light */
-[data-theme="dark"]
-	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover,
+[data-theme="dark"] .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover,
 [data-theme="dark"] .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:hover {
 	background-color: rgba(245, 245, 245, 0.099);
 }
 
-[data-theme="light"]
-	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(
-		.copy-button
-	):hover,
-[data-theme="light"]
-	.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:has:not(.copy-button):hover {
+[data-theme="light"] .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(.copy-button):hover,
+[data-theme="light"] .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:has:not(.copy-button):hover {
 	background-color: rgba(0, 0, 0, 0.098);
 }
 
@@ -398,9 +393,7 @@ button.MuiButtonBase-root.delete-button:hover {
 	border-color: rgba(245, 245, 245, 0.273);
 }
 
-[data-theme="dark"]
-	.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover
-	.MuiOutlinedInput-notchedOutline {
+[data-theme="dark"] .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
 	border-color: rgb(245, 245, 245);
 }
 
@@ -409,9 +402,7 @@ button.MuiButtonBase-root.delete-button:hover {
 	opacity: 0.2;
 }
 
-label[data-shrink="false"]
-	+ .MuiInputBase-formControl
-	.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {
+label[data-shrink="false"]+.MuiInputBase-formControl .css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {
 	opacity: 0;
 }
 
@@ -438,7 +429,7 @@ input[type="number"] {
 		"TypoPRO Fantasque Sans Mono Regular", "Fira Code",
 		"Fantasque Sans Mono Regular", monospace;
 	font-variant-ligatures: contextual;
-	font-feature-settings: "calt" 1;
+	font-feature-settings: "calt"1;
 }
 
 /* --- ICONES TEXT-BUTTON --- */
@@ -540,8 +531,7 @@ table tr:nth-child(2n).error-bg {
 /* --- ADMONITIONS --- */
 .admonitionHeading_FzoX {
 	font:
-		var(--ifm-heading-font-weight) var(--ifm-h5-font-size) /
-		var(--ifm-heading-line-height) var(--ifm-heading-font-family);
+		var(--ifm-heading-font-weight) var(--ifm-h5-font-size) / var(--ifm-heading-line-height) var(--ifm-heading-font-family);
 	margin-bottom: 0.3rem;
 	text-transform: uppercase;
 }
@@ -785,8 +775,7 @@ table tr:nth-child(2n).error-bg {
 	padding-bottom: 0;
 }
 
-div:where(.swal2-container)
-	button:where(.swal2-styled).swal2-confirm.error:focus {
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm.error:focus {
 	box-shadow: 0 0 0 3px rgba(128, 20, 24, 0.405);
 }
 
