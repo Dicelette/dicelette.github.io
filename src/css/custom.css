@@ -210,11 +210,6 @@ button.MuiButtonBase-root.copy-button:hover {
 	background-color: var(--delete-button-bg);
 }
 
-/* Boutons manage-button */
-.MuiButtonBase-root.manage-button:not(.toggle) {
-	color: var(--ifm-color-content);
-}
-
 /* --- BOUTONS CUSTOM (Hors overrides MUI) --- */
 button.submit {
 	background-color: var(--ifm-color-primary-darkest);
