@@ -11,6 +11,7 @@ import { Button, Tooltip } from "@mui/material";
 import type { DataForm } from "@site/src/components/interfaces";
 import { Form, Formik } from "formik";
 import type { FC } from "react";
+import { useId } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import CriticalValue from "./Blocks/CriticalValue";
@@ -49,6 +50,9 @@ const _handleDownloadCSV = (values) => {
 };
 
 const TemplateForm: FC = () => {
+	const isBrowser = useIsBrowser();
+	const formButtonsId = useId();
+	const disabledButtonId = useId();
 	const downloadJSON = (data: DataForm) => {
 		//convert statistic to Statistic interface
 		const stat: Statistic = {};
@@ -155,7 +159,6 @@ const TemplateForm: FC = () => {
 	};
 
 	const detectAnyErrorClassInPage = () => {
-		const isBrowser = useIsBrowser();
 		if (!isBrowser) return false;
 		const errorClasses = document.getElementsByClassName("error");
 		const duplicateErrorClass = document.getElementsByClassName("error-bg");
@@ -175,7 +178,7 @@ const TemplateForm: FC = () => {
 						disabled={true}
 						variant="outlined"
 						size="medium"
-						id="disabledButton"
+						id={`disabledButton-${disabledButtonId}`}
 						className="download-button"
 					>
 						{translate({ message: "Télécharger le modèle" })}
@@ -218,7 +221,7 @@ const TemplateForm: FC = () => {
 					<Dice values={values} setFieldValue={setFieldValue} />
 					<CustomCritical values={values} setFieldValue={setFieldValue} />
 					<div
-						id={"form-buttons"}
+						id={`form-buttons-${formButtonsId}`}
 						className="flex justify-center gap-2 md:justify-start"
 					>
 						{buttonDisabled(isSubmitting)}

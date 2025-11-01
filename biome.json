@@ -7,23 +7,49 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**", "!**/*.md"]
+		"includes": [
+			"**",
+			"!**/*.md"
+		]
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab"
 	},
-	"assist": { "actions": { "source": { "organizeImports": "on" } } },
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true,
+			"style": {
+				"noDescendingSpecificity": "off"
+			},
 			"correctness": {
-				"noChildrenProp": "off"
+				"noChildrenProp": "off",
+				"useUniqueElementIds": {
+					"options": {
+						"excludedComponents": [
+							"Translate"
+						]
+					}
+				}
 			},
 			"suspicious": {
 				"noArrayIndexKey": "off",
-				"noExplicitAny": "off"
+				"noExplicitAny": "off",
+				"noUnknownAtRules": {
+					"options": {
+						"ignore": [
+							"tailwind"
+						]
+					}
+				}
 			}
 		}
 	},

@@ -2,11 +2,12 @@ import { translate } from "@docusaurus/Translate";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import RenderRow from "@site/src/components/Blocks/Dice/RenderRow";
 import { FieldArray } from "formik";
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef } from "react";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { Section } from "../../Atoms";
 
 export default ({ values, setFieldValue }) => {
+	const droppableId = useId();
 	const lastLengthRef = useRef(0);
 	useEffect(() => {
 		if (values.damages.length > lastLengthRef.current) {
@@ -81,7 +82,7 @@ export default ({ values, setFieldValue }) => {
 						/>
 						<table className="w-full">
 							<DragDropContext onDragEnd={onDragEnd}>
-								<Droppable droppableId="droppable">
+								<Droppable droppableId={`droppable-${droppableId}`}>
 									{(provided) => (
 										<tbody
 											{...provided.droppableProps}

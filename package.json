@@ -64,7 +64,7 @@
 		"node": ">=18.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.2.4",
+		"@biomejs/biome": "^2.3.2",
 		"@docusaurus/module-type-aliases": "^3.9.2",
 		"@docusaurus/theme-classic": "^3.9.2",
 		"@docusaurus/tsconfig": "^3.9.2",
