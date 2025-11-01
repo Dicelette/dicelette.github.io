@@ -20,7 +20,7 @@ const General: FC = () => {
 					label={""}
 					name="isCharNameRequired"
 					id={isCharNameId}
-					className="!ml-0"
+					className="ml-0!"
 				/>
 
 				<label htmlFor={isPrivateId} className="whitespace-normal">
@@ -33,7 +33,7 @@ const General: FC = () => {
 					})}
 					name="isPrivate"
 					id={isPrivateId}
-					className="!ml-0"
+					className="ml-0!"
 				/>
 			</div>
 			<ReactTooltip
@@ -51,7 +51,7 @@ const General: FC = () => {
 						type="number"
 						inputProps={{ min: 0 }}
 						className={"flex-1 w-150px"}
-						classmargin={"sm:!mb-4"}
+						classmargin={"sm:mb-4!"}
 					/>
 				</div>
 				<CheckBox

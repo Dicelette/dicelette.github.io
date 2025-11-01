@@ -1,13 +1,20 @@
 /* --- IMPORTS ET BASES --- */
-
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Karla:ital,wght@0,200..800;1,200..800&family=Recursive:wght@300..1000&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@import "tailwindcss";
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css"layer(theme) important;
+@import "tailwindcss/preflight.css"layer(base) important;
+@import "tailwindcss/utilities.css"layer(utilities) important;
+@custom-variant dark (&:is([data-theme="dark"] *));
+
+
+
+/* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
 
 /* --- VARIABLES --- */
 :root {
@@ -24,6 +31,7 @@
 	--ifm-color-primary-light: #a50fb6;
 	--ifm-color-primary-lighter: #ad10be;
 	--ifm-color-primary-lightest: #c312d7;
+	--ifm-color-primary-alpha: rgba(150, 14, 165, 0.1);
 
 	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 	--copy-button: rgb(170, 227, 246);
@@ -144,14 +152,59 @@
 	background-color: var(--lt-color-background-light);
 }
 
+[data-theme="light"] .clear-button {
+	border-color: var(--color-gray-400);
+	color: var(--color-gray-700);
+}
+
+[data-theme="light"] .clear-button:hover {
+	border-color: var(--color-gray-900);
+	color: var(--color-gray-900);
+	background-color: --alpha(var(--color-gray-900) / 10%);
+}
+
+[data-theme="dark"] .clear-button {
+	border-color: var(--color-gray-300);
+	color: var(--color-gray-300);
+}
+
+[data-theme="dark"] .clear-button:hover {
+	border-color: var(--color-gray-100);
+	color: var(--color-gray-100);
+	background-color: --alpha(var(--color-gray-100) / 10%);
+}
+
+/* Import JSON */
+[data-theme="light"] .import-button {
+	border-color: var(--color-blue-400);
+	color: var(--color-blue-700);
+}
+
+[data-theme="light"] .import-button:hover {
+	border-color: var(--color-blue-900);
+	color: var(--color-blue-900);
+	background-color: --alpha(var(--color-blue-900) / 10%);
+}
+
+[data-theme="dark"] .import-button {
+	border-color: var(--color-blue-300);
+	color: var(--color-blue-300);
+}
+
+[data-theme="dark"] .import-button:hover {
+	border-color: var(--color-blue-200);
+	color: var(--color-blue-200);
+	background-color: --alpha(var(--color-blue-200) / 10%);
+}
+
 /* --- MUI BUTTON STATES --- */
-.MuiButtonBase-root:not(.toggle) {
+.MuiButtonBase-root:not(.toggle, .import-button, .clear-button) {
 	background-color: var(--ifm-color-primary-darkest);
 	color: var(--ifm-color-primary-darkest);
 }
 
-.MuiButtonBase-root:not(.toggle):hover {
-	background-color: transparent;
+.MuiButtonBase-root:not(.toggle, .import-button, .clear-button):hover {
+	background-color: var(--ifm-color-primary-alpha);
 	color: var(--ifm-color-primary-darker);
 }
 
@@ -176,7 +229,10 @@ button.csv-button {
 }
 
 /* Boutons MUI simples (non .simple-button, non .toggle) */
-.MuiButtonBase-root:not(.simple-button, .toggle) {
+.MuiButtonBase-root:not(.simple-button,
+	.toggle,
+	.import-button,
+	.clear-button) {
 	color: var(--ifm-color-primary);
 	border-color: var(--ifm-color-primary);
 	background-color: var(--lt-color-background);
@@ -830,4 +886,10 @@ mark code {
 
 mark.green code {
 	background-color: lightgreen;
+}
+
+:where(.navbar__item, .footer__link-item, .theme-doc-footer) svg {
+	display: inline-block;
+	vertical-align: -0.125em;
+	line-height: 1;
 }
