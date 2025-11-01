@@ -87,7 +87,7 @@ const StandaloneToggleIconButton = ({
 				size={"small"}
 				onChange={onChange}
 				selected={selected}
-				className={`manage-button !p-px relative top-1 min-[0px]:max-${sizeClass}:w-full toggle !border-[0px] align-middle ${opts.class}`}
+				className={`manage-button p-px! relative top-1 min-[0px]:max-${sizeClass}:w-full toggle border-0! align-middle ${opts.class}`}
 			>
 				<Icon
 					icon={selected ? opts.icon.selected : opts.icon.unselected}
@@ -110,7 +110,7 @@ const StandaloneToggleTextButton = ({
 	return (
 		<ToggleButton
 			value={opts.value}
-			className={`!p-1 relative ${sizeClass}:top-2.5 min-[0px]:max-${sizeClass}:w-full toggle-button toggle ${opts.class}`}
+			className={`p-1! relative ${sizeClass}:top-2.5 min-[0px]:max-${sizeClass}:w-full toggle-button toggle ${opts.class}`}
 			size="small"
 			selected={selected}
 			onChange={onChange}

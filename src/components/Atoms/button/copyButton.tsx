@@ -41,7 +41,7 @@ const CopyIconButton = ({
 			<IconButton
 				onClick={onClick}
 				size="small"
-				className={`manage-button !p-px relative top-2.5 min-[0px]:max-${sizeClass}:w-full`}
+				className={`manage-button p-px! relative top-2.5 min-[0px]:max-${sizeClass}:w-full`}
 				aria-label={translate({ message: "Dupliquer ce champ" })}
 				disabled={length >= maxLen}
 			>
@@ -65,7 +65,7 @@ const CopyTextButton = ({
 	return (
 		<Button
 			onClick={onClick}
-			className={`!p-1 relative ${sizeClass}:top-2.5 min-[0px]:max-${sizeClass}:w-full copy-button`}
+			className={`p-1! relative ${sizeClass}:top-2.5 min-[0px]:max-${sizeClass}:w-full copy-button`}
 			variant="outlined"
 			size="medium"
 			aria-label={translate({ message: "Dupliquer ce champ" })}
