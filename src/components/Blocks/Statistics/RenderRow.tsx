@@ -119,7 +119,7 @@ const StatisticsRow = ({
 							onChange={() =>
 								setFieldValue(`statistics[${statIndex}].excluded`, !excluded)
 							}
-							size={1280}
+							size={1536}
 							opt={"excludedStat"}
 						/>
 					</td>

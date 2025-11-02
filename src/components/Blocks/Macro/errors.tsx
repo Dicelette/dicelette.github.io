@@ -1,11 +1,11 @@
 import { translate } from "@docusaurus/Translate";
-import type { DicesValues } from "@site/src/components/interfaces";
+import type { MacroValues } from "@site/src/components/interfaces";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 
 export const errorTooltip = (
 	index: number,
 	duplicateIndices: number[],
-	dice: DicesValues,
+	dice: MacroValues,
 ) => {
 	if (duplicateIndices.includes(index)) {
 		return (

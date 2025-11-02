@@ -11,7 +11,7 @@ type CriticalValues = {
 	failure?: number | string;
 };
 
-export type DicesValues = {
+export type MacroValues = {
 	id?: string; // id stable pour les listes (drag & memo)
 	name: string;
 	value: string;
@@ -41,7 +41,7 @@ export type DataForm = {
 	total?: number | string;
 	diceType?: string;
 	critical?: CriticalValues;
-	damages: DicesValues[];
+	damages: MacroValues[];
 	customCritical: CustomCriticalValues[];
 	forceDistrib?: boolean;
 };

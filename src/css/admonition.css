@@ -1,0 +1,242 @@
+@import "./variables.css";
+
+/* --- ADMONITIONS --- */
+.admonitionHeading_FzoX {
+	font:
+		var(--ifm-heading-font-weight) var(--ifm-h5-font-size) /
+		var(--ifm-heading-line-height) var(--ifm-heading-font-family);
+	margin-bottom: 0.3rem;
+	text-transform: uppercase;
+}
+
+.withTitle {
+	font-weight: normal;
+	text-transform: none;
+}
+
+.admonitionIcon_rXq6 {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 0.4em;
+}
+
+.admonitionIcon_rXq6 svg {
+	display: inline-block;
+	height: 1.6em;
+	width: 1.6em;
+	fill: var(--ifm-alert-foreground-color);
+}
+
+.theme-admonition {
+	margin-bottom: 1em;
+}
+
+/* --- USAGE ALERTES --- */
+.usage {
+	--ifm-code-background: var(--ifm-alert-background-color-highlight);
+	--ifm-link-color: var(--ifm-alert-foreground-color);
+	--ifm-link-hover-color: var(--ifm-alert-foreground-color);
+	--ifm-link-decoration: underline;
+	--ifm-tabs-color: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active-border: var(--ifm-alert-border-color);
+	background-color: var(--ifm-alert-background-color);
+	border: var(--ifm-alert-border-width) solid var(--ifm-alert-border-color);
+	border-left-width: var(--ifm-alert-border-left-width);
+	border-radius: var(--ifm-alert-border-radius);
+	box-shadow: var(--ifm-alert-shadow);
+	color: var(--ifm-alert-foreground-color);
+	padding: var(--ifm-alert-padding-vertical) var(--ifm-alert-padding-horizontal);
+}
+
+[data-theme="dark"] .alert--usage {
+	--ifm-alert-background-color: rgba(152, 225, 184, 0.197);
+	--ifm-alert-background-color-highlight: rgba(0, 25, 51, 0.115);
+	--ifm-alert-foreground-color: rgb(220, 220, 220);
+	--ifm-alert-border-color: rgb(255, 240, 230);
+}
+
+.alert--usage {
+	--ifm-alert-background-color: rgba(127, 135, 130, 0.2);
+	--ifm-alert-background-color-highlight: rgba(6, 27, 48, 0.054);
+	--ifm-alert-foreground-color: rgb(120, 119, 119);
+	--ifm-alert-border-color: rgb(93, 82, 75);
+}
+
+.alert--example {
+	--ifm-alert-background-color: rgba(138, 176, 167, 0.29);
+	--ifm-alert-background-color-highlight: rgba(6, 27, 48, 0.054);
+	--ifm-alert-foreground-color: rgb(225, 225, 234);
+	--ifm-alert-border-color: rgb(138, 176, 167);
+}
+
+/* --- EXAMPLE ALERTES --- */
+
+[data-theme="dark"] .alert--example {
+	--ifm-alert-background-color: rgb(131, 159, 162);
+	--ifm-alert-background-color-highlight: rgba(0, 25, 51, 0.115);
+	--ifm-alert-foreground-color: rgb(220, 220, 220);
+	--ifm-alert-border-color: rgb(138, 176, 167);
+}
+
+.example {
+	--ifm-code-background: var(--ifm-alert-background-color-highlight);
+	--ifm-link-color: var(--ifm-alert-foreground-color);
+	--ifm-link-hover-color: var(--ifm-alert-foreground-color);
+	--ifm-link-decoration: underline;
+	--ifm-tabs-color: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active-border: var(--ifm-alert-border-color);
+	background-color: var(--ifm-alert-background-color);
+	border: var(--ifm-alert-border-width) solid var(--ifm-alert-border-color);
+	border-left-width: var(--ifm-alert-border-left-width);
+	border-radius: var(--ifm-alert-border-radius);
+	box-shadow: var(--ifm-alert-shadow);
+	color: black;
+	padding: var(--ifm-alert-padding-vertical) var(--ifm-alert-padding-horizontal);
+}
+
+.example .admonitionHeading_FzoX code {
+	text-transform: none;
+}
+
+.example a {
+	color: var(--example-a-color);
+}
+
+/* --- ROLL ALERT --- */
+
+.alert--roll {
+	--ifm-alert-background-color: transparent;
+	/* Fond transparent */
+	--ifm-alert-background-color-highlight: transparent;
+	/* Fond transparent */
+	--ifm-alert-foreground-color: rgb(25, 25, 112);
+	/* Midnight Blue */
+	--ifm-alert-border-color: rgb(65, 105, 225);
+	/* Royal Blue */
+}
+
+[data-theme="dark"] .alert--roll {
+	--ifm-alert-background-color: transparent;
+	/* Fond transparent */
+	--ifm-alert-background-color-highlight: transparent;
+	/* Fond transparent */
+	--ifm-alert-foreground-color: rgb(240, 248, 255);
+	/* Alice Blue */
+	--ifm-alert-border-color: rgb(100, 149, 237);
+	/* Cornflower Blue */
+}
+
+.roll {
+	--ifm-code-background: var(--ifm-alert-background-color-highlight);
+	--ifm-link-color: var(--ifm-alert-foreground-color);
+	--ifm-link-hover-color: var(--ifm-alert-foreground-color);
+	--ifm-link-decoration: underline;
+	--ifm-tabs-color: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active-border: var(--ifm-alert-border-color);
+	background-color: var(--ifm-alert-background-color);
+	border: 1px solid var(--ifm-alert-border-color);
+	border-left-width: 4px;
+	border-radius: var(--ifm-alert-border-radius, 5px);
+	box-shadow: var(--ifm-alert-shadow, none);
+	color: var(--ifm-alert-foreground-color);
+	padding: 0.2rem 0.5rem;
+}
+
+.roll.inline {
+	display: flex;
+	align-items: center;
+}
+
+.roll .admonitionHeading_FzoX code {
+	text-transform: none;
+}
+
+.roll.inline .admonitionIcon_rXq6 {
+	display: inline-flex;
+	align-items: center;
+	margin-right: 0.5rem;
+}
+
+.roll.withContent .admonitionContent_Knsx {
+	margin-left: 1rem;
+}
+
+.roll.withContent .admonitionContent_Knsx p {
+	margin: 0;
+}
+
+.roll .admonitionHeading_FzoX {
+	margin: 0;
+}
+
+.roll a {
+	color: var(--ifm-alert-foreground-color);
+}
+
+/* --- TLDR ALERT --- */
+
+.alert--tldr {
+	--ifm-alert-background-color: rgba(255, 223, 186, 0.3);
+	/* Light orange */
+	--ifm-alert-background-color-highlight: rgba(255, 223, 186, 0.2);
+	--ifm-alert-foreground-color: rgb(128, 64, 0);
+	/* Dark orange */
+	--ifm-alert-border-color: rgb(255, 165, 0);
+	/* Orange */
+}
+
+[data-theme="dark"] .alert--tldr {
+	--ifm-alert-background-color: rgba(255, 140, 0, 0.3);
+	/* Darker orange */
+	--ifm-alert-background-color-highlight: rgba(255, 140, 0, 0.2);
+	--ifm-alert-foreground-color: rgb(255, 223, 186);
+	/* Light orange */
+	--ifm-alert-border-color: rgb(255, 140, 0);
+	/* Darker orange */
+}
+
+.tldr {
+	--ifm-code-background: var(--ifm-alert-background-color-highlight);
+	--ifm-link-color: var(--ifm-alert-foreground-color);
+	--ifm-link-hover-color: var(--ifm-alert-foreground-color);
+	--ifm-link-decoration: underline;
+	--ifm-tabs-color: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active: var(--ifm-alert-foreground-color);
+	--ifm-tabs-color-active-border: var(--ifm-alert-border-color);
+	background-color: var(--ifm-alert-background-color);
+	border: 1px solid var(--ifm-alert-border-color);
+	border-left-width: 4px;
+	border-radius: var(--ifm-alert-border-radius, 5px);
+	box-shadow: var(--ifm-alert-shadow, none);
+	color: var(--ifm-alert-foreground-color);
+	padding: 0.2rem 0.5rem;
+}
+
+.tldr .admonitionHeading_FzoX code {
+	text-transform: none;
+}
+
+.tldr .admonitionIcon_rXq6 {
+	margin-right: 0.5rem;
+}
+
+.tldr .admonitionHeading_FzoX {
+	margin: 0;
+}
+
+.tldr a {
+	color: var(--ifm-alert-foreground-color);
+}
+
+/* ---- Pin --- */
+.pin .admonitionHeading_FzoX {
+	text-transform: none;
+}
+
+.pin .admonitionIcon_rXq6 svg {
+	--ifm-alert-foreground-color: rgb(85, 117, 120);
+	color: var(--ifm-alert-foreground-color);
+}

@@ -1,0 +1,532 @@
+@import "./variables.css";
+@import "./tailwind.css";
+
+:root {
+	--copy-button: rgb(170, 227, 246);
+	--copy-button-bg: rgba(var(--copy-button), 0.44);
+	--copy-button-bg-darker: rgba(170, 227, 246, 0.44);
+	--delete-button: rgb(213, 48, 53);
+	--delete-button-bg: rgba(var(--delete-button), 0.44);
+	--delete-button-bg-darker: rgba(205, 109, 109, 0.25);
+	--error: rgb(232, 54, 54);
+	--error-bg: rgba(var(--error), 0.3);
+	--error-n2: rgb(231, 67, 67);
+	--error-bg-n2: rgba(var(--error-n2), 0.424);
+	--copy-tooltip: rgb(63, 160, 192);
+	--danger-summary: rgba(255, 166, 0, 0.173);
+	--danger-summary-color: rgb(194, 139, 36);
+	--onNatDice-bg: rgba(101, 156, 220, 0.26);
+	--onNatDice-bg-darker: rgba(101, 156, 220, 0.5);
+	--onNatDice: rgb(80, 115, 205);
+	--onNatDice-darker: rgb(59, 82, 158);
+
+	--affectSkill-bg: rgba(146, 25, 91, 0.15);
+	--affectSkill-bg-darker: rgba(220, 146, 187, 0.55);
+	--affectSkill: rgb(207, 98, 157);
+	--affectSkill-darker: rgb(110, 14, 66);
+
+	--excludedStat-bg: rgba(111, 122, 124, 0.15);
+	--excludedStat-bg-darker: rgba(111, 122, 124, 0.25);
+	--excludedStat: rgb(67, 101, 119);
+	--excludedStat-darker: rgb(86, 96, 101);
+	--example-a-color: rgb(39, 71, 107);
+}
+
+[data-theme="dark"] {
+	--copy-button: rgb(170, 227, 246);
+	--copy-button-bg: rgba(var(--copy-button), 0.3);
+	--copy-button-bg-darker: rgba(122, 197, 223, 0.22);
+	--delete-button: rgb(228, 69, 76);
+	--delete-button-bg: rgba(var(--delete-button), 0.3);
+	--error: rgb(233, 43, 43);
+	--error-bg: rgba(var(--error), 0.111);
+	--error-n2: rgb(222, 138, 138);
+	--error-bg-n2: rgba(var(--error-n2), 0.173);
+	--copy-tooltip: rgb(63, 160, 192);
+	--danger-summary: rgba(255, 166, 0, 0.458);
+	--danger-summary-color: rgb(246, 228, 196);
+
+	--onNatDice-bg: rgba(185 205 228 / 15%);
+	--onNatDice-bg-darker: rgba(71, 88, 110, 0.38);
+	--onNatDice: rgb(80, 115, 205);
+	--onNatDice-darker: rgb(98, 116, 182);
+
+	--affectSkill-bg: rgba(146, 25, 91, 0.15);
+	--affectSkill-bg-darker: rgba(146, 25, 91, 0.25);
+	--affectSkill: rgb(207, 98, 157);
+	--affectSkill-darker: rgb(178, 59, 127);
+
+	--excludedStat-bg: rgba(111, 122, 124, 0.15);
+	--excludedStat-bg-darker: rgba(111, 122, 124, 0.55);
+	--excludedStat: rgb(67, 101, 119);
+	--excludedStat-darker: rgb(86, 96, 101);
+	--example-a-color: rgb(19 40 63 / 48%);
+}
+
+/* --- LABEL PLACEHOLDER --- */
+.MuiTextField-root > label {
+	color: var(--ifm-color-content) !important;
+}
+
+.MuiOutlinedInput-input {
+	color: var(--ifm-color-content) !important;
+}
+
+/* -- Border on hover —- */
+.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+	border-color: #1976d2 !important;
+}
+
+.MuiTypography-root {
+	font-family: var(--ifm-font-family-base), cursive;
+}
+
+.MuiInputBase-input,
+.MuiFormLabel-root,
+.MuiTypography-root-MuiDialogTitle-root,
+.MuiOutlinedInput-notchedOutline,
+.MuiInputBase-root-MuiOutlinedInput-root,
+.MuiFormLabel-root-MuiInputLabel-root,
+.MuiFormLabel-root-MuiInputLabel-root,
+.MuiInputBase-input-MuiOutlinedInput-input {
+	color: var(--ifm-color-content) !important;
+}
+
+.MuiSvgIcon-root {
+	fill: var(--ifm-color-content) !important;
+}
+
+.MuiPaper {
+	background-color: var(--ifm-background-color);
+}
+
+[data-theme="light"] .MuiPaper {
+	background-color: var(--lt-color-background-light);
+}
+
+/* --- MUI BUTTON STATES --- */
+.MuiButtonBase-root:not(.toggle, .import-button, .clear-button) {
+	background-color: var(--ifm-color-primary-darkest);
+	color: var(--ifm-color-primary-darkest);
+}
+
+.MuiButtonBase-root:not(.toggle, .import-button, .clear-button):hover {
+	background-color: var(--ifm-color-primary-alpha);
+	color: var(--ifm-color-primary-darker);
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-colorPrimary.download-button.css-1rwt2y5-MuiButtonBase-root-MuiButton-root:hover {
+	background-color: var(--ifm-color-primary-darkest);
+	color: var(--ifm-color-secondary-dark);
+}
+
+button.csv-button {
+	margin-left: 15px;
+}
+
+/* Hover states pour les boutons (icones, checkboxes) en dark et light */
+[data-theme="dark"]
+	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover,
+[data-theme="dark"] .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:hover {
+	background-color: rgba(245, 245, 245, 0.099);
+}
+
+[data-theme="light"]
+	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(
+		.copy-button
+	):hover,
+[data-theme="light"]
+	.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:has:not(.copy-button):hover {
+	background-color: rgba(0, 0, 0, 0.098);
+}
+
+[data-theme="light"] .clear-button {
+	border-color: var(--color-gray-400);
+	color: var(--color-gray-700);
+}
+
+[data-theme="light"] .clear-button:hover {
+	border-color: var(--color-gray-900);
+	color: var(--color-gray-900);
+	background-color: var(--color-gray-900) / 30;
+}
+
+[data-theme="dark"] .clear-button {
+	border-color: var(--color-gray-300);
+	color: var(--color-gray-300);
+}
+
+[data-theme="dark"] .clear-button:hover {
+	border-color: var(--color-gray-100);
+	color: var(--color-gray-100);
+	background-color: var(--color-gray-100) / 40;
+}
+
+[data-theme="light"] .import-button {
+	border-color: var(--color-blue-400);
+	color: var(--color-blue-700);
+}
+
+[data-theme="light"] .import-button:hover {
+	border-color: var(--color-blue-900);
+	color: var(--color-blue-900);
+	background-color: --alpha(var(--color-blue-900) / 10%);
+}
+
+[data-theme="dark"] .import-button {
+	border-color: var(--color-blue-300);
+	color: var(--color-blue-300);
+}
+
+[data-theme="dark"] .import-button:hover {
+	border-color: var(--color-blue-200);
+	color: var(--color-blue-200);
+	background-color: --alpha(var(--color-blue-200) / 10%);
+}
+
+/* Boutons MUI simples (non .simple-button, non .toggle) */
+.MuiButtonBase-root:not(
+		.simple-button,
+		.toggle,
+		.import-button,
+		.clear-button
+	) {
+	color: var(--ifm-color-primary);
+	border-color: var(--ifm-color-primary);
+	background-color: var(--lt-color-background);
+}
+
+/* MUI Buttons states pour copy-button et delete-button */
+.MuiButton-outlined.copy-button {
+	color: var(--ifm-color-info-darkest);
+	border-color: var(--ifm-color-info-darkest);
+}
+
+.MuiButton-outlined.copy-button:hover {
+	color: var(--ifm-color-info-darker);
+	border-color: var(--copy-button-bg);
+	background-color: var(--copy-button-bg);
+}
+
+button.MuiButtonBase-root.copy-button:hover {
+	color: var(--ifm-color-info-darker);
+	background-color: var(--copy-button-bg-darker);
+}
+
+.MuiButton-outlined.delete-button {
+	color: var(--ifm-color-danger-darkest);
+	border-color: var(--ifm-color-danger-darkest);
+}
+
+.MuiButton-outlined.delete-button:hover {
+	color: var(--ifm-color-danger-darkest);
+	border-color: var(--delete-button-bg);
+	background-color: var(--delete-button-bg);
+}
+
+/* --- BOUTONS CUSTOM (Hors overrides MUI) --- */
+button.submit {
+	background-color: var(--ifm-color-primary-darkest);
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 1.2rem;
+	display: grid;
+	place-items: center;
+	width: 100%;
+	cursor: pointer;
+}
+
+button.submit:hover {
+	background-color: var(--ifm-color-primary-darker);
+}
+
+.simple-button {
+	border: none;
+}
+
+.toggle {
+	text-transform: none;
+}
+
+/* copy-button simple */
+.copy-button {
+	color: var(--ifm-color-info-darkest);
+}
+
+.copy-button:hover {
+	color: var(--ifm-color-info-light);
+	background-color: transparent;
+}
+
+/* delete-button simple */
+.delete-button {
+	color: var(--ifm-color-danger-darkest);
+}
+
+.delete-button:hover {
+	color: var(--ifm-color-danger-light);
+}
+
+/* onNatDice simple */
+.onNatDice {
+	color: var(--onNatDice);
+}
+
+.onNatDice.toggle.Mui-selected {
+	background-color: var(--onNatDice-bg);
+	color: var(--onNatDice-darker);
+}
+
+.onNatDice.toggle:hover {
+	background-color: var(--onNatDice-bg-darker);
+	color: var(--onNatDice-darker);
+}
+
+.onNatDice.checked {
+	color: var(--onNatDice-darker);
+}
+
+/* MUI Buttons pour .onNatDice */
+.MuiButtonBase-root.onNatDice {
+	color: var(--onNatDice);
+	border-color: var(--onNatDice-bg);
+}
+
+.MuiButtonBase-root.onNatDice:hover {
+	background-color: var(--onNatDice-bg);
+	color: var(--onNatDice-darker);
+}
+
+.MuiButtonBase-root.onNatDice.Mui-selected {
+	background-color: var(--onNatDice-bg);
+	color: var(--onNatDice-darker);
+}
+
+.MuiButtonBase-root.onNatDice.Mui-selected:hover {
+	background-color: var(--onNatDice-bg-darker);
+	color: var(--onNatDice-darker);
+}
+
+/* ----- affect skill ----- */
+
+.affectSkill {
+	color: var(--affectSkill);
+}
+
+.affectSkill.toggle.Mui-selected {
+	background-color: var(--affectSkill-bg);
+	color: var(--affectSkill-darker);
+}
+
+.affectSkill.toggle:hover {
+	background-color: var(--affectSkill-bg-darker);
+	color: var(--affectSkill-darker);
+}
+
+.affectSkill.checked {
+	color: var(--affectSkill-darker);
+}
+
+/* MUI Buttons pour .affectSkill */
+.MuiButtonBase-root.affectSkill {
+	color: var(--affectSkill);
+	border-color: var(--affectSkill-bg);
+}
+
+.MuiButtonBase-root.affectSkill:hover {
+	background-color: var(--affectSkill-bg);
+	color: var(--affectSkill-darker);
+}
+
+.MuiButtonBase-root.affectSkill.Mui-selected {
+	background-color: var(--affectSkill-bg);
+	color: var(--affectSkill-darker);
+}
+
+.MuiButtonBase-root.affectSkill.Mui-selected:hover {
+	background-color: var(--affectSkill-bg-darker);
+	color: var(--affectSkill-darker);
+}
+
+/* ----- Excluded stat ----- */
+
+.excludedStat {
+	color: var(--excludedStat);
+}
+
+.excludedStat.toggle.Mui-selected {
+	background-color: var(--excludedStat-bg);
+	color: var(--excludedStat-darker);
+}
+
+.excludedStat.toggle:hover {
+	background-color: var(--excludedStat-bg-darker);
+	color: var(--excludedStat-darker);
+}
+
+.excludedStat.checked {
+	color: var(--excludedStat-darker);
+}
+
+/* MUI Buttons pour .excludedStat */
+.MuiButtonBase-root.excludedStat {
+	color: var(--excludedStat);
+	border-color: var(--excludedStat-bg);
+}
+
+.MuiButtonBase-root.excludedStat:hover {
+	background-color: var(--excludedStat-bg);
+	color: var(--excludedStat-darker);
+}
+
+.MuiButtonBase-root.excludedStat.Mui-selected {
+	background-color: var(--excludedStat-bg);
+	color: var(--excludedStat-darker);
+}
+
+.MuiButtonBase-root.excludedStat.Mui-selected:hover {
+	background-color: var(--excludedStat-bg-darker);
+	color: var(--excludedStat-darker);
+}
+
+/* Autres états bouton delete */
+button.MuiButtonBase-root.delete-button:hover {
+	color: var(--ifm-color-danger-darkest);
+	background-color: var(--delete-button-bg-darker);
+}
+
+/* --- CHAMPS, INPUTS, FORMULAIRES --- */
+[data-theme="dark"] .MuiOutlinedInput-notchedOutline {
+	border-color: rgba(245, 245, 245, 0.273);
+}
+
+[data-theme="dark"]
+	.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover
+	.MuiOutlinedInput-notchedOutline {
+	border-color: rgb(245, 245, 245);
+}
+
+[data-theme="light"] .Mui-disabled.MuiButton-colorPrimary {
+	cursor: not-allowed;
+	opacity: 0.4;
+	border-color: var(--color-violet-400);
+	color: var(--color-violet-400);
+}
+
+[data-theme="dark"] .Mui-disabled.MuiButton-colorPrimary {
+	border-color: var(--color-violet-200);
+	opacity: 0.4;
+	color: var(--color-violet-200);
+}
+
+label[data-shrink="false"]
+	+ .MuiInputBase-formControl
+	.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {
+	opacity: 0;
+}
+
+label[data-shrink="false"].MuiFormLabel-root.MuiInputLabel-root {
+	opacity: 0.5;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+
+/* Autocomplete avec ligatures */
+.MuiInputBase-root,
+.autocomplete .MuiAutocomplete-input,
+.MuiAutocomplete-paper.autocomplete {
+	font-family:
+		"TypoPRO Fantasque Sans Mono Regular", "Fira Code",
+		"Fantasque Sans Mono Regular", monospace;
+	font-variant-ligatures: contextual;
+	font-feature-settings: "calt" 1;
+}
+
+/* --- ICONES TEXT-BUTTON --- */
+svg.text-button {
+	margin-right: 5px;
+}
+
+/* --- TABLES --- */
+.dice-skill table td,
+.dice-skill table th,
+.statistic table td,
+.statistic table th {
+	border: none;
+}
+
+/* --- ETATS ERREUR --- */
+.error .MuiTooltip-arrow::before,
+.error .MuiTooltip-tooltip {
+	background: var(--rt-color-error);
+}
+
+.error .MuiOutlinedInput-notchedOutline {
+	border-color: var(--ifm-color-danger-darkest);
+}
+
+.error-copy .MuiTooltip-arrow::before,
+.error-copy .MuiTooltip-tooltip {
+	background-color: var(--copy-tooltip);
+	opacity: 0.5;
+}
+
+.copy-tooltip .MuiTooltip-arrow::before,
+.copy-tooltip .MuiTooltip-tooltip {
+	background-color: var(--copy-tooltip);
+	opacity: 1;
+}
+
+.remove .MuiTooltip-arrow::before,
+.remove .MuiTooltip-tooltip {
+	background-color: var(--delete-button);
+	opacity: 1;
+}
+
+.onNatDice.toggle-tooltip .MuiTooltip-arrow::before,
+.onNatDice.toggle-tooltip .MuiTooltip-tooltip {
+	background-color: var(--onNatDice);
+	opacity: 1;
+}
+
+.affectSkill.toggle-tooltip .MuiTooltip-arrow::before,
+.affectSkill.toggle-tooltip .MuiTooltip-tooltip {
+	background-color: var(--affectSkill);
+	opacity: 1;
+}
+
+.excludedStat.toggle-tooltip .MuiTooltip-arrow::before,
+.excludedStat.toggle-tooltip .MuiTooltip-tooltip {
+	background-color: var(--excludedStat);
+	opacity: 1;
+}
+
+.error-bg {
+	background-color: var(--error-bg);
+	border-radius: 5px;
+}
+
+table tr:nth-child(2n).error-bg {
+	background-color: var(--error-bg-n2);
+}
+
+.MuiButtonBase-root .error .MuiOutlinedInput-notchedOutline {
+	border-color: var(--ifm-color-danger-darkest);
+	border-width: 2px;
+}
+
+/* --- ETAT COPY-BUTTON ICON HOVER --- */
+.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover:has(.copy-button) {
+	background-color: transparent;
+}

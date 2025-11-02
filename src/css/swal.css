@@ -1,0 +1,44 @@
+@import "./variables.css";
+
+/* --- SWAL2 --- */
+.swal2-popup.error {
+	background-color: var(--ifm-color-danger-darkest);
+	color: whitesmoke;
+	padding-bottom: 0;
+}
+
+div:where(.swal2-container)
+	button:where(.swal2-styled).swal2-confirm.error:focus {
+	box-shadow: 0 0 0 3px rgba(128, 20, 24, 0.405);
+}
+
+div:where(.swal2-container) button:where(.swal2-close.error):focus {
+	box-shadow: none;
+}
+
+.swal2-confirm.error {
+	background-color: var(--ifm-color-danger-dark);
+	border-color: var(--ifm-color-danger-darker);
+	color: whitesmoke;
+}
+
+.swal2-confirm.hide {
+	display: none;
+}
+
+/* --- AUTOCOMPLETE FONT OVERRIDE (DÉJÀ FAIT PLUS HAUT POUR .autocomplete) --- */
+@supports (font-variation-settings: normal) {
+	.autocomplete {
+		font-family: "Fira Code VF", monospace;
+	}
+}
+
+.swal2-toast {
+	background: transparent;
+	border: transparent;
+	box-shadow: none;
+}
+
+div#swal2-html-container {
+	margin-left: 3rem;
+}

@@ -1,6 +1,6 @@
 import { translate } from "@docusaurus/Translate";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import RenderRow from "@site/src/components/Blocks/Dice/RenderRow";
+import RenderRow from "@site/src/components/Blocks/Macro/RenderRow";
 import { FieldArray } from "formik";
 import { useCallback, useEffect, useId, useMemo, useRef } from "react";
 import { Tooltip as ReactTooltip } from "react-tooltip";
@@ -18,7 +18,7 @@ export default ({ values, setFieldValue }) => {
 		}
 	}, [values.damages]);
 
-	const duplicateIndices = useMemo(() => {
+	const duplicateInMacros = useMemo(() => {
 		const map = new Map<string, number>();
 		const dups: number[] = [];
 		values.damages.forEach((d, i) => {
@@ -31,23 +31,23 @@ export default ({ values, setFieldValue }) => {
 	}, [values.damages]);
 
 	const _errorTooltip = (index: number) => {
-		if (duplicateIndices.includes(index)) {
+		if (duplicateInMacros.includes(index)) {
 			return (
 				<ReactTooltip
-					id={`Dice-Nom-${index}`}
+					id={`Macro-Nom-${index}`}
 					content={translate({ message: "Ce nom est déjà utilisé" })}
 					style={{ background: "var(--rt-color-error)" }}
-					anchorSelect={`#Dice-Nom-${index}`}
+					anchorSelect={`#Macro-Nom-${index}`}
 				/>
 			);
 		}
 		if (values.damages[index].name.length === 0) {
 			return (
 				<ReactTooltip
-					id={`Dice-Nom-${index}`}
+					id={`Macro-Nom-${index}`}
 					content={translate({ message: "Le nom ne peut pas être vide" })}
 					style={{ background: "var(--rt-color-error)" }}
-					anchorSelect={`#Dice-Nom-${index}`}
+					anchorSelect={`#Macro-Nom-${index}`}
 				/>
 			);
 		}
@@ -73,7 +73,7 @@ export default ({ values, setFieldValue }) => {
 					<div>
 						<Section
 							length={values.damages.length}
-							type="dice"
+							type="macro"
 							label={translate({ message: "Macros" })}
 							onAdd={() =>
 								push({ id: crypto.randomUUID(), name: "", value: "" })
@@ -92,9 +92,9 @@ export default ({ values, setFieldValue }) => {
 											{values.damages.map((_: unknown, index: number) => (
 												<RenderRow
 													key={values.damages[index].id || index}
-													duplicateIndices={duplicateIndices}
+													duplicateIndices={duplicateInMacros}
 													index={index}
-													dices={values.damages}
+													macro={values.damages}
 													push={push}
 													remove={remove}
 												/>

@@ -61,21 +61,21 @@ const CustomCriticalRow = ({
 					ref={provided.innerRef}
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
-					className={`flex flex-col xl:flex-row items-start xl:w-full ${
+					className={`flex flex-col 2xl:flex-row items-start 2xl:w-full ${
 						duplicateIndices.includes(index) ? "error-bg" : ""
-					} ${index === 0 ? "border-t-0" : ""}`}
+					} ${index === 0 ? "border-t-0" : ""} 2xl:h-18`}
 				>
-					<td className="p-px min-[0px]:max-2xl:p-2 table-cell min-[0px]:max-xl:w-full">
+					<td className="p-px min-[0px]:max-2xl:p-2 table-cell min-[0px]:max-2xl:w-full">
 						<CopyButton
 							maxLen={22}
 							length={customCritical.length}
-							size={1280}
+							size={1536}
 							onClick={() => {
 								push({ ...pushSelection(customCritical[index]) });
 							}}
 						/>
 					</td>
-					<td className="p-2 min-[0px]:max-xl:w-full">
+					<td className="p-2 min-[0px]:max-2xl:w-full">
 						<Autocomplete
 							size={"small"}
 							slotProps={{
@@ -113,7 +113,7 @@ const CustomCriticalRow = ({
 							customCritical: custom,
 						})}
 					</td>
-					<td className="p-2 min-[0px]:max-xl:w-full">
+					<td className="p-2 min-[0px]:max-2xl:w-full">
 						<Tablefield
 							name={`customCritical[${index}].name`}
 							label={translate({ message: "Nom" })}
@@ -129,7 +129,7 @@ const CustomCriticalRow = ({
 							customCritical: custom,
 						})}
 					</td>
-					<td className="p-2 min-[0px]:max-xl:w-full h-200px">
+					<td className="p-2 min-[0px]:max-2xl:w-full h-200px">
 						<Tablefield
 							name={`customCritical[${index}].formula`}
 							label={translate({ message: "Formule" })}
@@ -145,7 +145,7 @@ const CustomCriticalRow = ({
 							customCritical: custom,
 						})}
 					</td>
-					<td className="p-2 min-[0px]:max-xl:w-full h-200px">
+					<td className="p-2 min-[0px]:max-2xl:w-full h-200px">
 						<StandaloneToggleButton
 							selected={onNaturalDice}
 							onChange={() =>
@@ -154,11 +154,11 @@ const CustomCriticalRow = ({
 									!onNaturalDice,
 								)
 							}
-							size={1280}
+							size={1536}
 							opt={"naturalDice"}
 						/>
 					</td>
-					<td className="p-2 min-[0px]:max-xl:w-full h-200px">
+					<td className="p-2 min-[0px]:max-2xl:w-full h-200px">
 						<StandaloneToggleButton
 							selected={affectSkill}
 							onChange={() =>
@@ -167,12 +167,12 @@ const CustomCriticalRow = ({
 									!affectSkill,
 								)
 							}
-							size={1280}
+							size={1536}
 							opt={"affectSkill"}
 						/>
 					</td>
-					<td className="p-px min-[0px]:max-2xl:p-2 table-cell min-[0px]:max-xl:w-full">
-						<RemoveButton size={1280} onClick={() => remove(index)} />
+					<td className="p-px min-[0px]:max-2xl:p-2 table-cell min-[0px]:max-2xl:w-full">
+						<RemoveButton size={1536} onClick={() => remove(index)} />
 					</td>
 				</tr>
 			)}
