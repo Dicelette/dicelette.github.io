@@ -83,7 +83,7 @@ const CustomCriticalRow = ({
 							}}
 							id={`Critical-selection-${index}`}
 							className={
-								"autocomplete 2xl:w-[200px] !mb-0 min-[0px]:max-2xl:w-full"
+								"autocomplete 2xl:w-[200px] mb-0! min-[0px]:max-2xl:w-full"
 							}
 							style={{ fontFamily: "Fira Code VF" }}
 							options={[">", ">=", "<", "<=", "==", "!="]}
@@ -101,7 +101,7 @@ const CustomCriticalRow = ({
 									label={translate({ message: "Signe" })}
 									style={{ fontFamily: "Fira Code VF" }}
 									variant="outlined"
-									className={`2xl:w-[200px] !mb-0 min-[0px]:max-2xl:w-full ${selectionError ? "error" : ""}`}
+									className={`2xl:w-[200px] mb-0! min-[0px]:max-2xl:w-full ${selectionError ? "error" : ""}`}
 								/>
 							)}
 						/>

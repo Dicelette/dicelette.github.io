@@ -400,6 +400,7 @@ const TemplateForm: FC = () => {
 	};
 
 	return (
+		<div id="#tw-scope">
 		<Formik initialValues={INITIAL_VALUES} onSubmit={handleSubmit}>
 			{({ isSubmitting, values, setFieldValue, setValues }) => (
 				<Form>
@@ -508,6 +509,7 @@ const TemplateForm: FC = () => {
 				</Form>
 			)}
 		</Formik>
+		</div>
 	);
 };
 

@@ -53,18 +53,7 @@ const config: Config = {
 
 	plugins: [
 		"docusaurus-node-polyfills",
-		async function myPlugin() {
-			return {
-				name: "docusaurus-tailwindcss",
-				configurePostCss(postcssOptions) {
-					// Appends TailwindCSS and AutoPrefixer.
-					postcssOptions.plugins.push(require("postcss-import"));
-					postcssOptions.plugins.push(require("tailwindcss"));
-					postcssOptions.plugins.push(require("autoprefixer"));
-					return postcssOptions;
-				},
-			};
-		},
+		"./src/plugins/tailwind-config.js",
 	],
 
 	// Injection de modules clients pour optimiser les events passifs
