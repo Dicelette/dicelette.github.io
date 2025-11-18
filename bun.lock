@@ -5,7 +5,7 @@
       "name": "dicelette-docs",
       "dependencies": {
         "@dice-roller/rpg-dice-roller": "^5.5.1",
-        "@dicelette/core": "^1.18.5",
+        "@dicelette/core": "^1.20.0",
         "@docusaurus/core": "^3.9.2",
         "@docusaurus/preset-classic": "^3.9.2",
         "@emotion/react": "^11.14.0",
@@ -409,7 +409,7 @@
 
     "@dice-roller/rpg-dice-roller": ["@dice-roller/rpg-dice-roller@5.5.1", "", { "dependencies": { "mathjs": "^14.2.0", "random-js": "^2.1.0" } }, "sha512-De5/UTjihpv639XJDBOCfwuOlzIInLqCeal5rpIY9C8Qh8oaNL2/5e0wa/0lcVZyy8m+BCn5zT4eZamCnguIXQ=="],
 
-    "@dicelette/core": ["@dicelette/core@1.18.5", "", { "dependencies": { "@dice-roller/rpg-dice-roller": "^5.5.0", "mathjs": "^14.0.0", "moment": "^2.30.1", "random-js": "^2.1.0", "remove-accents": "^0.5.0", "ts-dedent": "^2.2.0", "uniformize": "^2.2.0", "vite-tsconfig-paths": "^5.1.3", "zod": "^3.23.8" } }, "sha512-ampVvgYAtGMi/hvrPwoK3zuVuEZ1N9DAqlN6xFapPnDa8bPEQNxu9YmgMdd92i1AIiUh1IgN77GqPbXG7ma8uw=="],
+    "@dicelette/core": ["@dicelette/core@1.20.0", "", { "dependencies": { "@dice-roller/rpg-dice-roller": "^5.5.1", "mathjs": "^15.1.0", "moment": "^2.30.1", "random-js": "^2.1.0", "remove-accents": "^0.5.0", "ts-dedent": "^2.2.0", "uniformize": "^2.5.0", "vite-tsconfig-paths": "^5.1.4", "zod": "^4.1.12" } }, "sha512-uVdECwupzF6229v2BQD9tO6QNm3ovQsiHxOuatHytjg5LRFkKjmQPywNhYKi/83odmE+Bv2dTKALE2BOKv0ukw=="],
 
     "@discoveryjs/json-ext": ["@discoveryjs/json-ext@0.5.7", "", {}, "sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw=="],
 
@@ -2377,7 +2377,7 @@
 
     "unified": ["unified@11.0.4", "", { "dependencies": { "@types/unist": "^3.0.0", "bail": "^2.0.0", "devlop": "^1.0.0", "extend": "^3.0.0", "is-plain-obj": "^4.0.0", "trough": "^2.0.0", "vfile": "^6.0.0" } }, "sha512-apMPnyLjAX+ty4OrNap7yumyVAMlKx5IWU2wlzzUdYJO9A8f1p9m/gywF/GM2ZDFcjQPrx59Mc90KwmxsoklxQ=="],
 
-    "uniformize": ["uniformize@2.2.0", "", { "peerDependencies": { "typescript": "^5.5.4" } }, "sha512-iT/EagRJLedtjvYMc8VNIr9DJ1i0zwtHhB15XmIsvNtzpwImMiN++yqpu/2PyqW5b/L7RbOiLJFMLP/0/IBj+g=="],
+    "uniformize": ["uniformize@2.5.0", "", { "peerDependencies": { "typescript": "^5.9.2" } }, "sha512-6vGiMalxsg8h9mMDIrRo3bUsgsrBcQhReQkm2L98FviDKAUK6anugzXbNaQ2XGTCrRruIzGZuEBQlX5R1HXW/g=="],
 
     "unique-string": ["unique-string@3.0.0", "", { "dependencies": { "crypto-random-string": "^4.0.0" } }, "sha512-VGXBUVwxKMBUznyffQweQABPRRW1vHZAbadFZud4pLFAqRGvv/96vafgjWFqzourzr8YonlQiPgH0YCJfawoGQ=="],
 
@@ -2491,7 +2491,7 @@
 
     "yocto-queue": ["yocto-queue@1.0.0", "", {}, "sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g=="],
 
-    "zod": ["zod@3.24.1", "", {}, "sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A=="],
+    "zod": ["zod@4.1.12", "", {}, "sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ=="],
 
     "zwitch": ["zwitch@2.0.4", "", {}, "sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A=="],
 
@@ -2694,6 +2694,8 @@
     "@csstools/selector-specificity/postcss-selector-parser": ["postcss-selector-parser@7.0.0", "", { "dependencies": { "cssesc": "^3.0.0", "util-deprecate": "^1.0.2" } }, "sha512-9RbEr1Y7FFfptd/1eEdntyjMwLeghW1bHX9GWjXo19vx4ytPQhANltvVxDggzJl7mnWM+dX28kb6cyS/4iQjlQ=="],
 
     "@dice-roller/rpg-dice-roller/mathjs": ["mathjs@14.5.2", "", { "dependencies": { "@babel/runtime": "^7.26.10", "complex.js": "^2.2.5", "decimal.js": "^10.4.3", "escape-latex": "^1.2.0", "fraction.js": "^5.2.1", "javascript-natural-sort": "^0.7.1", "seedrandom": "^3.0.5", "tiny-emitter": "^2.1.0", "typed-function": "^4.2.1" }, "bin": { "mathjs": "bin/cli.js" } }, "sha512-51U6hp7j4M4Rj+l+q2KbmXAV9EhQVQzUdw1wE67RnUkKKq5ibxdrl9Ky2YkSUEIc2+VU8/IsThZNu6QSHUoyTA=="],
+
+    "@dicelette/core/mathjs": ["mathjs@15.1.0", "", { "dependencies": { "@babel/runtime": "^7.26.10", "complex.js": "^2.2.5", "decimal.js": "^10.4.3", "escape-latex": "^1.2.0", "fraction.js": "^5.2.1", "javascript-natural-sort": "^0.7.1", "seedrandom": "^3.0.5", "tiny-emitter": "^2.1.0", "typed-function": "^4.2.1" }, "bin": { "mathjs": "bin/cli.js" } }, "sha512-HfnAcScQm9drGryodlDqeS3WAl4gUTYGDcOtcqL/8s23MZ28Ib1i8XnYK3ZdjNuaW/L4BAp9lIp8vxAMrcuu1w=="],
 
     "@docsearch/react/algoliasearch": ["algoliasearch@5.20.0", "", { "dependencies": { "@algolia/client-abtesting": "5.20.0", "@algolia/client-analytics": "5.20.0", "@algolia/client-common": "5.20.0", "@algolia/client-insights": "5.20.0", "@algolia/client-personalization": "5.20.0", "@algolia/client-query-suggestions": "5.20.0", "@algolia/client-search": "5.20.0", "@algolia/ingestion": "1.20.0", "@algolia/monitoring": "1.20.0", "@algolia/recommend": "5.20.0", "@algolia/requester-browser-xhr": "5.20.0", "@algolia/requester-fetch": "5.20.0", "@algolia/requester-node-http": "5.20.0" } }, "sha512-groO71Fvi5SWpxjI9Ia+chy0QBwT61mg6yxJV27f5YFf+Mw+STT75K6SHySpP8Co5LsCrtsbCH5dJZSRtkSKaQ=="],
 
@@ -3294,6 +3296,10 @@
     "@dice-roller/rpg-dice-roller/mathjs/@babel/runtime": ["@babel/runtime@7.27.6", "", {}, "sha512-vbavdySgbTTrmFE+EsiqUTzlOr5bzlnJtUv9PynGCAKvfQqjIXbvFdumPM/GxMDfyuGMJaJAU6TO4zc1Jf1i8Q=="],
 
     "@dice-roller/rpg-dice-roller/mathjs/fraction.js": ["fraction.js@5.2.1", "", {}, "sha512-Ah6t/7YCYjrPUFUFsOsRLMXAdnYM+aQwmojD2Ayb/Ezr82SwES0vuyQ8qZ3QO8n9j7W14VJuVZZet8U3bhSdQQ=="],
+
+    "@dicelette/core/mathjs/@babel/runtime": ["@babel/runtime@7.28.4", "", {}, "sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ=="],
+
+    "@dicelette/core/mathjs/fraction.js": ["fraction.js@5.2.1", "", {}, "sha512-Ah6t/7YCYjrPUFUFsOsRLMXAdnYM+aQwmojD2Ayb/Ezr82SwES0vuyQ8qZ3QO8n9j7W14VJuVZZet8U3bhSdQQ=="],
 
     "@docsearch/react/algoliasearch/@algolia/client-abtesting": ["@algolia/client-abtesting@5.20.0", "", { "dependencies": { "@algolia/client-common": "5.20.0", "@algolia/requester-browser-xhr": "5.20.0", "@algolia/requester-fetch": "5.20.0", "@algolia/requester-node-http": "5.20.0" } }, "sha512-YaEoNc1Xf2Yk6oCfXXkZ4+dIPLulCx8Ivqj0OsdkHWnsI3aOJChY5qsfyHhDBNSOhqn2ilgHWxSfyZrjxBcAww=="],
 

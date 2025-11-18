@@ -448,7 +448,7 @@ input[type="number"] {
 .MuiAutocomplete-paper.autocomplete {
 	font-family:
 		"TypoPRO Fantasque Sans Mono Regular", "Fira Code",
-		"Fantasque Sans Mono Regular", monospace;
+		"Fantasque Sans Mono Regular", monospace !important;
 	font-variant-ligatures: contextual;
 	font-feature-settings: "calt" 1;
 }

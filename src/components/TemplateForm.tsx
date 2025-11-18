@@ -1,6 +1,7 @@
 import {
 	type Critical,
 	type CustomCritical as CustomCriticalType,
+	getEngine,
 	type Statistic,
 	type StatisticalSchema,
 	verifyTemplateValue,
@@ -26,6 +27,8 @@ import "../css/form.css";
 
 // Persistence
 const STORAGE_KEY = "dicelette:template-form:v1";
+
+const engine = getEngine("browserCrypto");
 
 const INITIAL_VALUES: DataForm = {
 	isCharNameRequired: false,
@@ -162,6 +165,8 @@ const TemplateForm: FC = () => {
 		try {
 			const template = verifyTemplateValue(
 				templateDataValues,
+				undefined,
+				engine,
 			) as StatisticalSchema;
 			template.$schema =
 				"https://raw.githubusercontent.com/Dicelette/core/refs/heads/main/dicelette.schema.json";
@@ -304,7 +309,11 @@ const TemplateForm: FC = () => {
 				const parsed = JSON.parse(raw);
 				// Remove $schema if present to avoid validation issues
 				const { $schema: _drop, ...candidate } = parsed ?? {};
-				const validated = verifyTemplateValue(candidate) as StatisticalSchema;
+				const validated = verifyTemplateValue(
+					candidate,
+					undefined,
+					engine,
+				) as StatisticalSchema;
 				const mapped = mapSchemaToFormValues(validated, currentValues);
 				setValues(mapped);
 				const swal = withReactContent(Swal);
