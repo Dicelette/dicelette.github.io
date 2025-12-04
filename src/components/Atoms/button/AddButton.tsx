@@ -5,18 +5,18 @@ import type { FC } from "react";
 
 type AddButtonProps = {
 	len?: number;
-	type?: "dice" | "stats" | "critical";
+	type?: "macro" | "stats" | "critical";
 	onClick: () => void;
 };
 
 const AddButton: FC<AddButtonProps> = ({ len, type, onClick }) => {
 	const maxLen = 25;
 	const addLabel =
-		type === "dice"
+		type === "macro"
 			? translate({ message: "Ajouter une macro" })
 			: translate({ message: "Ajouter une statistique" });
 	const msg =
-		type === "dice"
+		type === "macro"
 			? translate({ message: "macros" })
 			: translate({ message: "statistiques (max 25)" });
 	const maxLabel = `${translate({
