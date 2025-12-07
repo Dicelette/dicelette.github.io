@@ -85,8 +85,10 @@ const FormPersistence: FC<{
 };
 
 function parseNumber(nb?: unknown): number | undefined {
-	if (!nb || !isNumber(nb)) return undefined;
-	return Number.parseInt(nb.toString(), 10);
+	if (nb === null || nb === undefined || !isNumber(nb)) return undefined;
+	const parsed =  Number.parseInt(nb.toString(), 10);
+	if (Number.isNaN(parsed)) return undefined;
+	return parsed;
 }
 
 const downloadCSV = (data: DataForm) => {
