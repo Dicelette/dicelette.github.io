@@ -20,7 +20,7 @@
 	},
 	"dependencies": {
 		"@dice-roller/rpg-dice-roller": "^5.5.1",
-		"@dicelette/core": "^1.22.3",
+		"@dicelette/core": "^1.24.2",
 		"@docusaurus/core": "^3.9.2",
 		"@docusaurus/preset-classic": "^3.9.2",
 		"@emotion/react": "^11.14.0",
@@ -31,10 +31,10 @@
 		"@mui/material": "^6.5.0",
 		"@mui/styled-engine-sc": "7.3.2",
 		"@sweetalert2/themes": "^5.0.27",
-		"@types/react": "^19.1.13",
-		"autoprefixer": "^10.4.23",
-		"baseline-browser-mapping": "^2.9.11",
-		"caniuse-lite": "^1.0.30001761",
+		"@types/react": "^19.2.10",
+		"autoprefixer": "^10.4.24",
+		"baseline-browser-mapping": "^2.9.19",
+		"caniuse-lite": "^1.0.30001766",
 		"clsx": "^2.1.1",
 		"docusaurus-node-polyfills": "^1.0.0",
 		"formik": "^2.4.6",
@@ -43,8 +43,8 @@
 		"postcss": "^8.5.6",
 		"prism-react-renderer": "^2.4.1",
 		"random-js": "^2.1.0",
-		"react": "^19.2.3",
-		"react-dom": "^19.2.3",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
 		"react-tooltip": "^5.29.1",
 		"remove-accents": "^0.5.0",
 		"sweetalert2": "^11.26.17",
@@ -52,6 +52,10 @@
 		"tailwindcss": "^3.4.17",
 		"ts-dedent": "^2.2.0",
 		"update-browserslist-db": "^1.2.3"
+	},
+	"overrides": {
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4"
 	},
 	"browserslist": {
 		"production": [
@@ -69,12 +73,12 @@
 		"node": ">=18.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.3.10",
+		"@biomejs/biome": "^2.3.13",
 		"@docusaurus/module-type-aliases": "^3.9.2",
 		"@docusaurus/theme-classic": "^3.9.2",
 		"@docusaurus/tsconfig": "^3.9.2",
 		"@docusaurus/types": "^3.9.2",
-		"@types/node": "^24.10.4",
+		"@types/node": "^25.1.0",
 		"typescript": "~5.9.2"
 	},
 	"trustedDependencies": [
