@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Dicelette Blog</title>
+        <link>https://dicelette.github.io/en/blog</link>
+        <description>Dicelette Blog</description>
+        <lastBuildDate>Tue, 17 Feb 2026 23:04:29 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[The 14/02/2026 catastrophe]]></title>
+            <link>https://dicelette.github.io/en/blog/17-02-26-shutdown</link>
+            <guid>https://dicelette.github.io/en/blog/17-02-26-shutdown</guid>
+            <pubDate>Tue, 17 Feb 2026 23:04:29 GMT</pubDate>
+            <description><![CDATA[The shutdown of Saturday 14/02/2026 and some thoughts about it]]></description>
+            <content:encoded><![CDATA[<p>To be honest, I would have liked to find another way to integrate an "announcements" category on the site other than through this info.</p>
+<p>As some of you may have seen, on Saturday 14/02/2026, the bot was * for a large part of the day. I will now explain the catastrophe that this day was and the reasons for this shutdown.</p>
+<p>First of all, you should know that the bot is hosted at my place (in France) on a Raspberry Pi 5. It's a small computer that consumes very little energy and is perfect for running a Discord bot 24/7 (among other things). However, it has its limits, related to my internet connection and electricity (that is to say that in case of network/electricity outage, the bot is down, but that's not the case here... Even if it has already happened 🥲).</p>
+<p>On Saturday 14/02/2026, around 9am, I wanted to update the server (firmware update) because it hadn't been done for a while. Unfortunately, the update failed and corrupted the operating system that was on an M2 hard drive (remember the information, it's important).</p>
+<p>I tried to repair the system using an SD card via an SD reader, but... It also decided to die. So I had to disassemble my computer to remove the M2 hard drive (which, <strong>fortunately</strong> does not contain the OS of my PC otherwise...) to place the one from the Raspberry. I was therefore able to recover the data from the M2 hard drive (and therefore from the bot and the others) and transfer it to the pc.</p>
+<p>Not finding a way to repair the operating system of the Raspberry, I decided to reinstall a new image on the hard drive, but it failed <strong>several times</strong>. Fortunately, I managed to repair it through a large formatting and repairs of defective sectors (once by windows, once by linux and once totally failed which forced me to reinstall the OS). I THEN finally managed to reinstall a stable image of the system and start the second restoration (since the first one, around 7pm, had failed).</p>
+<p>Since it takes time (especially since I had to copy the data to my desktop and I tried to make an image of a 120gb disk), I decided to host the bot on my own PC in the meantime. Except that to connect the M2, I have to restart the computer every time, which... Made the bot rather unstable. Especially since some data from my computer was on the other M2, forcing me to do restarts to be able to access this data (and therefore the bot).</p>
+<p>Anyway, after a day of struggle, I managed to get the bot back online around 10pm. I'm really sorry for this day of shutdown. I shouldn't have done this firmware update without making a real back-up, even if I admit that I didn't think the SD reader was going to die the same day.
+At least, no data was lost!</p>
+<p>But in fact, I had to:</p>
+<ul>
+<li class="">Buy a new 32gb SD card (because a 4gb one is not at all sufficient, even for back-up).</li>
+<li class="">AND buy a new SD card reader.</li>
+</ul>
+<p>Not having <em>still not received</em> (long story short) my salary, and even if it's not much, I lost 30€ because of this shutdown, which is not fun for someone who has NO income at all.</p>
+<p>I clearly don't like to beg, since the bot is meant to be <strong>FREE</strong> for <strong>EVER</strong>, if you like the bot and want to support me, I have a KO-FI: <a href="https://ko-fi.com/mara__li" target="_blank" rel="noopener noreferrer" class="">https://ko-fi.com/mara__li</a> (even 1€ is a big support for me, and I would be very grateful to you).</p>]]></content:encoded>
+            <category>maintenance</category>
+        </item>
+    </channel>
+</rss>

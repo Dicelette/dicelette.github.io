@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdicelette_docs=globalThis.webpackChunkdicelette_docs||[]).push([[7472],{55513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"The 14/02/2026 catastrophe","permalink":"/en/blog/17-02-26-shutdown","unlisted":false,"date":"2026-02-17T23:04:29.000Z"}]}')}}]);
