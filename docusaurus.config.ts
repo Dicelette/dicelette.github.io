@@ -27,7 +27,7 @@ const config: Config = {
 
 	presets: [
 		[
-			"classic",
+			"@docusaurus/preset-classic",
 			{
 				docs: {
 					sidebarPath: "./sidebars.ts",
@@ -46,6 +46,20 @@ const config: Config = {
 				},
 				theme: {
 					customCss: "./src/css/custom.css",
+				},
+				blog: {
+					path: "blog",
+					postsPerPage: 10,
+					routeBasePath: "blog",
+					blogSidebarTitle: "Posts récents",
+					blogTitle: "Annonces",
+					blogDescription: "Actualités, astuces et informations sur Dicelette",
+					showReadingTime: true,
+					editUrl: ({ locale, blogDirPath, blogPath }) => {
+						if (locale === "fr")
+							return `https://github.com/Dicelette/fr-docs/tree/main/${blogDirPath}/${blogPath}`;
+						return `https://github.com/Dicelette/i18n/tree/main/${locale}/docusaurus-plugin-content-blog/current/${blogDirPath}/${blogPath}`;
+					},
 				},
 			} satisfies Preset.Options,
 		],
@@ -115,6 +129,7 @@ const config: Config = {
 					sidebarId: "TOS",
 					label: "CGU & Développement",
 				},
+				{ to: "blog", label: "Annonce", position: "right" },
 				{
 					href: "https://github.com/dicelette/docs",
 					label: "GitHub",
