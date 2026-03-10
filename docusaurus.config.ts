@@ -168,6 +168,10 @@ const config: Config = {
 							label: "Discord",
 							href: "https://discord.gg/5w2guxa2kS",
 						},
+						{
+							label: "Uptime",
+							href: "https://dicelette.upbot.app/"
+						}
 					],
 				},
 			],
