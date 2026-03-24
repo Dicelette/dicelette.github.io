@@ -8,7 +8,7 @@ const config: Config = {
 	tagline:
 		"Votre compagnon Discord pour des sessions de jeu de rôle fluides et immersives",
 	favicon: "img/dicelette.png",
-	url: "https://dicelette.github.io/",
+	url: "https://www.dicelette.app/",
 	baseUrl: "/",
 
 	organizationName: "Dicelette",
