@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://dicelette.github.io/en/blog</id>
+    <id>https://www.dicelette.app/en/blog</id>
     <title>Dicelette Blog</title>
     <updated>2026-02-17T23:04:29.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://dicelette.github.io/en/blog"/>
+    <link rel="alternate" href="https://www.dicelette.app/en/blog"/>
     <subtitle>Dicelette Blog</subtitle>
-    <icon>https://dicelette.github.io/en/img/dicelette.png</icon>
+    <icon>https://www.dicelette.app/en/img/dicelette.png</icon>
     <entry>
         <title type="html"><![CDATA[The 14/02/2026 catastrophe]]></title>
-        <id>https://dicelette.github.io/en/blog/17-02-26-shutdown</id>
-        <link href="https://dicelette.github.io/en/blog/17-02-26-shutdown"/>
+        <id>https://www.dicelette.app/en/blog/17-02-26-shutdown</id>
+        <link href="https://www.dicelette.app/en/blog/17-02-26-shutdown"/>
         <updated>2026-02-17T23:04:29.000Z</updated>
         <summary type="html"><![CDATA[The shutdown of Saturday 14/02/2026 and some thoughts about it]]></summary>
         <content type="html"><![CDATA[<p>To be honest, I would have liked to find another way to integrate an "announcements" category on the site other than through this info.</p>

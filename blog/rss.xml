@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Dicelette Blog</title>
-        <link>https://dicelette.github.io/blog</link>
+        <link>https://www.dicelette.app/blog</link>
         <description>Dicelette Blog</description>
         <lastBuildDate>Tue, 17 Feb 2026 23:04:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,8 +10,8 @@
         <language>fr</language>
         <item>
             <title><![CDATA[La catastrophe du 14/02/2026]]></title>
-            <link>https://dicelette.github.io/blog/17-02-26-shutdown</link>
-            <guid>https://dicelette.github.io/blog/17-02-26-shutdown</guid>
+            <link>https://www.dicelette.app/blog/17-02-26-shutdown</link>
+            <guid>https://www.dicelette.app/blog/17-02-26-shutdown</guid>
             <pubDate>Tue, 17 Feb 2026 23:04:29 GMT</pubDate>
             <description><![CDATA[Le shutdown du samedi 14/02/2026 et quelques réflexions à ce sujet]]></description>
             <content:encoded><![CDATA[<p>Franchement, j'aurai aimé trouvé un autre moyen d'intégrer une catégories "annonces" sur le site autrement que par cette info.</p>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Dicelette Blog</title>
-        <link>https://dicelette.github.io/en/blog</link>
+        <link>https://www.dicelette.app/en/blog</link>
         <description>Dicelette Blog</description>
         <lastBuildDate>Tue, 17 Feb 2026 23:04:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,8 +10,8 @@
         <language>en</language>
         <item>
             <title><![CDATA[The 14/02/2026 catastrophe]]></title>
-            <link>https://dicelette.github.io/en/blog/17-02-26-shutdown</link>
-            <guid>https://dicelette.github.io/en/blog/17-02-26-shutdown</guid>
+            <link>https://www.dicelette.app/en/blog/17-02-26-shutdown</link>
+            <guid>https://www.dicelette.app/en/blog/17-02-26-shutdown</guid>
             <pubDate>Tue, 17 Feb 2026 23:04:29 GMT</pubDate>
             <description><![CDATA[The shutdown of Saturday 14/02/2026 and some thoughts about it]]></description>
             <content:encoded><![CDATA[<p>To be honest, I would have liked to find another way to integrate an "announcements" category on the site other than through this info.</p>
