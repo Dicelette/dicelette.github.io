@@ -131,8 +131,8 @@ const config: Config = {
 				},
 				{ to: "blog", label: "Annonce", position: "right" },
 				{
-					href: "https://github.com/dicelette/docs",
-					label: "GitHub",
+					href: "https://dashboard.dicelette.app",
+					label: "Dashboard",
 					position: "right",
 				},
 				{
@@ -157,10 +157,6 @@ const config: Config = {
 					title: "Liens",
 					items: [
 						{
-							label: "GitHub",
-							href: "https://github.com/Dicelette/discord-dicelette",
-						},
-						{
 							label: "Invitation",
 							href: "https://discord.com/oauth2/authorize?client_id=839830334315141120&permissions=8&scope=bot",
 						},
@@ -170,8 +166,21 @@ const config: Config = {
 						},
 						{
 							label: "Uptime",
-							href: "https://dicelette.upbot.app/"
-						}
+							href: "https://dicelette.upbot.app/",
+						},
+					],
+				},
+				{
+					title: "GitHub",
+					items: [
+						{
+							label: "Bot",
+							href: "https://github.com/Dicelette/discord-dicelette",
+						},
+						{
+							label: "Docs",
+							href: "https://github.com/Dicelette/dicelette.github.io",
+						},
 					],
 				},
 			],
