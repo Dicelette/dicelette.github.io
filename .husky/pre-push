@@ -1,0 +1,6 @@
+git submodule foreach --recursive '
+    BRANCH=$(git symbolic-ref --short HEAD || echo "main")
+    echo "Pushing changes for submodule: $name on branch $BRANCH"
+    git push origin $BRANCH
+    echo ""
+'

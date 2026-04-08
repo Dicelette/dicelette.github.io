@@ -16,7 +16,8 @@
 		"typecheck": "tsc",
 		"lint": "biome format --write src",
 		"pull-all": "task pull-all",
-		"push-all": "task push-all"
+		"push-all": "task push-all",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@dice-roller/rpg-dice-roller": "^5.5.1",
@@ -82,6 +83,7 @@
 		"@docusaurus/tsconfig": "^3.9.2",
 		"@docusaurus/types": "^3.9.2",
 		"@types/node": "^25.1.0",
+		"husky": "^9.1.7",
 		"typescript": "~5.9.2"
 	},
 	"trustedDependencies": [
