@@ -86,16 +86,17 @@ const FormPersistence: FC<{
 
 function parseNumber(nb?: unknown): number | undefined {
 	if (nb === null || nb === undefined || !isNumber(nb)) return undefined;
-	const parsed =  Number.parseInt(nb.toString(), 10);
+	const parsed = Number.parseInt(nb.toString(), 10);
 	if (Number.isNaN(parsed)) return undefined;
 	return parsed;
 }
 
 const downloadCSV = (data: DataForm) => {
 	const CSVHeader = ["user", "charName", "avatar", "channel"];
+
 	if (data.isPrivate) CSVHeader.push("isPrivate");
 	if (data.statistics.length > 0)
-		CSVHeader.push(...Object.keys(data.statistics as any));
+		CSVHeader.push(...Object.values(data.statistics).map((s) => s.name));
 	CSVHeader.push("dice");
 	const csv = `\ufeff${CSVHeader.join(";")}\n`;
 	const csvBlob = new Blob([csv], { type: "text/csv" });

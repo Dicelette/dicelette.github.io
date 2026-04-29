@@ -1,0 +1,32 @@
+git submodule update --init --recursive
+
+git submodule foreach --recursive '
+  echo "Submodule: $name (path: $path)"
+
+  # If worktree has local changes, skip to avoid losing uncommitted work
+  if [ -n "$(git status --porcelain)" ]; then
+    echo "  -> working tree dirty, skipping"
+    exit 0
+  fi
+
+  # Determine current branch; if detached, do not force to main
+  BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || true)
+  if [ -z "$BRANCH" ]; then
+    echo "  -> detached HEAD (no branch), skipping"
+    exit 0
+  fi
+
+  echo "  -> target branch: $BRANCH"
+
+  # If local branch exists, checkout and fast-forward pull
+  if git show-ref --verify --quiet "refs/heads/$BRANCH"; then
+    git checkout "$BRANCH" && git pull --ff-only origin "$BRANCH" || echo "  -> pull failed or non-fast-forward; left as is"
+  # If remote branch exists, create a tracking branch
+  elif git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
+    git checkout -b "$BRANCH" origin/"$BRANCH" || echo "  -> could not create tracking branch"
+  else
+    echo "  -> branch $BRANCH not found locally or on origin, skipping"
+  fi
+
+  echo ""
+'

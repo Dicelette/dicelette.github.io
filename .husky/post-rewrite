@@ -1,0 +1,8 @@
+if [ "$1" = "rebase" ]; then
+  # Delegate to post-merge logic (same behavior)
+  if [ -f "$(dirname "$0")/post-merge" ]; then
+    # shellcheck disable=SC1090
+    . "$(dirname "$0")/post-merge"
+  fi
+fi
+

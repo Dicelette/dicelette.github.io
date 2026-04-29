@@ -8,7 +8,7 @@ const config: Config = {
 	tagline:
 		"Votre compagnon Discord pour des sessions de jeu de rôle fluides et immersives",
 	favicon: "img/dicelette.png",
-	url: "https://dicelette.github.io/",
+	url: "https://www.dicelette.app/",
 	baseUrl: "/",
 
 	organizationName: "Dicelette",
@@ -27,7 +27,7 @@ const config: Config = {
 
 	presets: [
 		[
-			"classic",
+			"@docusaurus/preset-classic",
 			{
 				docs: {
 					sidebarPath: "./sidebars.ts",
@@ -46,6 +46,20 @@ const config: Config = {
 				},
 				theme: {
 					customCss: "./src/css/custom.css",
+				},
+				blog: {
+					path: "blog",
+					postsPerPage: 10,
+					routeBasePath: "blog",
+					blogSidebarTitle: "Posts récents",
+					blogTitle: "Annonces",
+					blogDescription: "Actualités, astuces et informations sur Dicelette",
+					showReadingTime: true,
+					editUrl: ({ locale, blogDirPath, blogPath }) => {
+						if (locale === "fr")
+							return `https://github.com/Dicelette/fr-docs/tree/main/${blogDirPath}/${blogPath}`;
+						return `https://github.com/Dicelette/i18n/tree/main/${locale}/docusaurus-plugin-content-blog/current/${blogDirPath}/${blogPath}`;
+					},
 				},
 			} satisfies Preset.Options,
 		],
@@ -115,9 +129,10 @@ const config: Config = {
 					sidebarId: "TOS",
 					label: "CGU & Développement",
 				},
+				{ to: "blog", label: "Annonce", position: "right" },
 				{
-					href: "https://github.com/dicelette/docs",
-					label: "GitHub",
+					href: "https://dashboard.dicelette.app",
+					label: "Dashboard",
 					position: "right",
 				},
 				{
@@ -142,16 +157,29 @@ const config: Config = {
 					title: "Liens",
 					items: [
 						{
-							label: "GitHub",
-							href: "https://github.com/Dicelette/discord-dicelette",
-						},
-						{
 							label: "Invitation",
 							href: "https://discord.com/oauth2/authorize?client_id=839830334315141120&permissions=8&scope=bot",
 						},
 						{
 							label: "Discord",
 							href: "https://discord.gg/5w2guxa2kS",
+						},
+						{
+							label: "Uptime",
+							href: "https://dicelette.upbot.app/",
+						},
+					],
+				},
+				{
+					title: "GitHub",
+					items: [
+						{
+							label: "Bot",
+							href: "https://github.com/Dicelette/discord-dicelette",
+						},
+						{
+							label: "Docs",
+							href: "https://github.com/Dicelette/dicelette.github.io",
 						},
 					],
 				},
