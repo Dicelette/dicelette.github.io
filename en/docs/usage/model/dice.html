@@ -10,7 +10,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Dicelette" href="/en/opensearch.xml"><link rel="stylesheet" href="/en/assets/css/styles.8b2a9ecc.css">
-<script src="/en/assets/js/runtime~main.924a0997.js" defer="defer"></script>
+<script src="/en/assets/js/runtime~main.51eb0cf4.js" defer="defer"></script>
 <script src="/en/assets/js/main.a1958c15.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -57,13 +57,15 @@ If a die is registered in the template, it will be considered as a global die an
 <p><img decoding="async" loading="lazy" alt="macro" src="/en/assets/images/macro_example-6cc0ae632355a6b85afcf0772d5b673f.png" width="1232" height="138" class="img_ev3q"></p>
 <p>Here, the command requires you to choose the die to use. It is not possible to choose a success threshold, although it is possible to specify it in the die itself when registering it. In this case, the <span style="text-decoration:underline;font-weight:bold">opposition</span> threshold can be used as a secondary success threshold, only evaluated if the main success threshold is reached.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="snippets-snippets">Snippets (<code>/snippets</code>)<a href="#snippets-snippets" class="hash-link" aria-label="Direct link to snippets-snippets" title="Direct link to snippets-snippets" translate="no">​</a></h2>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Allows you to roll dice saved by each user on the server. Unlike macros, snippets are not stored in a character sheet and are not linked to stats or the model.</p><p>Snippets can include comments, mathematical expressions, success thresholds, opposition thresholds, as well as character names (using <code>@name</code>).</p></div></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Allows you to roll dice saved by each user on the server. Unlike macros, snippets are not stored in a character sheet and are not linked to stats or the model.</p><p>Snippets can include comments, mathematical expressions, success thresholds, opposition thresholds, as well as character names (using <code>@name</code>) and attributes.</p></div></div>
 <div class="theme-admonition theme-admonition-usage admonition_o5H7 usage alert--usage"><div class="admonitionHeading_FzoX"><span class="admonitionIcon_rXq6"><span></span></span>Usage</div><div class="admonitionContent_Knsx"><p><strong><code>/snippets [*dice] (expression) (opposition) (success_threshold) (comment)</code></strong></p><ul>
 <li class=""><span style="text-decoration:underline;font-weight:bold">*dice</span>: The name of the snippet (saved dice)</li>
 <li class=""><span style="text-decoration:underline;font-weight:bold">expression</span>: Mathematical expression</li>
 <li class=""><span style="text-decoration:underline;font-weight:bold">opposition</span>: “Secondary” success threshold, only evaluated if there is a primary success threshold already saved in the dice.</li>
 <li class=""><span style="text-decoration:underline;font-weight:bold">comment</span>: Action comment, which will be merged with any existing comment already present in the snippet.</li>
 <li class=""><span style="text-decoration:underline;font-weight:bold">success_threshold</span>: The success threshold to use, if any.</li>
+<li class=""><span style="text-decoration:underline;font-weight:bold">critical_success</span>: Overwrite the critical success value. Need to be written with the sign (<code>&gt;=,&lt;=, ==</code>, etc.). Will overwrite if the critical success is defined with <a class="" href="/en/docs/introduction/expression#Critical-Successes-and-Failures">the associated syntax</a>.</li>
+<li class=""><span style="text-decoration:underline;font-weight:bold">critical_failure</span>: Same as above, but for critical failure.</li>
 </ul></div></div>
 <p>To create a snippet, [see this section](../../config/user settings/snippets.md).</p>
 <p><img decoding="async" loading="lazy" alt="snippets" src="/en/assets/images/example-07322a01c46bf62311417f2571073aa4.png" width="1542" height="274" class="img_ev3q"></p>
