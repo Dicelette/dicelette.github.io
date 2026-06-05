@@ -12,6 +12,8 @@ const changelogPath = [
 function escapeBrackets(input: string): string {
 	return input
 		.replace(/(?<![`\\]){([\w\d\s\-._]+)}(?![`\\])/g, "`{$1}`")
+		.replace(/(?<![`\\])<=/g, "`<=`")
+		.replace(/(?<![`\\])>=/g, "`>=`")
 		.replace(/(?<![`\\])<\(([^`\\)]+)\)(?![`\\])/g, "`<($1)`")
 		.replace(/(?<![`\\])<([^`\\>]+)>(?![`\\])/g, "`<$1>`");
 }
