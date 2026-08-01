@@ -2,6 +2,7 @@ import {
 	type Critical,
 	type CustomCritical as CustomCriticalType,
 	getEngine,
+	isNumber,
 	type Statistic,
 	type StatisticalSchema,
 	verifyTemplateValue,
@@ -22,7 +23,6 @@ import General from "./Blocks/General";
 import Macro from "./Blocks/Macro";
 import Statistics from "./Blocks/Statistics";
 import { errorCode } from "./errorsTranslation";
-import { isNumber } from "./utils";
 import "../css/form.css";
 
 // Persistence

@@ -1,7 +1,8 @@
+import { isNumber } from "@dicelette/core";
 import { translate } from "@docusaurus/Translate";
 import type { StatisticFields } from "@site/src/components/interfaces";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import { isNumber, under } from "../../utils";
+import { under } from "../../utils";
 
 const minimalErrorToolTip = (index: number, statistics: StatisticFields) => {
 	if (!statistics.min) return;
