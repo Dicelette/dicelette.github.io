@@ -9,46 +9,129 @@ const changelogPath = [
 	),
 ];
 
-/**
- * Une seule passe pour tout le fichier : les zones de code (blocs délimités et
- * code inline) sont reconnues en premier et laissées telles quelles, le reste
- * est échappé. Faire l'inverse (plusieurs `replace` successifs) casse le
- * contenu déjà entre backticks, par ex. `1d100<=[$dext+$agi]` qui devenait
- * `1d100`<=`[$dext+$agi]` — et donc du JSX invalide pour MDX.
- */
-const MDX_PATTERN = new RegExp(
-	[
-		// bloc de code délimité par ``` ou ~~~ (protégé)
-		"(?<fence>^ {0,3}(?<mark>`{3,}|~{3,})[\\s\\S]*?(?:^ {0,3}\\k<mark>[^\\n]*$|$(?![\\s\\S])))",
-		// code inline (protégé)
-		"(?<code>(?<ticks>`+)(?:(?!\\k<ticks>)[^\\n])*\\k<ticks>(?!`))",
-		// accolades, avec un niveau d'imbrication : {exp}, {exp|0}, {{exp}}, {{dice}>20}
-		"(?<braces>\\{(?:[^{}`\\n]|\\{[^{}`\\n]*\\})*\\})",
-		// opérateurs de comparaison
-		"(?<cmp><=|>=)",
-		// <(value)
-		"(?<paren><\\([^)`\\n]*\\))",
-		// <generic>
-		"(?<angle><[^<>`\\n]*>)",
-		// `<` isolé : MDX le lit comme le début d'une balise JSX
-		"(?<lt><)",
-	].join("|"),
-	"gm",
-);
+/** Un morceau de ligne : `code` marque ce qui est déjà entre backticks, donc intouchable. */
+type Segment = { value: string; code: boolean };
 
-function escapeBrackets(input: string): string {
-	return input.replace(MDX_PATTERN, (match: string, ...args: unknown[]) => {
-		const groups = args.at(-1) as Record<string, string | undefined>;
-		// déjà du code : ne rien toucher
-		if (groups.fence !== undefined || groups.code !== undefined) return match;
-		// pas de paire `<…>` à isoler, on neutralise juste le chevron
-		if (groups.lt !== undefined) return "&lt;";
-		return `\`${match}\``;
-	});
+/** Ouverture/fermeture d'un bloc de code délimité. */
+const FENCE = /^\s{0,3}(`{3,}|~{3,})/;
+
+/** Cherche une suite de backticks de longueur exactement `length`, à partir de `from`. */
+function findClosingBackticks(line: string, from: number, length: number) {
+	for (let i = from; i < line.length; i++) {
+		if (line[i] !== "`") continue;
+		let run = 0;
+		while (line[i + run] === "`") run++;
+		if (run === length) return i;
+		i += run - 1;
+	}
+	return -1;
+}
+
+/** Découpe une ligne en isolant les code spans (`…`, ``…``) du texte brut. */
+function tokenize(line: string): Segment[] {
+	const segments: Segment[] = [];
+	let text = "";
+	let i = 0;
+	while (i < line.length) {
+		if (line[i] !== "`") {
+			text += line[i++];
+			continue;
+		}
+		let length = 0;
+		while (line[i + length] === "`") length++;
+		const closing = findClosingBackticks(line, i + length, length);
+		if (closing === -1) {
+			// Backticks orphelins : ce n'est pas un code span, on garde tel quel.
+			text += line.slice(i, i + length);
+			i += length;
+			continue;
+		}
+		if (text) segments.push({ value: text, code: false });
+		text = "";
+		segments.push({ value: line.slice(i, closing + length), code: true });
+		i = closing + length;
+	}
+	if (text) segments.push({ value: text, code: false });
+	return segments;
+}
+
+/**
+ * Applique une règle au seul texte hors code span, puis re-découpe le résultat :
+ * les backticks ajoutés protègent à leur tour ce qu'ils entourent des règles suivantes.
+ */
+function transform(segments: Segment[], rule: (text: string) => string) {
+	return segments.flatMap((segment) =>
+		segment.code ? [segment] : tokenize(rule(segment.value)),
+	);
+}
+
+/** Index de l'accolade fermante correspondante, ou -1 si le groupe n'est pas équilibré. */
+function findClosingBrace(text: string, start: number) {
+	let depth = 0;
+	for (let i = start; i < text.length; i++) {
+		if (text[i] === "\\") {
+			i++;
+			continue;
+		}
+		if (text[i] === "{") depth++;
+		else if (text[i] === "}" && --depth === 0) return i;
+	}
+	return -1;
+}
+
+/** Entoure de backticks les groupes d'accolades équilibrés, imbrication comprise. */
+function wrapBraces(text: string): string {
+	let output = "";
+	let i = 0;
+	while (i < text.length) {
+		if (text[i] !== "{" || text[i - 1] === "\\") {
+			output += text[i++];
+			continue;
+		}
+		const end = findClosingBrace(text, i);
+		if (end === -1) {
+			output += text[i++];
+			continue;
+		}
+		output += `\`${text.slice(i, end + 1)}\``;
+		i = end + 1;
+	}
+	return output;
+}
+
+const rules: ((text: string) => string)[] = [
+	wrapBraces,
+	(text) => text.replace(/(?<!\\)<=/g, "`<=`"),
+	(text) => text.replace(/(?<!\\)>=/g, "`>=`"),
+	(text) => text.replace(/(?<!\\)<\(([^`\\)]+)\)/g, "`<($1)`"),
+	(text) => text.replace(/(?<!\\)<([^`\\>]+)>/g, "`<$1>`"),
+];
+
+function escapeChangelog(content: string): string {
+	let fence: string | null = null;
+	return content
+		.split("\n")
+		.map((line) => {
+			const marker = FENCE.exec(line)?.[1];
+			if (fence) {
+				if (marker?.[0] === fence[0] && marker.length >= fence.length)
+					fence = null;
+				return line;
+			}
+			if (marker) {
+				fence = marker;
+				return line;
+			}
+			return rules
+				.reduce(transform, tokenize(line))
+				.map((segment) => segment.value)
+				.join("");
+		})
+		.join("\n");
 }
 
 for (const changelog of changelogPath) {
 	const content = readFileSync(changelog, "utf-8");
-	writeFileSync(changelog, escapeBrackets(content), "utf-8");
+	writeFileSync(changelog, escapeChangelog(content), "utf-8");
 }
 console.log("✅ CHANGELOG.md corrigé pour MDX");

@@ -1,5 +1,7 @@
 @import "./variables.css";
-@import "./tailwind.css";
+/* Donne accès au thème Tailwind (variables --color-*, fonction --alpha())
+   sans réémettre le CSS de custom.css, déjà chargé globalement. */
+@reference "./custom.css";
 
 :root {
 	--copy-button: rgb(170, 227, 246);
@@ -148,7 +150,7 @@ button.csv-button {
 [data-theme="light"] .clear-button:hover {
 	border-color: var(--color-gray-900);
 	color: var(--color-gray-900);
-	background-color: var(--color-gray-900) / 30;
+	background-color: --alpha(var(--color-gray-900) / 30%);
 }
 
 [data-theme="dark"] .clear-button {
@@ -159,7 +161,7 @@ button.csv-button {
 [data-theme="dark"] .clear-button:hover {
 	border-color: var(--color-gray-100);
 	color: var(--color-gray-100);
-	background-color: var(--color-gray-100) / 40;
+	background-color: --alpha(var(--color-gray-100) / 40%);
 }
 
 [data-theme="light"] .import-button {

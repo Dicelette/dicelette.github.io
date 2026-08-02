@@ -71,10 +71,10 @@ const config: Config = {
 			return {
 				name: "docusaurus-tailwindcss",
 				configurePostCss(postcssOptions) {
-					// Appends TailwindCSS and AutoPrefixer.
-					postcssOptions.plugins.push(require("postcss-import"));
-					postcssOptions.plugins.push(require("tailwindcss"));
-					postcssOptions.plugins.push(require("autoprefixer"));
+					// Tailwind v4 : un seul plugin, qui gère lui-même les @import
+					// et le vendor-prefixing (postcss-import/autoprefixer inutiles).
+					// unshift : Tailwind doit s'exécuter avant postcss-preset-env.
+					postcssOptions.plugins.unshift(require("@tailwindcss/postcss"));
 					return postcssOptions;
 				},
 			};

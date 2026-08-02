@@ -1,18 +1,28 @@
 /* --- IMPORTS ET BASES --- */
 
+/* Tailwind v4 : on déclare l'ordre des cascade layers puis on importe
+   `theme` (variables) et `utilities` SANS `preflight`, dont le reset
+   entrerait en conflit avec celui d'Infima/Docusaurus (équivalent de
+   l'ancien `corePlugins: { preflight: false }`). */
+@layer theme, base, components, utilities;
+
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Karla:ital,wght@0,200..800;1,200..800&family=Recursive:wght@300..1000&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css");
-@import "./tailwind.css";
+/* theme(static) : émet toutes les variables du thème, y compris celles
+   consommées par des CSS compilés séparément (ex. form.css), que le
+   tree-shaking par défaut supprimerait. Remplace src/css/tailwind.css. */
+@import "tailwindcss/theme.css" layer(theme) theme(static);
+@import "tailwindcss/utilities.css" layer(utilities);
 @import "./variables.css";
 @import "./swal.css";
 @import "./admonition.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Remplace l'ancienne clé `content` : le scan par défaut partirait de
+   src/css/, on élargit à tout src/. */
+@source "../../src";
 
 /* --- TYPO --- */
 .heading-2 {
