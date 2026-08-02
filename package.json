@@ -3,16 +3,16 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"prestart": "bun escape_changelog.ts",
-		"start": "bunx docusaurus start",
-		"start:en": "bunx docusaurus start --locale en",
-		"prebuild": "bun escape_changelog.ts",
-		"build": "bunx docusaurus build",
-		"deploy": "bunx docusaurus deploy",
-		"clear": "bunx docusaurus clear",
-		"serve": "bunx docusaurus serve",
-		"translate": "bunx docusaurus write-translations --locale en",
-		"write-heading-ids": "bunx docusaurus write-heading-ids",
+		"prestart": "pnpm tsx escape_changelog.ts",
+		"start": "pnpm docusaurus start",
+		"start:en": "pnpm docusaurus start --locale en",
+		"prebuild": "pnpm escape_changelog.ts",
+		"build": "pnpm docusaurus build",
+		"deploy": "pnpm docusaurus deploy",
+		"clear": "pnpm docusaurus clear",
+		"serve": "pnpm docusaurus serve",
+		"translate": "pnpm docusaurus write-translations --locale en",
+		"write-heading-ids": "pnpm docusaurus write-heading-ids",
 		"typecheck": "tsc",
 		"lint": "biome format --write src",
 		"pull-all": "task pull-all",
@@ -84,6 +84,7 @@
 		"@docusaurus/types": "^3.9.2",
 		"@types/node": "^25.1.0",
 		"husky": "^9.1.7",
+		"tsx": "^4.23.4",
 		"typescript": "~5.9.2"
 	},
 	"trustedDependencies": [
@@ -94,7 +95,8 @@
 		"onlyBuiltDependencies": [
 			"@biomejs/biome",
 			"core-js",
-			"core-js-pure"
+			"core-js-pure",
+			"esbuild"
 		]
 	}
 }
