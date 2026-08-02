@@ -6,7 +6,7 @@
 		"prestart": "pnpm tsx escape_changelog.ts",
 		"start": "pnpm docusaurus start",
 		"start:en": "pnpm docusaurus start --locale en",
-		"prebuild": "pnpm escape_changelog.ts",
+		"prebuild": "pnpm tsx escape_changelog.ts",
 		"build": "pnpm docusaurus build",
 		"deploy": "pnpm docusaurus deploy",
 		"clear": "pnpm docusaurus clear",
