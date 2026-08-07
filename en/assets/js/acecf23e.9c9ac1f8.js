@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdicelette_docs||=[]).push([[1903],{1912(e){e.exports=JSON.parse('{"blogBasePath":"/en/blog","blogTitle":"Announcement","authorsListPath":"/en/blog/authors"}')}}]);
