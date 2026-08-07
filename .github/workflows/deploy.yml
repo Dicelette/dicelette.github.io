@@ -16,7 +16,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
           submodules: "recursive"
@@ -26,11 +26,14 @@ jobs:
             BRANCH=$(git symbolic-ref --short HEAD || echo "main")
             echo "Checking out and pulling latest changes for submodule: $name on branch $BRANCH"
             git checkout $BRANCH && git pull origin $BRANCH'
-      - uses: oven-sh/setup-bun@v2
+      - uses: pnpm/setup@v2
+        with:
+          runtime: node@26
+          cache: true
       - name: Install dependencies
-        run: bun install
+        run: pnpm install
       - name: Build website
-        run: bun run build
+        run: pnpm run build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
