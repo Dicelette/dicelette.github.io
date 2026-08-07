@@ -74,7 +74,7 @@
 		]
 	},
 	"engines": {
-		"node": ">=18.0"
+		"node": ">=26.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.13",
@@ -90,13 +90,5 @@
 	"trustedDependencies": [
 		"core-js",
 		"core-js-pure"
-	],
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"@biomejs/biome",
-			"core-js",
-			"core-js-pure",
-			"esbuild"
-		]
-	}
+	]
 }
