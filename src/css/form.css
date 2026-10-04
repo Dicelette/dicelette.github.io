@@ -127,18 +127,15 @@ button.csv-button {
 }
 
 /* Hover states pour les boutons (icones, checkboxes) en dark et light */
-[data-theme="dark"]
-	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover,
+[data-theme="dark"] .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover,
 [data-theme="dark"] .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:hover {
 	background-color: rgba(245, 245, 245, 0.099);
 }
 
-[data-theme="light"]
-	.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(
+[data-theme="light"] .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:has:not(
 		.copy-button
 	):hover,
-[data-theme="light"]
-	.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:has:not(.copy-button):hover {
+[data-theme="light"] .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root:has:not(.copy-button):hover {
 	background-color: rgba(0, 0, 0, 0.098);
 }
 
